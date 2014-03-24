@@ -7,21 +7,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .rela.got     00000000  80002008  80002008  00002408  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .text         00004e0a  80002008  80002008  00002408  2**2
+  2 .text         00004e26  80002008  80002008  00002408  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   3 .exception    00000200  80007000  80007000  00007400  2**9
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  4 .rodata       0000027c  80007200  80007200  00007600  2**2
+  4 .rodata       0000026c  80007200  80007200  00007600  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .lalign       00000004  8000747c  8000747c  0000787c  2**0
+  5 .lalign       00000004  8000746c  8000746c  0000786c  2**0
                   ALLOC
   6 .dalign       00000004  00000004  00000004  00000000  2**0
                   ALLOC
-  7 .data         00000160  00000008  80007480  00007c08  2**2
+  7 .data         00000160  00000008  80007470  00007c08  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .bss          000012f8  00000168  00000168  00000000  2**2
+  8 .bss          00004978  00000168  00000168  00000000  2**2
                   ALLOC
-  9 .heap         00005ba0  00001460  00001460  00000000  2**0
+  9 .heap         00002520  00004ae0  00004ae0  00000000  2**0
                   ALLOC
  10 .comment      00000030  00000000  00000000  00007d68  2**0
                   CONTENTS, READONLY
@@ -60,16 +60,16 @@ Disassembly of section .text:
 
 80002008 <sd_mmc_spi_get_capacity>:
 80002008:	d4 21       	pushm	r4-r7,lr
-8000200a:	e0 69 0f 3a 	mov	r9,3898
-8000200e:	e0 68 0f 3c 	mov	r8,3900
+8000200a:	e0 69 45 ba 	mov	r9,17850
+8000200e:	e0 68 45 bc 	mov	r8,17852
 80002012:	13 8e       	ld.ub	lr,r9[0x0]
 80002014:	11 da       	ld.ub	r10,r8[0x5]
 80002016:	f1 35 00 08 	ld.ub	r5,r8[8]
 8000201a:	f1 37 00 09 	ld.ub	r7,r8[9]
 8000201e:	11 f6       	ld.ub	r6,r8[0x7]
-80002020:	e0 6c 0f 28 	mov	r12,3880
-80002024:	e0 6b 0f 30 	mov	r11,3888
-80002028:	e0 69 0f 34 	mov	r9,3892
+80002020:	e0 6c 45 a8 	mov	r12,17832
+80002024:	e0 6b 45 b0 	mov	r11,17840
+80002028:	e0 69 45 b4 	mov	r9,17844
 8000202c:	30 34       	mov	r4,3
 8000202e:	e8 0e 18 00 	cp.b	lr,r4
 80002032:	c1 f1       	brne	80002070 <sd_mmc_spi_get_capacity+0x68>
@@ -130,13 +130,13 @@ Disassembly of section .text:
 800020ca:	58 0e       	cp.w	lr,0
 800020cc:	c0 d1       	brne	800020e6 <sd_mmc_spi_get_capacity+0xde>
 800020ce:	f5 d8 c0 02 	bfextu	r10,r8,0x0,0x2
-800020d2:	e0 69 0f 3c 	mov	r9,3900
+800020d2:	e0 69 45 bc 	mov	r9,17852
 800020d6:	f1 d8 c0 45 	bfextu	r8,r8,0x2,0x5
 800020da:	f3 39 00 0b 	ld.ub	r9,r9[11]
 800020de:	a5 99       	lsr	r9,0x5
 800020e0:	f3 ea 10 39 	or	r9,r9,r10<<0x3
 800020e4:	c0 d8       	rjmp	800020fe <sd_mmc_spi_get_capacity+0xf6>
-800020e6:	e0 69 0f 3c 	mov	r9,3900
+800020e6:	e0 69 45 bc 	mov	r9,17852
 800020ea:	f3 3a 00 0b 	ld.ub	r10,r9[11]
 800020ee:	f3 38 00 0a 	ld.ub	r8,r9[10]
 800020f2:	a7 9a       	lsr	r10,0x7
@@ -145,7 +145,7 @@ Disassembly of section .text:
 800020fa:	f4 08 00 18 	add	r8,r10,r8<<0x1
 800020fe:	2f f9       	sub	r9,-1
 80002100:	2f f8       	sub	r8,-1
-80002102:	e0 6a 0f 32 	mov	r10,3890
+80002102:	e0 6a 45 b2 	mov	r10,17842
 80002106:	f2 08 02 48 	mul	r8,r9,r8
 8000210a:	b4 08       	st.h	r10[0x0],r8
 8000210c:	d8 22       	popm	r4-r7,pc
@@ -177,7 +177,7 @@ Disassembly of section .text:
 80002140:	d4 21       	pushm	r4-r7,lr
 80002142:	30 1b       	mov	r11,1
 80002144:	fe 7c 24 00 	mov	r12,-56320
-80002148:	e0 65 0f 4c 	mov	r5,3916
+80002148:	e0 65 45 cc 	mov	r5,17868
 8000214c:	e0 a0 12 a4 	rcall	80004694 <spi_selectChip>
 80002150:	3f f6       	mov	r6,-1
 80002152:	30 07       	mov	r7,0
@@ -262,7 +262,7 @@ Disassembly of section .text:
 8000221a:	e0 6b 00 ff 	mov	r11,255
 8000221e:	fe 7c 24 00 	mov	r12,-56320
 80002222:	e0 a0 12 cc 	rcall	800047ba <spi_write>
-80002226:	e0 68 0f 4c 	mov	r8,3916
+80002226:	e0 68 45 cc 	mov	r8,17868
 8000222a:	3f f5       	mov	r5,-1
 8000222c:	10 94       	mov	r4,r8
 8000222e:	b0 85       	st.b	r8[0x0],r5
@@ -291,7 +291,7 @@ Disassembly of section .text:
 80002262:	0e 9c       	mov	r12,r7
 80002264:	ca 4f       	rcall	800021ac <sd_mmc_spi_command>
 80002266:	30 1b       	mov	r11,1
-80002268:	e0 67 0f 4c 	mov	r7,3916
+80002268:	e0 67 45 cc 	mov	r7,17868
 8000226c:	ae 8c       	st.b	r7[0x0],r12
 8000226e:	fe 7c 24 00 	mov	r12,-56320
 80002272:	e0 a0 12 39 	rcall	800046e4 <spi_unselectChip>
@@ -307,7 +307,7 @@ Disassembly of section .text:
 80002286:	ec 08 18 00 	cp.b	r8,r6
 8000228a:	c1 a1       	brne	800022be <sd_mmc_spi_check_presence+0x42>
 8000228c:	30 07       	mov	r7,0
-8000228e:	e0 64 0f 4c 	mov	r4,3916
+8000228e:	e0 64 45 cc 	mov	r4,17868
 80002292:	30 15       	mov	r5,1
 80002294:	30 b6       	mov	r6,11
 80002296:	c0 c8       	rjmp	800022ae <sd_mmc_spi_check_presence+0x32>
@@ -328,7 +328,7 @@ Disassembly of section .text:
 800022be:	30 0b       	mov	r11,0
 800022c0:	33 bc       	mov	r12,59
 800022c2:	cc 7f       	rcall	80002250 <sd_mmc_spi_send_command>
-800022c4:	e0 68 0f 4c 	mov	r8,3916
+800022c4:	e0 68 45 cc 	mov	r8,17868
 800022c8:	b0 8c       	st.b	r8[0x0],r12
 800022ca:	58 0c       	cp.w	r12,0
 800022cc:	c0 30       	breq	800022d2 <sd_mmc_spi_check_presence+0x56>
@@ -344,8 +344,8 @@ Disassembly of section .text:
 800022dc:	30 1b       	mov	r11,1
 800022de:	fe 7c 24 00 	mov	r12,-56320
 800022e2:	e0 a0 11 d9 	rcall	80004694 <spi_selectChip>
-800022e6:	e0 68 0f 3a 	mov	r8,3898
-800022ea:	e0 66 0f 4c 	mov	r6,3916
+800022e6:	e0 68 45 ba 	mov	r8,17850
+800022ea:	e0 66 45 cc 	mov	r6,17868
 800022ee:	11 8a       	ld.ub	r10,r8[0x0]
 800022f0:	30 39       	mov	r9,3
 800022f2:	e0 68 01 68 	mov	r8,360
@@ -357,7 +357,7 @@ Disassembly of section .text:
 80002302:	70 0b       	ld.w	r11,r8[0x0]
 80002304:	31 8c       	mov	r12,24
 80002306:	c5 3f       	rcall	800021ac <sd_mmc_spi_command>
-80002308:	e0 68 0f 4c 	mov	r8,3916
+80002308:	e0 68 45 cc 	mov	r8,17868
 8000230c:	ac 8c       	st.b	r6[0x0],r12
 8000230e:	11 89       	ld.ub	r9,r8[0x0]
 80002310:	30 08       	mov	r8,0
@@ -383,7 +383,7 @@ Disassembly of section .text:
 80002356:	e0 a0 12 32 	rcall	800047ba <spi_write>
 8000235a:	e0 6c 00 ff 	mov	r12,255
 8000235e:	cd be       	rcall	80002114 <sd_mmc_spi_send_and_read>
-80002360:	e0 68 0f 4c 	mov	r8,3916
+80002360:	e0 68 45 cc 	mov	r8,17868
 80002364:	b0 8c       	st.b	r8[0x0],r12
 80002366:	f9 dc c0 05 	bfextu	r12,r12,0x0,0x5
 8000236a:	58 5c       	cp.w	r12,5
@@ -431,7 +431,7 @@ Disassembly of section .text:
 800023e0:	fe 7c 24 00 	mov	r12,-56320
 800023e4:	e0 a0 11 58 	rcall	80004694 <spi_selectChip>
 800023e8:	30 0b       	mov	r11,0
-800023ea:	e0 67 0f 4c 	mov	r7,3916
+800023ea:	e0 67 45 cc 	mov	r7,17868
 800023ee:	33 ac       	mov	r12,58
 800023f0:	cd ee       	rcall	800021ac <sd_mmc_spi_command>
 800023f2:	ae 8c       	st.b	r7[0x0],r12
@@ -467,7 +467,7 @@ Disassembly of section .text:
 8000243c:	fe 7c 24 00 	mov	r12,-56320
 80002440:	e0 a0 11 2a 	rcall	80004694 <spi_selectChip>
 80002444:	e0 6b 01 aa 	mov	r11,426
-80002448:	e0 67 0f 4c 	mov	r7,3916
+80002448:	e0 67 45 cc 	mov	r7,17868
 8000244c:	30 8c       	mov	r12,8
 8000244e:	ca fe       	rcall	800021ac <sd_mmc_spi_command>
 80002450:	ae 8c       	st.b	r7[0x0],r12
@@ -513,8 +513,8 @@ Disassembly of section .text:
 800024b6:	30 1b       	mov	r11,1
 800024b8:	fe 7c 24 00 	mov	r12,-56320
 800024bc:	e0 a0 10 ec 	rcall	80004694 <spi_selectChip>
-800024c0:	e0 68 0f 3a 	mov	r8,3898
-800024c4:	e0 66 0f 4c 	mov	r6,3916
+800024c0:	e0 68 45 ba 	mov	r8,17850
+800024c4:	e0 66 45 cc 	mov	r6,17868
 800024c8:	11 8a       	ld.ub	r10,r8[0x0]
 800024ca:	30 39       	mov	r9,3
 800024cc:	e0 68 01 68 	mov	r8,360
@@ -527,7 +527,7 @@ Disassembly of section .text:
 800024de:	31 1c       	mov	r12,17
 800024e0:	c6 6e       	rcall	800021ac <sd_mmc_spi_command>
 800024e2:	ac 8c       	st.b	r6[0x0],r12
-800024e4:	e0 64 0f 4c 	mov	r4,3916
+800024e4:	e0 64 45 cc 	mov	r4,17868
 800024e8:	30 08       	mov	r8,0
 800024ea:	09 89       	ld.ub	r9,r4[0x0]
 800024ec:	f0 09 18 00 	cp.b	r9,r8
@@ -605,7 +605,7 @@ Disassembly of section .text:
 800025c2:	e0 a0 10 69 	rcall	80004694 <spi_selectChip>
 800025c6:	30 0b       	mov	r11,0
 800025c8:	30 9c       	mov	r12,9
-800025ca:	e0 63 0f 4c 	mov	r3,3916
+800025ca:	e0 63 45 cc 	mov	r3,17868
 800025ce:	fe b0 fd ef 	rcall	800021ac <sd_mmc_spi_command>
 800025d2:	a6 8c       	st.b	r3[0x0],r12
 800025d4:	c0 51       	brne	800025de <sd_mmc_spi_get_csd+0x2e>
@@ -721,8 +721,8 @@ Disassembly of section .text:
 80002700:	30 08       	mov	r8,0
 80002702:	30 06       	mov	r6,0
 80002704:	b2 88       	st.b	r9[0x0],r8
-80002706:	e0 64 0f 4c 	mov	r4,3916
-8000270a:	e0 69 0f 3a 	mov	r9,3898
+80002706:	e0 64 45 cc 	mov	r4,17868
+8000270a:	e0 69 45 ba 	mov	r9,17850
 8000270e:	36 52       	mov	r2,101
 80002710:	b2 88       	st.b	r9[0x0],r8
 80002712:	30 13       	mov	r3,1
@@ -735,7 +735,7 @@ Disassembly of section .text:
 80002724:	fe 7c 24 00 	mov	r12,-56320
 80002728:	5c 86       	casts.h	r6
 8000272a:	e0 a0 10 48 	rcall	800047ba <spi_write>
-8000272e:	e0 67 0f 4c 	mov	r7,3916
+8000272e:	e0 67 45 cc 	mov	r7,17868
 80002732:	e4 06 19 00 	cp.h	r6,r2
 80002736:	e0 80 00 c5 	breq	800028c0 <sd_mmc_spi_internal_init+0x208>
 8000273a:	09 85       	ld.ub	r5,r4[0x0]
@@ -747,7 +747,7 @@ Disassembly of section .text:
 8000274a:	58 1c       	cp.w	r12,1
 8000274c:	c0 61       	brne	80002758 <sd_mmc_spi_internal_init+0xa0>
 8000274e:	30 29       	mov	r9,2
-80002750:	e0 68 0f 3a 	mov	r8,3898
+80002750:	e0 68 45 ba 	mov	r8,17850
 80002754:	b0 89       	st.b	r8[0x0],r9
 80002756:	c3 98       	rjmp	800027c8 <sd_mmc_spi_internal_init+0x110>
 80002758:	30 0b       	mov	r11,0
@@ -765,7 +765,7 @@ Disassembly of section .text:
 8000277c:	fe 7c 24 00 	mov	r12,-56320
 80002780:	e0 a0 10 1d 	rcall	800047ba <spi_write>
 80002784:	0f 88       	ld.ub	r8,r7[0x0]
-80002786:	e0 69 0f 3a 	mov	r9,3898
+80002786:	e0 69 45 ba 	mov	r9,17850
 8000278a:	e2 18 00 fe 	andl	r8,0xfe,COH
 8000278e:	c0 31       	brne	80002794 <sd_mmc_spi_internal_init+0xdc>
 80002790:	b2 85       	st.b	r9[0x0],r5
@@ -790,9 +790,9 @@ Disassembly of section .text:
 800027c2:	ea 08 18 00 	cp.b	r8,r5
 800027c6:	ce c1       	brne	8000279e <sd_mmc_spi_internal_init+0xe6>
 800027c8:	30 06       	mov	r6,0
-800027ca:	e0 64 0f 3a 	mov	r4,3898
+800027ca:	e0 64 45 ba 	mov	r4,17850
 800027ce:	30 15       	mov	r5,1
-800027d0:	e0 67 0f 4c 	mov	r7,3916
+800027d0:	e0 67 45 cc 	mov	r7,17868
 800027d4:	09 88       	ld.ub	r8,r4[0x0]
 800027d6:	ea 08 18 00 	cp.b	r8,r5
 800027da:	c0 90       	breq	800027ec <sd_mmc_spi_internal_init+0x134>
@@ -828,7 +828,7 @@ Disassembly of section .text:
 8000282a:	30 08       	mov	r8,0
 8000282c:	f0 09 18 00 	cp.b	r9,r8
 80002830:	cd 21       	brne	800027d4 <sd_mmc_spi_internal_init+0x11c>
-80002832:	e0 67 0f 3a 	mov	r7,3898
+80002832:	e0 67 45 ba 	mov	r7,17850
 80002836:	30 28       	mov	r8,2
 80002838:	0f 89       	ld.ub	r9,r7[0x0]
 8000283a:	f0 09 18 00 	cp.b	r9,r8
@@ -844,7 +844,7 @@ Disassembly of section .text:
 80002852:	33 bc       	mov	r12,59
 80002854:	fe b0 fc fe 	rcall	80002250 <sd_mmc_spi_send_command>
 80002858:	e0 6b 00 ff 	mov	r11,255
-8000285c:	e0 67 0f 4c 	mov	r7,3916
+8000285c:	e0 67 45 cc 	mov	r7,17868
 80002860:	ae 8c       	st.b	r7[0x0],r12
 80002862:	fe 7c 24 00 	mov	r12,-56320
 80002866:	e0 a0 0f aa 	rcall	800047ba <spi_write>
@@ -859,7 +859,7 @@ Disassembly of section .text:
 80002884:	30 08       	mov	r8,0
 80002886:	f0 09 18 00 	cp.b	r9,r8
 8000288a:	c1 b1       	brne	800028c0 <sd_mmc_spi_internal_init+0x208>
-8000288c:	e0 6c 0f 3c 	mov	r12,3900
+8000288c:	e0 6c 45 bc 	mov	r12,17852
 80002890:	c9 0e       	rcall	800025b0 <sd_mmc_spi_get_csd>
 80002892:	c1 70       	breq	800028c0 <sd_mmc_spi_internal_init+0x208>
 80002894:	fe b0 fb ba 	rcall	80002008 <sd_mmc_spi_get_capacity>
@@ -906,25 +906,25 @@ Disassembly of section .text:
 80002902:	d8 22       	popm	r4-r7,pc
 
 80002904 <fat_check_is_file>:
-80002904:	e0 68 0f 54 	mov	r8,3924
+80002904:	e0 68 45 d4 	mov	r8,17876
 80002908:	11 a8       	ld.ub	r8,r8[0x2]
 8000290a:	e2 18 00 18 	andl	r8,0x18,COH
 8000290e:	c0 21       	brne	80002912 <fat_check_is_file+0xe>
 80002910:	5e ff       	retal	1
 80002912:	31 39       	mov	r9,19
-80002914:	e0 68 11 dc 	mov	r8,4572
+80002914:	e0 68 48 5c 	mov	r8,18524
 80002918:	30 0c       	mov	r12,0
 8000291a:	b0 89       	st.b	r8[0x0],r9
 8000291c:	5e fc       	retal	r12
 8000291e:	d7 03       	nop
 
 80002920 <fat_checkcluster>:
-80002920:	e0 68 12 2c 	mov	r8,4652
+80002920:	e0 68 48 ac 	mov	r8,18604
 80002924:	70 18       	ld.w	r8,r8[0x4]
 80002926:	58 08       	cp.w	r8,0
 80002928:	c0 21       	brne	8000292c <fat_checkcluster+0xc>
 8000292a:	5e ff       	retal	1
-8000292c:	e0 69 11 d8 	mov	r9,4568
+8000292c:	e0 69 48 58 	mov	r9,18520
 80002930:	30 3a       	mov	r10,3
 80002932:	13 89       	ld.ub	r9,r9[0x0]
 80002934:	f4 09 18 00 	cp.b	r9,r10
@@ -956,14 +956,14 @@ Disassembly of section .text:
 
 8000297c <fat_cache_clusterlist_reset>:
 8000297c:	3f f9       	mov	r9,-1
-8000297e:	e0 68 0f 68 	mov	r8,3944
+8000297e:	e0 68 45 e8 	mov	r8,17896
 80002982:	f1 69 00 15 	st.b	r8[21],r9
 80002986:	b0 a9       	st.b	r8[0x2],r9
 80002988:	b0 99       	st.b	r8[0x1],r9
 8000298a:	f1 69 00 16 	st.b	r8[22],r9
 8000298e:	30 09       	mov	r9,0
 80002990:	f1 69 00 14 	st.b	r8[20],r9
-80002994:	e0 6a 11 de 	mov	r10,4574
+80002994:	e0 6a 48 5e 	mov	r10,18526
 80002998:	b4 89       	st.b	r10[0x0],r9
 8000299a:	30 19       	mov	r9,1
 8000299c:	b0 89       	st.b	r8[0x0],r9
@@ -971,12 +971,12 @@ Disassembly of section .text:
 
 800029a0 <fat_cache_clusterlist_update_finish>:
 800029a0:	d4 21       	pushm	r4-r7,lr
-800029a2:	e0 68 11 90 	mov	r8,4496
-800029a6:	e0 6e 12 34 	mov	lr,4660
+800029a2:	e0 68 48 10 	mov	r8,18448
+800029a6:	e0 6e 48 b4 	mov	lr,18612
 800029aa:	11 8b       	ld.ub	r11,r8[0x0]
 800029ac:	11 95       	ld.ub	r5,r8[0x1]
-800029ae:	e0 6a 0f 68 	mov	r10,3944
-800029b2:	e0 69 11 de 	mov	r9,4574
+800029ae:	e0 6a 45 e8 	mov	r10,17896
+800029b2:	e0 69 48 5e 	mov	r9,18526
 800029b6:	13 89       	ld.ub	r9,r9[0x0]
 800029b8:	f2 09 00 28 	add	r8,r9,r9<<0x2
 800029bc:	f4 08 00 28 	add	r8,r10,r8<<0x2
@@ -1003,7 +1003,7 @@ Disassembly of section .text:
 800029f4:	e0 88 00 04 	brls	800029fc <fat_cache_clusterlist_update_finish+0x5c>
 800029f8:	2f f8       	sub	r8,-1
 800029fa:	b4 98       	st.b	r10[0x1],r8
-800029fc:	e0 68 0f 68 	mov	r8,3944
+800029fc:	e0 68 45 e8 	mov	r8,17896
 80002a00:	f1 3a 00 14 	ld.ub	r10,r8[20]
 80002a04:	f8 0a 18 00 	cp.b	r10,r12
 80002a08:	c0 a1       	brne	80002a1c <fat_cache_clusterlist_update_finish+0x7c>
@@ -1012,7 +1012,7 @@ Disassembly of section .text:
 80002a12:	e0 88 00 05 	brls	80002a1c <fat_cache_clusterlist_update_finish+0x7c>
 80002a16:	2f fa       	sub	r10,-1
 80002a18:	f1 6a 00 15 	st.b	r8[21],r10
-80002a1c:	e0 68 0f 68 	mov	r8,3944
+80002a1c:	e0 68 45 e8 	mov	r8,17896
 80002a20:	f2 09 00 29 	add	r9,r9,r9<<0x2
 80002a24:	f0 09 00 29 	add	r9,r8,r9<<0x2
 80002a28:	30 08       	mov	r8,0
@@ -1022,13 +1022,13 @@ Disassembly of section .text:
 
 80002a30 <fat_cache_clusterlist_update_read>:
 80002a30:	d4 31       	pushm	r0-r7,lr
-80002a32:	e0 68 11 90 	mov	r8,4496
+80002a32:	e0 68 48 10 	mov	r8,18448
 80002a36:	11 87       	ld.ub	r7,r8[0x0]
-80002a38:	e0 68 12 2c 	mov	r8,4652
+80002a38:	e0 68 48 ac 	mov	r8,18604
 80002a3c:	70 0b       	ld.w	r11,r8[0x0]
-80002a3e:	e0 68 12 34 	mov	r8,4660
+80002a3e:	e0 68 48 b4 	mov	r8,18612
 80002a42:	70 19       	ld.w	r9,r8[0x4]
-80002a44:	e0 68 0f 68 	mov	r8,3944
+80002a44:	e0 68 45 e8 	mov	r8,17896
 80002a48:	11 8e       	ld.ub	lr,r8[0x0]
 80002a4a:	f8 0e 18 00 	cp.b	lr,r12
 80002a4e:	c0 f1       	brne	80002a6c <fat_cache_clusterlist_update_read+0x3c>
@@ -1044,7 +1044,7 @@ Disassembly of section .text:
 80002a64:	e0 8b 00 04 	brhi	80002a6c <fat_cache_clusterlist_update_read+0x3c>
 80002a68:	30 08       	mov	r8,0
 80002a6a:	c1 58       	rjmp	80002a94 <fat_cache_clusterlist_update_read+0x64>
-80002a6c:	e0 68 0f 68 	mov	r8,3944
+80002a6c:	e0 68 45 e8 	mov	r8,17896
 80002a70:	f1 3a 00 14 	ld.ub	r10,r8[20]
 80002a74:	f8 0a 18 00 	cp.b	r10,r12
 80002a78:	c7 21       	brne	80002b5c <fat_cache_clusterlist_update_read+0x12c>
@@ -1059,11 +1059,11 @@ Disassembly of section .text:
 80002a8e:	e0 8b 00 67 	brhi	80002b5c <fat_cache_clusterlist_update_read+0x12c>
 80002a92:	30 18       	mov	r8,1
 80002a94:	f2 0a 01 05 	sub	r5,r9,r10
-80002a98:	e0 66 0f 68 	mov	r6,3944
+80002a98:	e0 66 45 e8 	mov	r6,17896
 80002a9c:	f0 0a 15 02 	lsl	r10,r8,0x2
-80002aa0:	e0 67 12 34 	mov	r7,4660
+80002aa0:	e0 67 48 b4 	mov	r7,18612
 80002aa4:	10 0a       	add	r10,r8
-80002aa6:	e0 63 11 de 	mov	r3,4574
+80002aa6:	e0 63 48 5e 	mov	r3,18526
 80002aaa:	ec 0a 00 2a 	add	r10,r6,r10<<0x2
 80002aae:	74 4b       	ld.w	r11,r10[0x10]
 80002ab0:	f4 c4 ff f4 	sub	r4,r10,-12
@@ -1083,7 +1083,7 @@ Disassembly of section .text:
 80002ad4:	e0 88 00 04 	brls	80002adc <fat_cache_clusterlist_update_read+0xac>
 80002ad8:	2f f9       	sub	r9,-1
 80002ada:	ac 99       	st.b	r6[0x1],r9
-80002adc:	e0 69 0f 68 	mov	r9,3944
+80002adc:	e0 69 45 e8 	mov	r9,17896
 80002ae0:	f3 3a 00 14 	ld.ub	r10,r9[20]
 80002ae4:	f8 0a 18 00 	cp.b	r10,r12
 80002ae8:	c0 a1       	brne	80002afc <fat_cache_clusterlist_update_read+0xcc>
@@ -1092,7 +1092,7 @@ Disassembly of section .text:
 80002af2:	e0 88 00 05 	brls	80002afc <fat_cache_clusterlist_update_read+0xcc>
 80002af6:	2f fa       	sub	r10,-1
 80002af8:	f3 6a 00 15 	st.b	r9[21],r10
-80002afc:	e0 69 0f 68 	mov	r9,3944
+80002afc:	e0 69 45 e8 	mov	r9,17896
 80002b00:	f0 08 00 28 	add	r8,r8,r8<<0x2
 80002b04:	30 1c       	mov	r12,1
 80002b06:	f2 08 00 28 	add	r8,r9,r8<<0x2
@@ -1100,7 +1100,7 @@ Disassembly of section .text:
 80002b0c:	b0 99       	st.b	r8[0x1],r9
 80002b0e:	d8 32       	popm	r0-r7,pc
 80002b10:	a6 88       	st.b	r3[0x0],r8
-80002b12:	e0 6c 11 90 	mov	r12,4496
+80002b12:	e0 6c 48 10 	mov	r12,18448
 80002b16:	f4 ce ff f8 	sub	lr,r10,-8
 80002b1a:	19 98       	ld.ub	r8,r12[0x1]
 80002b1c:	78 46       	ld.w	r6,r12[0x10]
@@ -1123,18 +1123,18 @@ Disassembly of section .text:
 80002b4a:	f2 08 0d 08 	divu	r8,r9,r8
 80002b4e:	30 0c       	mov	r12,0
 80002b50:	f0 c9 ff fe 	sub	r9,r8,-2
-80002b54:	e0 68 12 2c 	mov	r8,4652
+80002b54:	e0 68 48 ac 	mov	r8,18604
 80002b58:	91 09       	st.w	r8[0x0],r9
 80002b5a:	d8 32       	popm	r0-r7,pc
 80002b5c:	fd ec 20 0a 	eor	r10,lr,r12
-80002b60:	e0 68 0f 68 	mov	r8,3944
+80002b60:	e0 68 45 e8 	mov	r8,17896
 80002b64:	f4 0a 00 2e 	add	lr,r10,r10<<0x2
 80002b68:	fc c7 ff ff 	sub	r7,lr,-1
 80002b6c:	f0 07 09 2b 	st.w	r8[r7<<0x2],r11
 80002b70:	f0 0e 00 28 	add	r8,r8,lr<<0x2
 80002b74:	91 29       	st.w	r8[0x8],r9
 80002b76:	b0 8c       	st.b	r8[0x0],r12
-80002b78:	e0 69 11 de 	mov	r9,4574
+80002b78:	e0 69 48 5e 	mov	r9,18526
 80002b7c:	b2 8a       	st.b	r9[0x0],r10
 80002b7e:	30 0c       	mov	r12,0
 80002b80:	3f f9       	mov	r9,-1
@@ -1143,11 +1143,11 @@ Disassembly of section .text:
 80002b86:	d7 03       	nop
 
 80002b88 <fat_entry_check>:
-80002b88:	e0 68 11 d8 	mov	r8,4568
+80002b88:	e0 68 48 58 	mov	r8,18520
 80002b8c:	90 99       	ld.uh	r9,r8[0x2]
-80002b8e:	e0 68 0f 90 	mov	r8,3984
+80002b8e:	e0 68 46 10 	mov	r8,17936
 80002b92:	a5 79       	lsl	r9,0x5
-80002b94:	e0 6a 11 dc 	mov	r10,4572
+80002b94:	e0 6a 48 5c 	mov	r10,18524
 80002b98:	f3 d9 c0 09 	bfextu	r9,r9,0x0,0x9
 80002b9c:	10 09       	add	r9,r8
 80002b9e:	13 88       	ld.ub	r8,r9[0x0]
@@ -1178,15 +1178,15 @@ Disassembly of section .text:
 
 80002bdc <fat_get_entry_info>:
 80002bdc:	d4 21       	pushm	r4-r7,lr
-80002bde:	e0 69 11 d8 	mov	r9,4568
+80002bde:	e0 69 48 58 	mov	r9,18520
 80002be2:	92 9b       	ld.uh	r11,r9[0x2]
-80002be4:	e0 69 0f 90 	mov	r9,3984
+80002be4:	e0 69 46 10 	mov	r9,17936
 80002be8:	a5 7b       	lsl	r11,0x5
 80002bea:	f7 db c0 09 	bfextu	r11,r11,0x0,0x9
 80002bee:	12 0b       	add	r11,r9
 80002bf0:	f6 c9 ff e4 	sub	r9,r11,-28
 80002bf4:	13 be       	ld.ub	lr,r9[0x3]
-80002bf6:	e0 6c 0f 54 	mov	r12,3924
+80002bf6:	e0 6c 45 d4 	mov	r12,17876
 80002bfa:	f6 c7 ff ec 	sub	r7,r11,-20
 80002bfe:	f8 c8 ff f8 	sub	r8,r12,-8
 80002c02:	b0 8e       	st.b	r8[0x0],lr
@@ -1211,25 +1211,25 @@ Disassembly of section .text:
 80002c2e:	d8 22       	popm	r4-r7,pc
 
 80002c30 <fat_entry_is_dir>:
-80002c30:	e0 68 11 dc 	mov	r8,4572
+80002c30:	e0 68 48 5c 	mov	r8,18524
 80002c34:	30 d9       	mov	r9,13
 80002c36:	b0 89       	st.b	r8[0x0],r9
-80002c38:	e0 68 0f 54 	mov	r8,3924
+80002c38:	e0 68 45 d4 	mov	r8,17876
 80002c3c:	11 ac       	ld.ub	r12,r8[0x2]
 80002c3e:	f9 dc c0 81 	bfextu	r12,r12,0x4,0x1
 80002c42:	5e fc       	retal	r12
 
 80002c44 <fat_clear_entry_info_and_ptr>:
 80002c44:	3f f9       	mov	r9,-1
-80002c46:	e0 68 11 90 	mov	r8,4496
-80002c4a:	e0 6a 11 d8 	mov	r10,4568
+80002c46:	e0 68 48 10 	mov	r8,18448
+80002c4a:	e0 6a 48 58 	mov	r10,18520
 80002c4e:	f1 59 00 24 	st.h	r8[36],r9
 80002c52:	b4 19       	st.h	r10[0x2],r9
 80002c54:	f1 39 00 2d 	ld.ub	r9,r8[45]
 80002c58:	58 09       	cp.w	r9,0
 80002c5a:	c0 31       	brne	80002c60 <fat_clear_entry_info_and_ptr+0x1c>
 80002c5c:	f1 69 00 2c 	st.b	r8[44],r9
-80002c60:	e0 68 0f 54 	mov	r8,3924
+80002c60:	e0 68 45 d4 	mov	r8,17876
 80002c64:	30 09       	mov	r9,0
 80002c66:	b0 89       	st.b	r8[0x0],r9
 80002c68:	91 19       	st.w	r8[0x4],r9
@@ -1239,15 +1239,15 @@ Disassembly of section .text:
 
 80002c70 <fat_entry_shortname>:
 80002c70:	d4 31       	pushm	r0-r7,lr
-80002c72:	e0 68 11 dc 	mov	r8,4572
+80002c72:	e0 68 48 5c 	mov	r8,18524
 80002c76:	31 69       	mov	r9,22
 80002c78:	b0 89       	st.b	r8[0x0],r9
-80002c7a:	e0 68 11 d8 	mov	r8,4568
+80002c7a:	e0 68 48 58 	mov	r8,18520
 80002c7e:	30 09       	mov	r9,0
 80002c80:	90 93       	ld.uh	r3,r8[0x2]
 80002c82:	30 14       	mov	r4,1
 80002c84:	a5 73       	lsl	r3,0x5
-80002c86:	e0 68 0f 90 	mov	r8,3984
+80002c86:	e0 68 46 10 	mov	r8,17936
 80002c8a:	e7 d3 c0 09 	bfextu	r3,r3,0x0,0x9
 80002c8e:	12 97       	mov	r7,r9
 80002c90:	10 03       	add	r3,r8
@@ -1275,7 +1275,7 @@ Disassembly of section .text:
 80002ccc:	30 08       	mov	r8,0
 80002cce:	58 0a       	cp.w	r10,0
 80002cd0:	c1 80       	breq	80002d00 <fat_entry_shortname+0x90>
-80002cd2:	e0 6e 11 dd 	mov	lr,4573
+80002cd2:	e0 6e 48 5d 	mov	lr,18525
 80002cd6:	1d 81       	ld.ub	r1,lr[0x0]
 80002cd8:	30 0e       	mov	lr,0
 80002cda:	fc 01 18 00 	cp.b	r1,lr
@@ -1315,7 +1315,7 @@ Disassembly of section .text:
 80002d36:	d8 3a       	popm	r0-r7,pc,r12=0
 80002d38:	58 08       	cp.w	r8,0
 80002d3a:	c0 b1       	brne	80002d50 <fat_entry_shortname+0xe0>
-80002d3c:	e0 68 11 dd 	mov	r8,4573
+80002d3c:	e0 68 48 5d 	mov	r8,18525
 80002d40:	11 89       	ld.ub	r9,r8[0x0]
 80002d42:	30 08       	mov	r8,0
 80002d44:	f0 09 18 00 	cp.b	r9,r8
@@ -1323,7 +1323,7 @@ Disassembly of section .text:
 80002d4a:	2f f7       	sub	r7,-1
 80002d4c:	b8 07       	st.h	r12[0x0],r7
 80002d4e:	da 3a       	popm	r0-r7,pc,r12=1
-80002d50:	e0 68 11 dd 	mov	r8,4573
+80002d50:	e0 68 48 5d 	mov	r8,18525
 80002d54:	11 8e       	ld.ub	lr,r8[0x0]
 80002d56:	30 08       	mov	r8,0
 80002d58:	f0 0e 18 00 	cp.b	lr,r8
@@ -1339,9 +1339,9 @@ Disassembly of section .text:
 80002d6c <fat_entry_longname>:
 80002d6c:	d4 31       	pushm	r0-r7,lr
 80002d6e:	20 2d       	sub	sp,8
-80002d70:	e0 6e 0f 90 	mov	lr,3984
+80002d70:	e0 6e 46 10 	mov	lr,17936
 80002d74:	3e 57       	mov	r7,-27
-80002d76:	e0 68 11 d8 	mov	r8,4568
+80002d76:	e0 68 48 58 	mov	r8,18520
 80002d7a:	30 06       	mov	r6,0
 80002d7c:	90 98       	ld.uh	r8,r8[0x2]
 80002d7e:	a5 78       	lsl	r8,0x5
@@ -1362,7 +1362,7 @@ Disassembly of section .text:
 80002da8:	c0 30       	breq	80002dae <fat_entry_longname+0x42>
 80002daa:	30 b9       	mov	r9,11
 80002dac:	c5 28       	rjmp	80002e50 <fat_entry_longname+0xe4>
-80002dae:	e0 66 11 dd 	mov	r6,4573
+80002dae:	e0 66 48 5d 	mov	r6,18525
 80002db2:	0d 86       	ld.ub	r6,r6[0x0]
 80002db4:	ee 06 18 00 	cp.b	r6,r7
 80002db8:	c0 60       	breq	80002dc4 <fat_entry_longname+0x58>
@@ -1375,7 +1375,7 @@ Disassembly of section .text:
 80002dc8:	50 0b       	stdsp	sp[0x0],r11
 80002dca:	fa c3 ff fa 	sub	r3,sp,-6
 80002dce:	30 0b       	mov	r11,0
-80002dd0:	e0 64 11 dd 	mov	r4,4573
+80002dd0:	e0 64 48 5d 	mov	r4,18525
 80002dd4:	16 97       	mov	r7,r11
 80002dd6:	16 95       	mov	r5,r11
 80002dd8:	11 8e       	ld.ub	lr,r8[0x0]
@@ -1427,14 +1427,14 @@ Disassembly of section .text:
 80002e48:	ec 0e 19 00 	cp.h	lr,r6
 80002e4c:	c0 70       	breq	80002e5a <fat_entry_longname+0xee>
 80002e4e:	31 69       	mov	r9,22
-80002e50:	e0 68 11 dc 	mov	r8,4572
+80002e50:	e0 68 48 5c 	mov	r8,18524
 80002e54:	30 0c       	mov	r12,0
 80002e56:	b0 89       	st.b	r8[0x0],r9
 80002e58:	c5 b8       	rjmp	80002f0e <fat_entry_longname+0x1a2>
 80002e5a:	9a 3e       	ld.sh	lr,sp[0x6]
 80002e5c:	ea 0e 19 00 	cp.h	lr,r5
 80002e60:	c0 a1       	brne	80002e74 <fat_entry_longname+0x108>
-80002e62:	e0 68 11 dd 	mov	r8,4573
+80002e62:	e0 68 48 5d 	mov	r8,18525
 80002e66:	11 88       	ld.ub	r8,r8[0x0]
 80002e68:	ea 08 18 00 	cp.b	r8,r5
 80002e6c:	c5 00       	breq	80002f0c <fat_entry_longname+0x1a0>
@@ -1459,13 +1459,13 @@ Disassembly of section .text:
 80002e9c:	c0 81       	brne	80002eac <fat_entry_longname+0x140>
 80002e9e:	10 9c       	mov	r12,r8
 80002ea0:	31 09       	mov	r9,16
-80002ea2:	e0 68 11 dc 	mov	r8,4572
+80002ea2:	e0 68 48 5c 	mov	r8,18524
 80002ea6:	b0 89       	st.b	r8[0x0],r9
 80002ea8:	c3 38       	rjmp	80002f0e <fat_entry_longname+0x1a2>
 80002eaa:	d7 03       	nop
 80002eac:	58 0a       	cp.w	r10,0
 80002eae:	c0 b0       	breq	80002ec4 <fat_entry_longname+0x158>
-80002eb0:	e0 68 11 dd 	mov	r8,4573
+80002eb0:	e0 68 48 5d 	mov	r8,18525
 80002eb4:	11 89       	ld.ub	r9,r8[0x0]
 80002eb6:	30 08       	mov	r8,0
 80002eb8:	f0 09 18 00 	cp.b	r9,r8
@@ -1510,7 +1510,7 @@ Disassembly of section .text:
 
 80002f14 <fat_cache_reset>:
 80002f14:	3f f9       	mov	r9,-1
-80002f16:	e0 68 12 14 	mov	r8,4628
+80002f16:	e0 68 48 94 	mov	r8,18580
 80002f1a:	b0 89       	st.b	r8[0x0],r9
 80002f1c:	30 09       	mov	r9,0
 80002f1e:	f1 69 00 08 	st.b	r8[8],r9
@@ -1520,13 +1520,13 @@ Disassembly of section .text:
 
 80002f28 <fat_check_nav_access_file>:
 80002f28:	d4 21       	pushm	r4-r7,lr
-80002f2a:	e0 68 11 d4 	mov	r8,4564
+80002f2a:	e0 68 48 54 	mov	r8,18516
 80002f2e:	30 09       	mov	r9,0
 80002f30:	11 8a       	ld.ub	r10,r8[0x0]
 80002f32:	f2 0a 18 00 	cp.b	r10,r9
 80002f36:	c2 c0       	breq	80002f8e <fat_check_nav_access_file+0x66>
-80002f38:	e0 6b 11 90 	mov	r11,4496
-80002f3c:	e0 6a 11 e0 	mov	r10,4576
+80002f38:	e0 6b 48 10 	mov	r11,18448
+80002f3c:	e0 6a 48 60 	mov	r10,18528
 80002f40:	17 87       	ld.ub	r7,r11[0x0]
 80002f42:	15 8e       	ld.ub	lr,r10[0x0]
 80002f44:	fc 07 18 00 	cp.b	r7,lr
@@ -1535,19 +1535,19 @@ Disassembly of section .text:
 80002f4c:	74 8a       	ld.w	r10,r10[0x20]
 80002f4e:	14 3b       	cp.w	r11,r10
 80002f50:	c1 f1       	brne	80002f8e <fat_check_nav_access_file+0x66>
-80002f52:	e0 6a 11 d8 	mov	r10,4568
+80002f52:	e0 6a 48 58 	mov	r10,18520
 80002f56:	90 18       	ld.sh	r8,r8[0x2]
 80002f58:	94 1a       	ld.sh	r10,r10[0x2]
 80002f5a:	f0 0a 19 00 	cp.h	r10,r8
 80002f5e:	c1 81       	brne	80002f8e <fat_check_nav_access_file+0x66>
-80002f60:	e0 68 11 c4 	mov	r8,4548
+80002f60:	e0 68 48 44 	mov	r8,18500
 80002f64:	58 0c       	cp.w	r12,0
 80002f66:	c0 b0       	breq	80002f7c <fat_check_nav_access_file+0x54>
 80002f68:	11 88       	ld.ub	r8,r8[0x0]
 80002f6a:	f2 08 18 00 	cp.b	r8,r9
 80002f6e:	c1 00       	breq	80002f8e <fat_check_nav_access_file+0x66>
 80002f70:	32 89       	mov	r9,40
-80002f72:	e0 68 11 dc 	mov	r8,4572
+80002f72:	e0 68 48 5c 	mov	r8,18524
 80002f76:	30 0c       	mov	r12,0
 80002f78:	b0 89       	st.b	r8[0x0],r9
 80002f7a:	d8 22       	popm	r4-r7,pc
@@ -1555,7 +1555,7 @@ Disassembly of section .text:
 80002f7e:	ed b8 00 01 	bld	r8,0x1
 80002f82:	c0 61       	brne	80002f8e <fat_check_nav_access_file+0x66>
 80002f84:	32 99       	mov	r9,41
-80002f86:	e0 68 11 dc 	mov	r8,4572
+80002f86:	e0 68 48 5c 	mov	r8,18524
 80002f8a:	b0 89       	st.b	r8[0x0],r9
 80002f8c:	d8 22       	popm	r4-r7,pc
 80002f8e:	da 2a       	popm	r4-r7,pc,r12=1
@@ -1565,7 +1565,7 @@ Disassembly of section .text:
 80002f92:	20 dd       	sub	sp,52
 80002f94:	58 0c       	cp.w	r12,0
 80002f96:	c5 e0       	breq	80003052 <fat_invert_nav+0xc2>
-80002f98:	e0 68 11 90 	mov	r8,4496
+80002f98:	e0 68 48 10 	mov	r8,18448
 80002f9c:	f0 ea 00 00 	ld.d	r10,r8[0]
 80002fa0:	fa eb 00 00 	st.d	sp[0],r10
 80002fa4:	f0 ea 00 08 	ld.d	r10,r8[8]
@@ -1582,55 +1582,55 @@ Disassembly of section .text:
 80002fce:	fa eb 00 28 	st.d	sp[40],r10
 80002fd2:	70 c8       	ld.w	r8,r8[0x30]
 80002fd4:	50 c8       	stdsp	sp[0x30],r8
-80002fd6:	e0 68 11 e0 	mov	r8,4576
+80002fd6:	e0 68 48 60 	mov	r8,18528
 80002fda:	1a 97       	mov	r7,sp
 80002fdc:	5c 56       	castu.b	r6
 80002fde:	33 4a       	mov	r10,52
 80002fe0:	ec 0a 02 45 	mul	r5,r6,r10
 80002fe4:	10 05       	add	r5,r8
 80002fe6:	0a 9b       	mov	r11,r5
-80002fe8:	e0 a0 1e 6a 	rcall	80006cbc <memcpy>
+80002fe8:	e0 a0 1e 78 	rcall	80006cd8 <memcpy>
 80002fec:	0a 9c       	mov	r12,r5
 80002fee:	33 4a       	mov	r10,52
 80002ff0:	1a 9b       	mov	r11,sp
-80002ff2:	e0 a0 1e 65 	rcall	80006cbc <memcpy>
-80002ff6:	e0 68 0f 54 	mov	r8,3924
+80002ff2:	e0 a0 1e 73 	rcall	80006cd8 <memcpy>
+80002ff6:	e0 68 45 d4 	mov	r8,17876
 80002ffa:	f0 e4 00 00 	ld.d	r4,r8[0]
 80002ffe:	10 9c       	mov	r12,r8
 80003000:	fa e5 00 00 	st.d	sp[0],r4
 80003004:	f0 e8 00 08 	ld.d	r8,r8[8]
 80003008:	fa e9 00 08 	st.d	sp[8],r8
-8000300c:	e0 68 11 c4 	mov	r8,4548
+8000300c:	e0 68 48 44 	mov	r8,18500
 80003010:	31 0a       	mov	r10,16
 80003012:	ec 05 15 04 	lsl	r5,r6,0x4
 80003016:	10 05       	add	r5,r8
 80003018:	0a 9b       	mov	r11,r5
-8000301a:	e0 a0 1e 51 	rcall	80006cbc <memcpy>
+8000301a:	e0 a0 1e 5f 	rcall	80006cd8 <memcpy>
 8000301e:	31 0a       	mov	r10,16
 80003020:	1a 9b       	mov	r11,sp
 80003022:	0a 9c       	mov	r12,r5
-80003024:	e0 a0 1e 4c 	rcall	80006cbc <memcpy>
+80003024:	e0 a0 1e 5a 	rcall	80006cd8 <memcpy>
 80003028:	30 4a       	mov	r10,4
-8000302a:	e0 6b 11 d8 	mov	r11,4568
+8000302a:	e0 6b 48 58 	mov	r11,18520
 8000302e:	1a 9c       	mov	r12,sp
-80003030:	e0 a0 1e 46 	rcall	80006cbc <memcpy>
-80003034:	e0 68 11 d4 	mov	r8,4564
+80003030:	e0 a0 1e 54 	rcall	80006cd8 <memcpy>
+80003034:	e0 68 48 54 	mov	r8,18516
 80003038:	30 4a       	mov	r10,4
 8000303a:	f0 06 00 26 	add	r6,r8,r6<<0x2
-8000303e:	e0 6c 11 d8 	mov	r12,4568
+8000303e:	e0 6c 48 58 	mov	r12,18520
 80003042:	0c 9b       	mov	r11,r6
-80003044:	e0 a0 1e 3c 	rcall	80006cbc <memcpy>
+80003044:	e0 a0 1e 4a 	rcall	80006cd8 <memcpy>
 80003048:	1a 9b       	mov	r11,sp
 8000304a:	0c 9c       	mov	r12,r6
 8000304c:	30 4a       	mov	r10,4
-8000304e:	e0 a0 1e 37 	rcall	80006cbc <memcpy>
+8000304e:	e0 a0 1e 45 	rcall	80006cd8 <memcpy>
 80003052:	2f 3d       	sub	sp,-52
 80003054:	d8 22       	popm	r4-r7,pc
 80003056:	d7 03       	nop
 
 80003058 <fat_cache_flush>:
 80003058:	d4 21       	pushm	r4-r7,lr
-8000305a:	e0 65 12 14 	mov	r5,4628
+8000305a:	e0 65 48 94 	mov	r5,18580
 8000305e:	30 18       	mov	r8,1
 80003060:	eb 37 00 08 	ld.ub	r7,r5[8]
 80003064:	f0 07 18 00 	cp.b	r7,r8
@@ -1642,16 +1642,16 @@ Disassembly of section .text:
 80003076:	18 96       	mov	r6,r12
 80003078:	c0 70       	breq	80003086 <fat_cache_flush+0x2e>
 8000307a:	31 49       	mov	r9,20
-8000307c:	e0 68 11 dc 	mov	r8,4572
+8000307c:	e0 68 48 5c 	mov	r8,18524
 80003080:	30 0c       	mov	r12,0
 80003082:	b0 89       	st.b	r8[0x0],r9
 80003084:	d8 22       	popm	r4-r7,pc
 80003086:	0b 8c       	ld.ub	r12,r5[0x0]
-80003088:	e0 6a 0f 90 	mov	r10,3984
+80003088:	e0 6a 46 10 	mov	r10,17936
 8000308c:	6a 1b       	ld.w	r11,r5[0x4]
 8000308e:	e0 a0 14 4f 	rcall	8000592c <ram_2_memory>
 80003092:	c0 60       	breq	8000309e <fat_cache_flush+0x46>
-80003094:	e0 68 11 dc 	mov	r8,4572
+80003094:	e0 68 48 5c 	mov	r8,18524
 80003098:	0c 9c       	mov	r12,r6
 8000309a:	b0 87       	st.b	r8[0x0],r7
 8000309c:	d8 22       	popm	r4-r7,pc
@@ -1659,15 +1659,15 @@ Disassembly of section .text:
 
 800030a0 <fat_cache_read_sector>:
 800030a0:	d4 21       	pushm	r4-r7,lr
-800030a2:	e0 68 12 14 	mov	r8,4628
-800030a6:	e0 69 11 90 	mov	r9,4496
+800030a2:	e0 68 48 94 	mov	r8,18580
+800030a6:	e0 69 48 10 	mov	r9,18448
 800030aa:	18 97       	mov	r7,r12
 800030ac:	13 89       	ld.ub	r9,r9[0x0]
 800030ae:	11 8a       	ld.ub	r10,r8[0x0]
 800030b0:	f2 0a 18 00 	cp.b	r10,r9
 800030b4:	c0 81       	brne	800030c4 <fat_cache_read_sector+0x24>
 800030b6:	70 19       	ld.w	r9,r8[0x4]
-800030b8:	e0 68 0f 50 	mov	r8,3920
+800030b8:	e0 68 45 d0 	mov	r8,17872
 800030bc:	70 08       	ld.w	r8,r8[0x0]
 800030be:	10 39       	cp.w	r9,r8
 800030c0:	c0 21       	brne	800030c4 <fat_cache_read_sector+0x24>
@@ -1675,41 +1675,41 @@ Disassembly of section .text:
 800030c4:	cc af       	rcall	80003058 <fat_cache_flush>
 800030c6:	c2 50       	breq	80003110 <fat_cache_read_sector+0x70>
 800030c8:	3f f9       	mov	r9,-1
-800030ca:	e0 68 12 14 	mov	r8,4628
+800030ca:	e0 68 48 94 	mov	r8,18580
 800030ce:	b0 89       	st.b	r8[0x0],r9
 800030d0:	30 09       	mov	r9,0
 800030d2:	f1 69 00 08 	st.b	r8[8],r9
 800030d6:	3f f9       	mov	r9,-1
 800030d8:	91 39       	st.w	r8[0xc],r9
-800030da:	e0 69 0f 50 	mov	r9,3920
+800030da:	e0 69 45 d0 	mov	r9,17872
 800030de:	72 0b       	ld.w	r11,r9[0x0]
 800030e0:	91 1b       	st.w	r8[0x4],r11
 800030e2:	58 07       	cp.w	r7,0
 800030e4:	c0 f0       	breq	80003102 <fat_cache_read_sector+0x62>
-800030e6:	e0 68 11 90 	mov	r8,4496
-800030ea:	e0 6a 0f 90 	mov	r10,3984
+800030e6:	e0 68 48 10 	mov	r8,18448
+800030ea:	e0 6a 46 10 	mov	r10,17936
 800030ee:	11 8c       	ld.ub	r12,r8[0x0]
 800030f0:	e0 a0 14 4e 	rcall	8000598c <memory_2_ram>
 800030f4:	c0 70       	breq	80003102 <fat_cache_read_sector+0x62>
 800030f6:	30 19       	mov	r9,1
-800030f8:	e0 68 11 dc 	mov	r8,4572
+800030f8:	e0 68 48 5c 	mov	r8,18524
 800030fc:	30 0c       	mov	r12,0
 800030fe:	b0 89       	st.b	r8[0x0],r9
 80003100:	d8 22       	popm	r4-r7,pc
-80003102:	e0 68 11 90 	mov	r8,4496
+80003102:	e0 68 48 10 	mov	r8,18448
 80003106:	30 1c       	mov	r12,1
 80003108:	11 89       	ld.ub	r9,r8[0x0]
-8000310a:	e0 68 12 14 	mov	r8,4628
+8000310a:	e0 68 48 94 	mov	r8,18580
 8000310e:	b0 89       	st.b	r8[0x0],r9
 80003110:	d8 22       	popm	r4-r7,pc
 80003112:	d7 03       	nop
 
 80003114 <fat_cluster_readnext>:
 80003114:	d4 01       	pushm	lr
-80003116:	e0 68 11 d8 	mov	r8,4568
+80003116:	e0 68 48 58 	mov	r8,18520
 8000311a:	30 39       	mov	r9,3
 8000311c:	11 8a       	ld.ub	r10,r8[0x0]
-8000311e:	e0 68 0f 64 	mov	r8,3940
+8000311e:	e0 68 45 e4 	mov	r8,17892
 80003122:	f2 0a 18 00 	cp.b	r10,r9
 80003126:	c0 41       	brne	8000312e <fat_cluster_readnext+0x1a>
 80003128:	90 09       	ld.sh	r9,r8[0x0]
@@ -1718,12 +1718,12 @@ Disassembly of section .text:
 8000312e:	90 09       	ld.sh	r9,r8[0x0]
 80003130:	2f e9       	sub	r9,-2
 80003132:	b0 09       	st.h	r8[0x0],r9
-80003134:	e0 69 0f 64 	mov	r9,3940
+80003134:	e0 69 45 e4 	mov	r9,17892
 80003138:	e0 68 02 00 	mov	r8,512
 8000313c:	92 0a       	ld.sh	r10,r9[0x0]
 8000313e:	f0 0a 19 00 	cp.h	r10,r8
 80003142:	c0 b1       	brne	80003158 <fat_cluster_readnext+0x44>
-80003144:	e0 68 0f 50 	mov	r8,3920
+80003144:	e0 68 45 d0 	mov	r8,17872
 80003148:	30 0a       	mov	r10,0
 8000314a:	b2 0a       	st.h	r9[0x0],r10
 8000314c:	70 09       	ld.w	r9,r8[0x0]
@@ -1732,17 +1732,17 @@ Disassembly of section .text:
 80003152:	91 09       	st.w	r8[0x0],r9
 80003154:	ca 6f       	rcall	800030a0 <fat_cache_read_sector>
 80003156:	c1 d0       	breq	80003190 <fat_cluster_readnext+0x7c>
-80003158:	e0 69 0f 64 	mov	r9,3940
-8000315c:	e0 6b 0f 90 	mov	r11,3984
+80003158:	e0 69 45 e4 	mov	r9,17892
+8000315c:	e0 6b 46 10 	mov	r11,17936
 80003160:	92 8a       	ld.uh	r10,r9[0x0]
 80003162:	f6 0a 00 09 	add	r9,r11,r10
 80003166:	f6 0a 07 0a 	ld.ub	r10,r11[r10]
-8000316a:	e0 68 12 2c 	mov	r8,4652
+8000316a:	e0 68 48 ac 	mov	r8,18604
 8000316e:	2f c8       	sub	r8,-4
 80003170:	b0 ba       	st.b	r8[0x3],r10
 80003172:	13 9a       	ld.ub	r10,r9[0x1]
 80003174:	b0 aa       	st.b	r8[0x2],r10
-80003176:	e0 6a 11 d8 	mov	r10,4568
+80003176:	e0 6a 48 58 	mov	r10,18520
 8000317a:	15 8b       	ld.ub	r11,r10[0x0]
 8000317c:	30 3a       	mov	r10,3
 8000317e:	f4 0b 18 00 	cp.b	r11,r10
@@ -1758,14 +1758,14 @@ Disassembly of section .text:
 
 80003194 <fat_cluster_val>:
 80003194:	d4 31       	pushm	r0-r7,lr
-80003196:	e0 68 11 d8 	mov	r8,4568
+80003196:	e0 68 48 58 	mov	r8,18520
 8000319a:	18 97       	mov	r7,r12
 8000319c:	11 88       	ld.ub	r8,r8[0x0]
 8000319e:	30 39       	mov	r9,3
 800031a0:	f2 08 18 00 	cp.b	r8,r9
 800031a4:	c0 d1       	brne	800031be <fat_cluster_val+0x2a>
-800031a6:	e0 68 12 2c 	mov	r8,4652
-800031aa:	e0 69 0f 64 	mov	r9,3940
+800031a6:	e0 68 48 ac 	mov	r8,18604
+800031aa:	e0 69 45 e4 	mov	r9,17892
 800031ae:	11 ba       	ld.ub	r10,r8[0x3]
 800031b0:	70 08       	ld.w	r8,r8[0x0]
 800031b2:	f5 da c0 07 	bfextu	r10,r10,0x0,0x7
@@ -1776,8 +1776,8 @@ Disassembly of section .text:
 800031be:	30 29       	mov	r9,2
 800031c0:	f2 08 18 00 	cp.b	r8,r9
 800031c4:	c0 a1       	brne	800031d8 <fat_cluster_val+0x44>
-800031c6:	e0 68 12 2c 	mov	r8,4652
-800031ca:	e0 69 0f 64 	mov	r9,3940
+800031c6:	e0 68 48 ac 	mov	r8,18604
+800031ca:	e0 69 45 e4 	mov	r9,17892
 800031ce:	11 ba       	ld.ub	r10,r8[0x3]
 800031d0:	a1 7a       	lsl	r10,0x1
 800031d2:	b2 0a       	st.h	r9[0x0],r10
@@ -1788,8 +1788,8 @@ Disassembly of section .text:
 800031de:	c0 30       	breq	800031e4 <fat_cluster_val+0x50>
 800031e0:	30 08       	mov	r8,0
 800031e2:	c1 18       	rjmp	80003204 <fat_cluster_val+0x70>
-800031e4:	e0 69 0f 64 	mov	r9,3940
-800031e8:	e0 68 12 2c 	mov	r8,4652
+800031e4:	e0 69 45 e4 	mov	r9,17892
+800031e8:	e0 68 48 ac 	mov	r8,18604
 800031ec:	70 08       	ld.w	r8,r8[0x0]
 800031ee:	f5 d8 c0 2f 	bfextu	r10,r8,0x1,0xf
 800031f2:	f4 08 00 08 	add	r8,r10,r8
@@ -1798,18 +1798,18 @@ Disassembly of section .text:
 800031fc:	f5 d8 c0 01 	bfextu	r10,r8,0x0,0x1
 80003200:	a1 98       	lsr	r8,0x1
 80003202:	b2 8a       	st.b	r9[0x0],r10
-80003204:	e0 69 11 90 	mov	r9,4496
+80003204:	e0 69 48 10 	mov	r9,18448
 80003208:	72 49       	ld.w	r9,r9[0x10]
 8000320a:	12 08       	add	r8,r9
-8000320c:	e0 66 0f 50 	mov	r6,3920
+8000320c:	e0 66 45 d0 	mov	r6,17872
 80003210:	30 1c       	mov	r12,1
 80003212:	8d 08       	st.w	r6[0x0],r8
 80003214:	c4 6f       	rcall	800030a0 <fat_cache_read_sector>
 80003216:	c5 80       	breq	800032c6 <fat_cluster_val+0x132>
-80003218:	e0 68 0f 64 	mov	r8,3940
-8000321c:	e0 6a 11 d8 	mov	r10,4568
+80003218:	e0 68 45 e4 	mov	r8,17892
+8000321c:	e0 6a 48 58 	mov	r10,18520
 80003220:	90 09       	ld.sh	r9,r8[0x0]
-80003222:	e0 65 0f 90 	mov	r5,3984
+80003222:	e0 65 46 10 	mov	r5,17936
 80003226:	f1 d9 c0 10 	bfextu	r8,r9,0x0,0x10
 8000322a:	0a 08       	add	r8,r5
 8000322c:	15 8b       	ld.ub	r11,r10[0x0]
@@ -1832,12 +1832,12 @@ Disassembly of section .text:
 80003254:	0b 8a       	ld.ub	r10,r5[0x0]
 80003256:	58 07       	cp.w	r7,0
 80003258:	c3 11       	brne	800032ba <fat_cluster_val+0x126>
-8000325a:	e0 69 12 2c 	mov	r9,4652
+8000325a:	e0 69 48 ac 	mov	r9,18604
 8000325e:	f2 cb ff f9 	sub	r11,r9,-7
 80003262:	b6 82       	st.b	r11[0x0],r2
 80003264:	f2 c8 ff fa 	sub	r8,r9,-6
 80003268:	b0 8a       	st.b	r8[0x0],r10
-8000326a:	e0 6a 11 d8 	mov	r10,4568
+8000326a:	e0 6a 48 58 	mov	r10,18520
 8000326e:	30 36       	mov	r6,3
 80003270:	15 8c       	ld.ub	r12,r10[0x0]
 80003272:	f2 ca ff fc 	sub	r10,r9,-4
@@ -1869,7 +1869,7 @@ Disassembly of section .text:
 800032b6:	b0 89       	st.b	r8[0x0],r9
 800032b8:	da 3a       	popm	r0-r7,pc,r12=1
 800032ba:	32 29       	mov	r9,34
-800032bc:	e0 68 11 dc 	mov	r8,4572
+800032bc:	e0 68 48 5c 	mov	r8,18524
 800032c0:	30 0c       	mov	r12,0
 800032c2:	b0 89       	st.b	r8[0x0],r9
 800032c4:	d8 32       	popm	r0-r7,pc
@@ -1879,10 +1879,10 @@ Disassembly of section .text:
 800032c8:	d4 31       	pushm	r0-r7,lr
 800032ca:	20 2d       	sub	sp,8
 800032cc:	30 89       	mov	r9,8
-800032ce:	e0 68 11 dc 	mov	r8,4572
+800032ce:	e0 68 48 5c 	mov	r8,18524
 800032d2:	b0 89       	st.b	r8[0x0],r9
 800032d4:	30 36       	mov	r6,3
-800032d6:	e0 69 11 d8 	mov	r9,4568
+800032d6:	e0 69 48 58 	mov	r9,18520
 800032da:	ec 0c 18 00 	cp.b	r12,r6
 800032de:	5f 05       	sreq	r5
 800032e0:	13 82       	ld.ub	r2,r9[0x0]
@@ -1891,7 +1891,7 @@ Disassembly of section .text:
 800032e8:	5f 03       	sreq	r3
 800032ea:	eb e3 00 0a 	and	r10,r5,r3
 800032ee:	e0 81 00 f4 	brne	800034d6 <fat_cluster_list+0x20e>
-800032f2:	e0 69 12 34 	mov	r9,4660
+800032f2:	e0 69 48 b4 	mov	r9,18612
 800032f6:	72 04       	ld.w	r4,r9[0x0]
 800032f8:	58 04       	cp.w	r4,0
 800032fa:	c2 71       	brne	80003348 <fat_cluster_list+0x80>
@@ -1901,7 +1901,7 @@ Disassembly of section .text:
 80003304:	30 1a       	mov	r10,1
 80003306:	f4 02 18 00 	cp.b	r2,r10
 8000330a:	e0 8b 00 16 	brhi	80003336 <fat_cluster_list+0x6e>
-8000330e:	e0 6b 11 90 	mov	r11,4496
+8000330e:	e0 6b 48 10 	mov	r11,18448
 80003312:	72 1a       	ld.w	r10,r9[0x4]
 80003314:	f7 1c 00 1a 	ld.uh	r12,r11[26]
 80003318:	18 3a       	cp.w	r10,r12
@@ -1920,12 +1920,12 @@ Disassembly of section .text:
 80003334:	cd 28       	rjmp	800034d8 <fat_cluster_list+0x210>
 80003336:	58 03       	cp.w	r3,0
 80003338:	c0 e0       	breq	80003354 <fat_cluster_list+0x8c>
-8000333a:	e0 68 11 90 	mov	r8,4496
+8000333a:	e0 68 48 10 	mov	r8,18448
 8000333e:	70 69       	ld.w	r9,r8[0x18]
-80003340:	e0 68 12 2c 	mov	r8,4652
+80003340:	e0 68 48 ac 	mov	r8,18604
 80003344:	91 09       	st.w	r8[0x0],r9
 80003346:	c0 78       	rjmp	80003354 <fat_cluster_list+0x8c>
-80003348:	e0 68 12 2c 	mov	r8,4652
+80003348:	e0 68 48 ac 	mov	r8,18604
 8000334c:	91 04       	st.w	r8[0x0],r4
 8000334e:	ec 0c 18 00 	cp.b	r12,r6
 80003352:	c0 60       	breq	8000335e <fat_cluster_list+0x96>
@@ -1933,28 +1933,28 @@ Disassembly of section .text:
 80003356:	fe b0 fb 6d 	rcall	80002a30 <fat_cache_clusterlist_update_read>
 8000335a:	c1 20       	breq	8000337e <fat_cluster_list+0xb6>
 8000335c:	cb 08       	rjmp	800034bc <fat_cluster_list+0x1f4>
-8000335e:	e0 68 0f 68 	mov	r8,3944
+8000335e:	e0 68 45 e8 	mov	r8,17896
 80003362:	3f f9       	mov	r9,-1
 80003364:	f1 6a 00 14 	st.b	r8[20],r10
 80003368:	f1 69 00 15 	st.b	r8[21],r9
 8000336c:	b0 a9       	st.b	r8[0x2],r9
 8000336e:	b0 99       	st.b	r8[0x1],r9
 80003370:	f1 69 00 16 	st.b	r8[22],r9
-80003374:	e0 69 11 de 	mov	r9,4574
+80003374:	e0 69 48 5e 	mov	r9,18526
 80003378:	b2 8a       	st.b	r9[0x0],r10
 8000337a:	30 19       	mov	r9,1
 8000337c:	b0 89       	st.b	r8[0x0],r9
-8000337e:	e0 62 12 34 	mov	r2,4660
+8000337e:	e0 62 48 b4 	mov	r2,18612
 80003382:	3f f8       	mov	r8,-1
 80003384:	a4 88       	st.b	r2[0x0],r8
-80003386:	e0 66 12 2c 	mov	r6,4652
+80003386:	e0 66 48 ac 	mov	r6,18604
 8000338a:	e4 c8 ff f9 	sub	r8,r2,-7
 8000338e:	04 95       	mov	r5,r2
-80003390:	e0 64 11 90 	mov	r4,4496
+80003390:	e0 64 48 10 	mov	r4,18448
 80003394:	30 21       	mov	r1,2
 80003396:	50 18       	stdsp	sp[0x4],r8
 80003398:	30 13       	mov	r3,1
-8000339a:	e0 68 12 34 	mov	r8,4660
+8000339a:	e0 68 48 b4 	mov	r8,18612
 8000339e:	6a 1a       	ld.w	r10,r5[0x4]
 800033a0:	09 99       	ld.ub	r9,r4[0x1]
 800033a2:	12 3a       	cp.w	r10,r9
@@ -1983,7 +1983,7 @@ Disassembly of section .text:
 800033da:	8b 19       	st.w	r5[0x4],r9
 800033dc:	e6 07 18 00 	cp.b	r7,r3
 800033e0:	c1 f1       	brne	8000341e <fat_cluster_list+0x156>
-800033e2:	e0 6b 11 d8 	mov	r11,4568
+800033e2:	e0 6b 48 58 	mov	r11,18520
 800033e6:	17 88       	ld.ub	r8,r11[0x0]
 800033e8:	e6 08 18 00 	cp.b	r8,r3
 800033ec:	c1 90       	breq	8000341e <fat_cluster_list+0x156>
@@ -1998,7 +1998,7 @@ Disassembly of section .text:
 80003400:	14 39       	cp.w	r9,r10
 80003402:	c0 c0       	breq	8000341a <fat_cluster_list+0x152>
 80003404:	f0 00 01 00 	sub	r0,r8,r0
-80003408:	e0 6a 12 2c 	mov	r10,4652
+80003408:	e0 6a 48 ac 	mov	r10,18604
 8000340c:	09 99       	ld.ub	r9,r4[0x1]
 8000340e:	95 08       	st.w	r10[0x0],r8
 80003410:	b3 30       	mul	r0,r9
@@ -2018,8 +2018,8 @@ Disassembly of section .text:
 80003430:	3f f8       	mov	r8,-1
 80003432:	f0 09 18 00 	cp.b	r9,r8
 80003436:	c3 91       	brne	800034a8 <fat_cluster_list+0x1e0>
-80003438:	e0 68 12 34 	mov	r8,4660
-8000343c:	e0 69 11 90 	mov	r9,4496
+80003438:	e0 68 48 b4 	mov	r8,18612
+8000343c:	e0 69 48 10 	mov	r9,18448
 80003440:	e2 0c 18 00 	cp.b	r12,r1
 80003444:	c2 d1       	brne	8000349e <fat_cluster_list+0x1d6>
 80003446:	72 4c       	ld.w	r12,r9[0x10]
@@ -2027,16 +2027,16 @@ Disassembly of section .text:
 8000344a:	13 9a       	ld.ub	r10,r9[0x1]
 8000344c:	91 1a       	st.w	r8[0x4],r10
 8000344e:	72 59       	ld.w	r9,r9[0x14]
-80003450:	e0 6b 11 de 	mov	r11,4574
+80003450:	e0 6b 48 5e 	mov	r11,18526
 80003454:	18 09       	add	r9,r12
 80003456:	17 8b       	ld.ub	r11,r11[0x0]
-80003458:	e0 65 0f 68 	mov	r5,3944
+80003458:	e0 65 45 e8 	mov	r5,17896
 8000345c:	f6 0b 00 2b 	add	r11,r11,r11<<0x2
 80003460:	ea 0b 00 2b 	add	r11,r5,r11<<0x2
 80003464:	76 2c       	ld.w	r12,r11[0x8]
 80003466:	0c 1c       	sub	r12,r6
 80003468:	97 2c       	st.w	r11[0x8],r12
-8000346a:	e0 6b 12 2c 	mov	r11,4652
+8000346a:	e0 6b 48 ac 	mov	r11,18604
 8000346e:	76 0b       	ld.w	r11,r11[0x0]
 80003470:	20 2b       	sub	r11,2
 80003472:	b7 3a       	mul	r10,r11
@@ -2046,13 +2046,13 @@ Disassembly of section .text:
 8000347c:	f0 07 18 00 	cp.b	r7,r8
 80003480:	c0 30       	breq	80003486 <fat_cluster_list+0x1be>
 80003482:	fe b0 fa 8f 	rcall	800029a0 <fat_cache_clusterlist_update_finish>
-80003486:	e0 68 12 34 	mov	r8,4660
-8000348a:	e0 69 12 2c 	mov	r9,4652
+80003486:	e0 68 48 b4 	mov	r8,18612
+8000348a:	e0 69 48 ac 	mov	r9,18604
 8000348e:	72 09       	ld.w	r9,r9[0x0]
 80003490:	91 16       	st.w	r8[0x4],r6
 80003492:	91 09       	st.w	r8[0x0],r9
 80003494:	31 a9       	mov	r9,26
-80003496:	e0 68 11 dc 	mov	r8,4572
+80003496:	e0 68 48 5c 	mov	r8,18524
 8000349a:	b0 89       	st.b	r8[0x0],r9
 8000349c:	c1 d8       	rjmp	800034d6 <fat_cluster_list+0x20e>
 8000349e:	6a 19       	ld.w	r9,r5[0x4]
@@ -2085,11 +2085,11 @@ Disassembly of section .text:
 
 800034dc <fat_read_dir>:
 800034dc:	d4 21       	pushm	r4-r7,lr
-800034de:	e0 68 11 d8 	mov	r8,4568
-800034e2:	e0 69 11 90 	mov	r9,4496
+800034de:	e0 68 48 58 	mov	r8,18520
+800034e2:	e0 69 48 10 	mov	r9,18448
 800034e6:	90 97       	ld.uh	r7,r8[0x2]
 800034e8:	13 8a       	ld.ub	r10,r9[0x0]
-800034ea:	e0 68 12 14 	mov	r8,4628
+800034ea:	e0 68 48 94 	mov	r8,18580
 800034ee:	a5 87       	lsr	r7,0x4
 800034f0:	11 8b       	ld.ub	r11,r8[0x0]
 800034f2:	f4 0b 18 00 	cp.b	r11,r10
@@ -2101,9 +2101,9 @@ Disassembly of section .text:
 80003500:	70 48       	ld.w	r8,r8[0x10]
 80003502:	0e 38       	cp.w	r8,r7
 80003504:	c1 90       	breq	80003536 <fat_read_dir+0x5a>
-80003506:	e0 65 11 90 	mov	r5,4496
+80003506:	e0 65 48 10 	mov	r5,18448
 8000350a:	6a 88       	ld.w	r8,r5[0x20]
-8000350c:	e0 66 12 34 	mov	r6,4660
+8000350c:	e0 66 48 b4 	mov	r6,18612
 80003510:	30 0b       	mov	r11,0
 80003512:	8d 17       	st.w	r6[0x4],r7
 80003514:	8d 08       	st.w	r6[0x0],r8
@@ -2111,12 +2111,12 @@ Disassembly of section .text:
 80003518:	cd 8e       	rcall	800032c8 <fat_cluster_list>
 8000351a:	c0 f0       	breq	80003538 <fat_read_dir+0x5c>
 8000351c:	6c 09       	ld.w	r9,r6[0x0]
-8000351e:	e0 68 0f 50 	mov	r8,3920
+8000351e:	e0 68 45 d0 	mov	r8,17872
 80003522:	30 1c       	mov	r12,1
 80003524:	91 09       	st.w	r8[0x0],r9
 80003526:	fe b0 fd bd 	rcall	800030a0 <fat_cache_read_sector>
 8000352a:	c0 70       	breq	80003538 <fat_read_dir+0x5c>
-8000352c:	e0 68 12 14 	mov	r8,4628
+8000352c:	e0 68 48 94 	mov	r8,18580
 80003530:	6a 89       	ld.w	r9,r5[0x20]
 80003532:	91 47       	st.w	r8[0x10],r7
 80003534:	91 39       	st.w	r8[0xc],r9
@@ -2126,15 +2126,15 @@ Disassembly of section .text:
 
 8000353c <fat_read_file>:
 8000353c:	d4 21       	pushm	r4-r7,lr
-8000353e:	e0 68 0f 54 	mov	r8,3924
+8000353e:	e0 68 45 d4 	mov	r8,17876
 80003542:	18 97       	mov	r7,r12
 80003544:	70 39       	ld.w	r9,r8[0xc]
 80003546:	30 2a       	mov	r10,2
 80003548:	f2 06 16 09 	lsr	r6,r9,0x9
 8000354c:	f4 0c 18 00 	cp.b	r12,r10
 80003550:	c1 21       	brne	80003574 <fat_read_file+0x38>
-80003552:	e0 69 12 14 	mov	r9,4628
-80003556:	e0 6a 11 90 	mov	r10,4496
+80003552:	e0 69 48 94 	mov	r9,18580
+80003556:	e0 6a 48 10 	mov	r10,18448
 8000355a:	13 8b       	ld.ub	r11,r9[0x0]
 8000355c:	15 8a       	ld.ub	r10,r10[0x0]
 8000355e:	f4 0b 18 00 	cp.b	r11,r10
@@ -2156,8 +2156,8 @@ Disassembly of section .text:
 80003582:	f3 d9 c0 09 	bfextu	r9,r9,0x0,0x9
 80003586:	c0 20       	breq	8000358a <fat_read_file+0x4e>
 80003588:	2f f6       	sub	r6,-1
-8000358a:	e0 65 12 34 	mov	r5,4660
-8000358e:	e0 64 0f 54 	mov	r4,3924
+8000358a:	e0 65 48 b4 	mov	r5,18612
+8000358e:	e0 64 45 d4 	mov	r4,17876
 80003592:	8b 16       	st.w	r5[0x4],r6
 80003594:	68 18       	ld.w	r8,r4[0x4]
 80003596:	8b 08       	st.w	r5[0x0],r8
@@ -2174,12 +2174,12 @@ Disassembly of section .text:
 800035ae:	c8 de       	rcall	800032c8 <fat_cluster_list>
 800035b0:	c1 c0       	breq	800035e8 <fat_read_file+0xac>
 800035b2:	6a 09       	ld.w	r9,r5[0x0]
-800035b4:	e0 68 0f 50 	mov	r8,3920
+800035b4:	e0 68 45 d0 	mov	r8,17872
 800035b8:	30 1c       	mov	r12,1
 800035ba:	91 09       	st.w	r8[0x0],r9
 800035bc:	fe b0 fd 72 	rcall	800030a0 <fat_cache_read_sector>
 800035c0:	c1 40       	breq	800035e8 <fat_read_file+0xac>
-800035c2:	e0 68 12 14 	mov	r8,4628
+800035c2:	e0 68 48 94 	mov	r8,18580
 800035c6:	68 19       	ld.w	r9,r4[0x4]
 800035c8:	91 46       	st.w	r8[0x10],r6
 800035ca:	91 39       	st.w	r8[0xc],r9
@@ -2187,7 +2187,7 @@ Disassembly of section .text:
 800035ce:	30 38       	mov	r8,3
 800035d0:	f0 07 18 00 	cp.b	r7,r8
 800035d4:	c0 a1       	brne	800035e8 <fat_read_file+0xac>
-800035d6:	e0 68 11 dc 	mov	r8,4572
+800035d6:	e0 68 48 5c 	mov	r8,18524
 800035da:	11 89       	ld.ub	r9,r8[0x0]
 800035dc:	31 a8       	mov	r8,26
 800035de:	f0 09 18 00 	cp.b	r9,r8
@@ -2199,31 +2199,31 @@ Disassembly of section .text:
 
 800035ec <fat_check_device>:
 800035ec:	d4 31       	pushm	r0-r7,lr
-800035ee:	e0 68 0f 66 	mov	r8,3942
+800035ee:	e0 68 45 e6 	mov	r8,17894
 800035f2:	11 89       	ld.ub	r9,r8[0x0]
 800035f4:	30 08       	mov	r8,0
 800035f6:	f0 09 18 00 	cp.b	r9,r8
 800035fa:	c5 21       	brne	8000369e <fat_check_device+0xb2>
-800035fc:	e0 63 11 90 	mov	r3,4496
+800035fc:	e0 63 48 10 	mov	r3,18448
 80003600:	3f f6       	mov	r6,-1
 80003602:	07 88       	ld.ub	r8,r3[0x0]
 80003604:	ec 08 18 00 	cp.b	r8,r6
 80003608:	c0 61       	brne	80003614 <fat_check_device+0x28>
 8000360a:	30 19       	mov	r9,1
-8000360c:	e0 68 11 dc 	mov	r8,4572
+8000360c:	e0 68 48 5c 	mov	r8,18524
 80003610:	b0 89       	st.b	r8[0x0],r9
 80003612:	c4 58       	rjmp	8000369c <fat_check_device+0xb0>
 80003614:	30 04       	mov	r4,0
-80003616:	e0 60 11 d8 	mov	r0,4568
+80003616:	e0 60 48 58 	mov	r0,18520
 8000361a:	08 97       	mov	r7,r4
-8000361c:	e0 61 0f 54 	mov	r1,3924
-80003620:	e0 62 11 e0 	mov	r2,4576
-80003624:	e0 65 12 14 	mov	r5,4628
+8000361c:	e0 61 45 d4 	mov	r1,17876
+80003620:	e0 62 48 60 	mov	r2,18528
+80003624:	e0 65 48 94 	mov	r5,18580
 80003628:	07 8c       	ld.ub	r12,r3[0x0]
 8000362a:	e0 a0 11 57 	rcall	800058d8 <mem_test_unit_ready>
-8000362e:	e0 68 0f 68 	mov	r8,3944
+8000362e:	e0 68 45 e8 	mov	r8,17896
 80003632:	30 1a       	mov	r10,1
-80003634:	e0 69 11 dc 	mov	r9,4572
+80003634:	e0 69 48 5c 	mov	r9,18524
 80003638:	58 0c       	cp.w	r12,0
 8000363a:	c3 20       	breq	8000369e <fat_check_device+0xb2>
 8000363c:	a0 87       	st.b	r0[0x0],r7
@@ -2232,9 +2232,9 @@ Disassembly of section .text:
 80003642:	05 8e       	ld.ub	lr,r2[0x0]
 80003644:	f6 0e 18 00 	cp.b	lr,r11
 80003648:	c0 71       	brne	80003656 <fat_check_device+0x6a>
-8000364a:	e0 6e 11 d4 	mov	lr,4564
+8000364a:	e0 6e 48 54 	mov	lr,18516
 8000364e:	bc 87       	st.b	lr[0x0],r7
-80003650:	e0 6e 11 c4 	mov	lr,4548
+80003650:	e0 6e 48 44 	mov	lr,18500
 80003654:	bc 87       	st.b	lr[0x0],r7
 80003656:	0b 8e       	ld.ub	lr,r5[0x0]
 80003658:	f6 0e 18 00 	cp.b	lr,r11
@@ -2243,7 +2243,7 @@ Disassembly of section .text:
 80003660:	aa 86       	st.b	r5[0x0],r6
 80003662:	eb 67 00 08 	st.b	r5[8],r7
 80003666:	8b 3b       	st.w	r5[0xc],r11
-80003668:	e0 6b 11 de 	mov	r11,4574
+80003668:	e0 6b 48 5e 	mov	r11,18526
 8000366c:	b6 87       	st.b	r11[0x0],r7
 8000366e:	f1 66 00 15 	st.b	r8[21],r6
 80003672:	b2 8a       	st.b	r9[0x0],r10
@@ -2273,17 +2273,17 @@ Disassembly of section .text:
 800036a4:	d4 01       	pushm	lr
 800036a6:	ca 3f       	rcall	800035ec <fat_check_device>
 800036a8:	c1 40       	breq	800036d0 <fat_check_noopen+0x2c>
-800036aa:	e0 68 11 d8 	mov	r8,4568
+800036aa:	e0 68 48 58 	mov	r8,18520
 800036ae:	11 89       	ld.ub	r9,r8[0x0]
 800036b0:	30 08       	mov	r8,0
 800036b2:	f0 09 18 00 	cp.b	r9,r8
 800036b6:	c0 d0       	breq	800036d0 <fat_check_noopen+0x2c>
-800036b8:	e0 69 0f 54 	mov	r9,3924
+800036b8:	e0 69 45 d4 	mov	r9,17876
 800036bc:	13 89       	ld.ub	r9,r9[0x0]
 800036be:	f0 09 18 00 	cp.b	r9,r8
 800036c2:	c0 70       	breq	800036d0 <fat_check_noopen+0x2c>
 800036c4:	30 59       	mov	r9,5
-800036c6:	e0 68 11 dc 	mov	r8,4572
+800036c6:	e0 68 48 5c 	mov	r8,18524
 800036ca:	30 0c       	mov	r12,0
 800036cc:	b0 89       	st.b	r8[0x0],r9
 800036ce:	d8 02       	popm	pc
@@ -2294,7 +2294,7 @@ Disassembly of section .text:
 800036d4:	d4 01       	pushm	lr
 800036d6:	c8 bf       	rcall	800035ec <fat_check_device>
 800036d8:	c1 00       	breq	800036f8 <fat_check_mount+0x24>
-800036da:	e0 68 11 d8 	mov	r8,4568
+800036da:	e0 68 48 58 	mov	r8,18520
 800036de:	11 89       	ld.ub	r9,r8[0x0]
 800036e0:	30 08       	mov	r8,0
 800036e2:	f0 09 18 00 	cp.b	r9,r8
@@ -2302,7 +2302,7 @@ Disassembly of section .text:
 800036e8:	c5 2c       	rcall	8000378c <fat_mount>
 800036ea:	c0 61       	brne	800036f6 <fat_check_mount+0x22>
 800036ec:	30 e9       	mov	r9,14
-800036ee:	e0 68 11 dc 	mov	r8,4572
+800036ee:	e0 68 48 5c 	mov	r8,18524
 800036f2:	b0 89       	st.b	r8[0x0],r9
 800036f4:	d8 02       	popm	pc
 800036f6:	30 1c       	mov	r12,1
@@ -2313,14 +2313,14 @@ Disassembly of section .text:
 800036fc:	d4 01       	pushm	lr
 800036fe:	ce bf       	rcall	800036d4 <fat_check_mount>
 80003700:	c0 e0       	breq	8000371c <fat_check_mount_select+0x20>
-80003702:	e0 68 11 d8 	mov	r8,4568
+80003702:	e0 68 48 58 	mov	r8,18520
 80003706:	90 19       	ld.sh	r9,r8[0x2]
 80003708:	3f f8       	mov	r8,-1
 8000370a:	f0 09 19 00 	cp.h	r9,r8
 8000370e:	c0 20       	breq	80003712 <fat_check_mount_select+0x16>
 80003710:	da 0a       	popm	pc,r12=1
 80003712:	30 f9       	mov	r9,15
-80003714:	e0 68 11 dc 	mov	r8,4572
+80003714:	e0 68 48 5c 	mov	r8,18524
 80003718:	30 0c       	mov	r12,0
 8000371a:	b0 89       	st.b	r8[0x0],r9
 8000371c:	d8 02       	popm	pc
@@ -2330,24 +2330,24 @@ Disassembly of section .text:
 80003720:	d4 01       	pushm	lr
 80003722:	cd 9f       	rcall	800036d4 <fat_check_mount>
 80003724:	c1 b0       	breq	8000375a <fat_check_mount_select_open+0x3a>
-80003726:	e0 68 11 d8 	mov	r8,4568
+80003726:	e0 68 48 58 	mov	r8,18520
 8000372a:	90 19       	ld.sh	r9,r8[0x2]
 8000372c:	3f f8       	mov	r8,-1
 8000372e:	f0 09 19 00 	cp.h	r9,r8
 80003732:	c0 71       	brne	80003740 <fat_check_mount_select_open+0x20>
 80003734:	30 f9       	mov	r9,15
-80003736:	e0 68 11 dc 	mov	r8,4572
+80003736:	e0 68 48 5c 	mov	r8,18524
 8000373a:	30 0c       	mov	r12,0
 8000373c:	b0 89       	st.b	r8[0x0],r9
 8000373e:	d8 02       	popm	pc
-80003740:	e0 68 0f 54 	mov	r8,3924
+80003740:	e0 68 45 d4 	mov	r8,17876
 80003744:	11 89       	ld.ub	r9,r8[0x0]
 80003746:	30 08       	mov	r8,0
 80003748:	f0 09 18 00 	cp.b	r9,r8
 8000374c:	c0 20       	breq	80003750 <fat_check_mount_select_open+0x30>
 8000374e:	da 0a       	popm	pc,r12=1
 80003750:	31 79       	mov	r9,23
-80003752:	e0 68 11 dc 	mov	r8,4572
+80003752:	e0 68 48 5c 	mov	r8,18524
 80003756:	30 0c       	mov	r12,0
 80003758:	b0 89       	st.b	r8[0x0],r9
 8000375a:	d8 02       	popm	pc
@@ -2356,13 +2356,13 @@ Disassembly of section .text:
 8000375c:	d4 01       	pushm	lr
 8000375e:	cb bf       	rcall	800036d4 <fat_check_mount>
 80003760:	c0 f0       	breq	8000377e <fat_check_mount_select_noopen+0x22>
-80003762:	e0 68 11 d8 	mov	r8,4568
+80003762:	e0 68 48 58 	mov	r8,18520
 80003766:	90 19       	ld.sh	r9,r8[0x2]
 80003768:	3f f8       	mov	r8,-1
 8000376a:	f0 09 19 00 	cp.h	r9,r8
 8000376e:	c0 71       	brne	8000377c <fat_check_mount_select_noopen+0x20>
 80003770:	30 f9       	mov	r9,15
-80003772:	e0 68 11 dc 	mov	r8,4572
+80003772:	e0 68 48 5c 	mov	r8,18524
 80003776:	30 0c       	mov	r12,0
 80003778:	b0 89       	st.b	r8[0x0],r9
 8000377a:	d8 02       	popm	pc
@@ -2380,17 +2380,17 @@ Disassembly of section .text:
 8000378c <fat_mount>:
 8000378c:	d4 31       	pushm	r0-r7,lr
 8000378e:	20 5d       	sub	sp,20
-80003790:	e0 68 11 90 	mov	r8,4496
+80003790:	e0 68 48 10 	mov	r8,18448
 80003794:	30 06       	mov	r6,0
 80003796:	91 86       	st.w	r8[0x20],r6
 80003798:	fe b0 fa 56 	rcall	80002c44 <fat_clear_entry_info_and_ptr>
-8000379c:	e0 68 11 d8 	mov	r8,4568
+8000379c:	e0 68 48 58 	mov	r8,18520
 800037a0:	b0 86       	st.b	r8[0x0],r6
-800037a2:	e0 68 0f 50 	mov	r8,3920
+800037a2:	e0 68 45 d0 	mov	r8,17872
 800037a6:	91 06       	st.w	r8[0x0],r6
 800037a8:	c2 2f       	rcall	800035ec <fat_check_device>
 800037aa:	e0 80 01 4a 	breq	80003a3e <fat_mount+0x2b2>
-800037ae:	e0 67 0f 90 	mov	r7,3984
+800037ae:	e0 67 46 10 	mov	r7,17936
 800037b2:	30 45       	mov	r5,4
 800037b4:	ee cb fe 42 	sub	r11,r7,-446
 800037b8:	50 1b       	stdsp	sp[0x4],r11
@@ -2407,7 +2407,7 @@ Disassembly of section .text:
 800037da:	c0 30       	breq	800037e0 <fat_mount+0x54>
 800037dc:	30 29       	mov	r9,2
 800037de:	c6 d8       	rjmp	800038b8 <fat_mount+0x12c>
-800037e0:	e0 68 0f 50 	mov	r8,3920
+800037e0:	e0 68 45 d0 	mov	r8,17872
 800037e4:	70 0b       	ld.w	r11,r8[0x0]
 800037e6:	58 0b       	cp.w	r11,0
 800037e8:	c5 41       	brne	80003890 <fat_mount+0x104>
@@ -2456,7 +2456,7 @@ Disassembly of section .text:
 8000385c:	5c 79       	castu.h	r9
 8000385e:	ee 09 00 09 	add	r9,r7,r9
 80003862:	f3 38 00 0b 	ld.ub	r8,r9[11]
-80003866:	e0 64 0f 50 	mov	r4,3920
+80003866:	e0 64 45 d0 	mov	r4,17872
 8000386a:	a8 88       	st.b	r4[0x0],r8
 8000386c:	f3 38 00 08 	ld.ub	r8,r9[8]
 80003870:	a8 b8       	st.b	r4[0x3],r8
@@ -2464,14 +2464,14 @@ Disassembly of section .text:
 80003876:	a8 a8       	st.b	r4[0x2],r8
 80003878:	f3 38 00 0a 	ld.ub	r8,r9[10]
 8000387c:	a8 98       	st.b	r4[0x1],r8
-8000387e:	e0 68 11 90 	mov	r8,4496
+8000387e:	e0 68 48 10 	mov	r8,18448
 80003882:	68 03       	ld.w	r3,r4[0x0]
 80003884:	11 8c       	ld.ub	r12,r8[0x0]
 80003886:	e0 a0 10 3d 	rcall	80005900 <mem_sector_size>
 8000388a:	a7 3c       	mul	r12,r3
 8000388c:	89 0c       	st.w	r4[0x0],r12
 8000388e:	c9 6b       	rjmp	800037ba <fat_mount+0x2e>
-80003890:	e0 68 0f 90 	mov	r8,3984
+80003890:	e0 68 46 10 	mov	r8,17936
 80003894:	3e b9       	mov	r9,-21
 80003896:	11 8a       	ld.ub	r10,r8[0x0]
 80003898:	f2 0a 18 00 	cp.b	r10,r9
@@ -2485,14 +2485,14 @@ Disassembly of section .text:
 800038b0:	e0 49 00 f0 	cp.w	r9,240
 800038b4:	c0 60       	breq	800038c0 <fat_mount+0x134>
 800038b6:	30 39       	mov	r9,3
-800038b8:	e0 68 11 dc 	mov	r8,4572
+800038b8:	e0 68 48 5c 	mov	r8,18524
 800038bc:	b0 89       	st.b	r8[0x0],r9
 800038be:	cc 08       	rjmp	80003a3e <fat_mount+0x2b2>
 800038c0:	30 09       	mov	r9,0
 800038c2:	30 4a       	mov	r10,4
 800038c4:	50 39       	stdsp	sp[0xc],r9
-800038c6:	e0 69 11 dc 	mov	r9,4572
-800038ca:	e0 6c 11 90 	mov	r12,4496
+800038c6:	e0 69 48 5c 	mov	r9,18524
+800038ca:	e0 6c 48 10 	mov	r12,18448
 800038ce:	b2 8a       	st.b	r9[0x0],r10
 800038d0:	f1 39 00 0c 	ld.ub	r9,r8[12]
 800038d4:	f1 3a 00 0d 	ld.ub	r10,r8[13]
@@ -2518,11 +2518,11 @@ Disassembly of section .text:
 8000390e:	bc 86       	st.b	lr[0x0],r6
 80003910:	f1 38 00 26 	ld.ub	r8,r8[38]
 80003914:	b8 98       	st.b	r12[0x1],r8
-80003916:	e0 68 11 90 	mov	r8,4496
+80003916:	e0 68 48 10 	mov	r8,18448
 8000391a:	40 35       	lddsp	r5,sp[0xc]
 8000391c:	f2 05 02 45 	mul	r5,r9,r5
 80003920:	91 15       	st.w	r8[0x4],r5
-80003922:	e0 68 0f 90 	mov	r8,3984
+80003922:	e0 68 46 10 	mov	r8,17936
 80003926:	f1 36 00 13 	ld.ub	r6,r8[19]
 8000392a:	58 06       	cp.w	r6,0
 8000392c:	c1 31       	brne	80003952 <fat_mount+0x1c6>
@@ -2542,11 +2542,11 @@ Disassembly of section .text:
 80003954:	30 08       	mov	r8,0
 80003956:	b8 88       	st.b	r12[0x0],r8
 80003958:	b8 98       	st.b	r12[0x1],r8
-8000395a:	e0 68 0f 90 	mov	r8,3984
+8000395a:	e0 68 46 10 	mov	r8,17936
 8000395e:	f1 38 00 14 	ld.ub	r8,r8[20]
 80003962:	bc 88       	st.b	lr[0x0],r8
-80003964:	e0 68 11 90 	mov	r8,4496
-80003968:	e0 6c 0f 90 	mov	r12,3984
+80003964:	e0 68 48 10 	mov	r8,18448
+80003968:	e0 6c 46 10 	mov	r12,17936
 8000396c:	a1 75       	lsl	r5,0x1
 8000396e:	f9 3e 00 11 	ld.ub	lr,r12[17]
 80003972:	f1 55 00 18 	st.h	r8[24],r5
@@ -2593,15 +2593,15 @@ Disassembly of section .text:
 800039e2:	a1 9a       	lsr	r10,0x1
 800039e4:	f0 0a 18 00 	cp.b	r10,r8
 800039e8:	cf c1       	brne	800039e0 <fat_mount+0x254>
-800039ea:	e0 68 11 90 	mov	r8,4496
+800039ea:	e0 68 48 10 	mov	r8,18448
 800039ee:	f2 cb ff fe 	sub	r11,r9,-2
 800039f2:	91 3b       	st.w	r8[0xc],r11
 800039f4:	e0 49 0f f4 	cp.w	r9,4084
 800039f8:	e0 8b 00 06 	brhi	80003a04 <fat_mount+0x278>
-800039fc:	e0 68 11 d8 	mov	r8,4568
+800039fc:	e0 68 48 58 	mov	r8,18520
 80003a00:	b0 8a       	st.b	r8[0x0],r10
 80003a02:	c1 c8       	rjmp	80003a3a <fat_mount+0x2ae>
-80003a04:	e0 6a 11 d8 	mov	r10,4568
+80003a04:	e0 6a 48 58 	mov	r10,18520
 80003a08:	e0 49 ff f4 	cp.w	r9,65524
 80003a0c:	e0 8b 00 06 	brhi	80003a18 <fat_mount+0x28c>
 80003a10:	30 28       	mov	r8,2
@@ -2609,7 +2609,7 @@ Disassembly of section .text:
 80003a14:	c1 38       	rjmp	80003a3a <fat_mount+0x2ae>
 80003a16:	d7 03       	nop
 80003a18:	2e 88       	sub	r8,-24
-80003a1a:	e0 69 0f 90 	mov	r9,3984
+80003a1a:	e0 69 46 10 	mov	r9,17936
 80003a1e:	f3 3b 00 2f 	ld.ub	r11,r9[47]
 80003a22:	b0 8b       	st.b	r8[0x0],r11
 80003a24:	30 3b       	mov	r11,3
@@ -2631,7 +2631,7 @@ Disassembly of section .text:
 80003a46:	c6 de       	rcall	80003720 <fat_check_mount_select_open>
 80003a48:	c0 50       	breq	80003a52 <file_close+0xe>
 80003a4a:	30 09       	mov	r9,0
-80003a4c:	e0 68 0f 54 	mov	r8,3924
+80003a4c:	e0 68 45 d4 	mov	r8,17876
 80003a50:	b0 89       	st.b	r8[0x0],r9
 80003a52:	d8 02       	popm	pc
 
@@ -2641,7 +2641,7 @@ Disassembly of section .text:
 80003a58:	c0 41       	brne	80003a60 <file_eof+0xc>
 80003a5a:	e0 6c 00 ff 	mov	r12,255
 80003a5e:	d8 02       	popm	pc
-80003a60:	e0 68 0f 54 	mov	r8,3924
+80003a60:	e0 68 45 d4 	mov	r8,17876
 80003a64:	70 39       	ld.w	r9,r8[0xc]
 80003a66:	70 28       	ld.w	r8,r8[0x8]
 80003a68:	12 38       	cp.w	r8,r9
@@ -2655,7 +2655,7 @@ Disassembly of section .text:
 80003a74:	c0 41       	brne	80003a7c <file_bof+0xc>
 80003a76:	e0 6c 00 ff 	mov	r12,255
 80003a7a:	d8 02       	popm	pc
-80003a7c:	e0 68 0f 54 	mov	r8,3924
+80003a7c:	e0 68 45 d4 	mov	r8,17876
 80003a80:	70 38       	ld.w	r8,r8[0xc]
 80003a82:	58 08       	cp.w	r8,0
 80003a84:	5f 0c       	sreq	r12
@@ -2663,7 +2663,7 @@ Disassembly of section .text:
 
 80003a88 <file_getc>:
 80003a88:	d4 21       	pushm	r4-r7,lr
-80003a8a:	e0 67 0f 54 	mov	r7,3924
+80003a8a:	e0 67 45 d4 	mov	r7,17876
 80003a8e:	0f 88       	ld.ub	r8,r7[0x0]
 80003a90:	ed b8 00 00 	bld	r8,0x0
 80003a94:	c0 30       	breq	80003a9a <file_getc+0x12>
@@ -2674,12 +2674,12 @@ Disassembly of section .text:
 80003a9e:	10 39       	cp.w	r9,r8
 80003aa0:	e0 8b 00 06 	brhi	80003aac <file_getc+0x24>
 80003aa4:	32 09       	mov	r9,32
-80003aa6:	e0 68 11 dc 	mov	r8,4572
+80003aa6:	e0 68 48 5c 	mov	r8,18524
 80003aaa:	c0 d8       	rjmp	80003ac4 <file_getc+0x3c>
 80003aac:	30 2c       	mov	r12,2
 80003aae:	fe b0 fd 47 	rcall	8000353c <fat_read_file>
 80003ab2:	c0 b1       	brne	80003ac8 <file_getc+0x40>
-80003ab4:	e0 68 11 dc 	mov	r8,4572
+80003ab4:	e0 68 48 5c 	mov	r8,18524
 80003ab8:	31 a9       	mov	r9,26
 80003aba:	11 8a       	ld.ub	r10,r8[0x0]
 80003abc:	f2 0a 18 00 	cp.b	r10,r9
@@ -2691,7 +2691,7 @@ Disassembly of section .text:
 80003aca:	f0 c9 ff ff 	sub	r9,r8,-1
 80003ace:	f1 d8 c0 09 	bfextu	r8,r8,0x0,0x9
 80003ad2:	8f 39       	st.w	r7[0xc],r9
-80003ad4:	e0 69 0f 90 	mov	r9,3984
+80003ad4:	e0 69 46 10 	mov	r9,17936
 80003ad8:	f2 08 07 0c 	ld.ub	r12,r9[r8]
 80003adc:	d8 22       	popm	r4-r7,pc
 80003ade:	d7 03       	nop
@@ -2710,7 +2710,7 @@ Disassembly of section .text:
 80003af8:	fe b0 fa 18 	rcall	80002f28 <fat_check_nav_access_file>
 80003afc:	c2 00       	breq	80003b3c <file_open+0x5c>
 80003afe:	31 f9       	mov	r9,31
-80003b00:	e0 68 11 dc 	mov	r8,4572
+80003b00:	e0 68 48 5c 	mov	r8,18524
 80003b04:	30 0c       	mov	r12,0
 80003b06:	b0 89       	st.b	r8[0x0],r9
 80003b08:	d8 22       	popm	r4-r7,pc
@@ -2719,10 +2719,10 @@ Disassembly of section .text:
 80003b10:	c1 60       	breq	80003b3c <file_open+0x5c>
 80003b12:	ed b7 00 02 	bld	r7,0x2
 80003b16:	c0 41       	brne	80003b1e <file_open+0x3e>
-80003b18:	e0 68 0f 54 	mov	r8,3924
+80003b18:	e0 68 45 d4 	mov	r8,17876
 80003b1c:	91 26       	st.w	r8[0x8],r6
 80003b1e:	0e 99       	mov	r9,r7
-80003b20:	e0 68 0f 54 	mov	r8,3924
+80003b20:	e0 68 45 d4 	mov	r8,17876
 80003b24:	e2 19 00 08 	andl	r9,0x8,COH
 80003b28:	c0 30       	breq	80003b2e <file_open+0x4e>
 80003b2a:	30 09       	mov	r9,0
@@ -2730,7 +2730,7 @@ Disassembly of section .text:
 80003b2e:	70 29       	ld.w	r9,r8[0x8]
 80003b30:	91 39       	st.w	r8[0xc],r9
 80003b32:	30 1c       	mov	r12,1
-80003b34:	e0 68 0f 54 	mov	r8,3924
+80003b34:	e0 68 45 d4 	mov	r8,17876
 80003b38:	b0 87       	st.b	r8[0x0],r7
 80003b3a:	d8 22       	popm	r4-r7,pc
 80003b3c:	d8 2a       	popm	r4-r7,pc,r12=0
@@ -2749,7 +2749,7 @@ Disassembly of section .text:
 80003b54:	c0 30       	breq	80003b5a <nav_file_name+0x1a>
 80003b56:	58 06       	cp.w	r6,0
 80003b58:	c3 20       	breq	80003bbc <nav_file_name+0x7c>
-80003b5a:	e0 68 11 d8 	mov	r8,4568
+80003b5a:	e0 68 48 58 	mov	r8,18520
 80003b5e:	90 15       	ld.sh	r5,r8[0x2]
 80003b60:	58 05       	cp.w	r5,0
 80003b62:	c0 31       	brne	80003b68 <nav_file_name+0x28>
@@ -2759,8 +2759,8 @@ Disassembly of section .text:
 80003b6c:	30 03       	mov	r3,0
 80003b6e:	b0 19       	st.h	r8[0x2],r9
 80003b70:	30 04       	mov	r4,0
-80003b72:	e0 60 11 dd 	mov	r0,4573
-80003b76:	e0 62 11 d8 	mov	r2,4568
+80003b72:	e0 60 48 5d 	mov	r0,18525
+80003b76:	e0 62 48 58 	mov	r2,18520
 80003b7a:	c0 28       	rjmp	80003b7e <nav_file_name+0x3e>
 80003b7c:	30 13       	mov	r3,1
 80003b7e:	fe b0 fc af 	rcall	800034dc <fat_read_dir>
@@ -2778,18 +2778,18 @@ Disassembly of section .text:
 80003b9a:	0e 9c       	mov	r12,r7
 80003b9c:	fe b0 f8 e8 	rcall	80002d6c <fat_entry_longname>
 80003ba0:	c1 00       	breq	80003bc0 <nav_file_name+0x80>
-80003ba2:	e0 68 11 dd 	mov	r8,4573
+80003ba2:	e0 68 48 5d 	mov	r8,18525
 80003ba6:	11 88       	ld.ub	r8,r8[0x0]
 80003ba8:	e6 08 18 00 	cp.b	r8,r3
 80003bac:	c0 50       	breq	80003bb6 <nav_file_name+0x76>
 80003bae:	8e 08       	ld.sh	r8,r7[0x0]
 80003bb0:	f0 04 00 04 	add	r4,r8,r4
 80003bb4:	ae 04       	st.h	r7[0x0],r4
-80003bb6:	e0 68 11 d8 	mov	r8,4568
+80003bb6:	e0 68 48 58 	mov	r8,18520
 80003bba:	b0 15       	st.h	r8[0x2],r5
 80003bbc:	30 1c       	mov	r12,1
 80003bbe:	c1 e8       	rjmp	80003bfa <nav_file_name+0xba>
-80003bc0:	e0 69 11 dc 	mov	r9,4572
+80003bc0:	e0 69 48 5c 	mov	r9,18524
 80003bc4:	13 88       	ld.ub	r8,r9[0x0]
 80003bc6:	31 09       	mov	r9,16
 80003bc8:	f2 08 18 00 	cp.b	r8,r9
@@ -2825,8 +2825,8 @@ Disassembly of section .text:
 80003c06:	50 0b       	stdsp	sp[0x0],r11
 80003c08:	fe b0 fd bc 	rcall	80003780 <fat_check_mount_noopen>
 80003c0c:	e0 80 00 92 	breq	80003d30 <nav_filelist_set+0x130>
-80003c10:	e0 68 11 90 	mov	r8,4496
-80003c14:	e0 69 11 d8 	mov	r9,4568
+80003c10:	e0 68 48 10 	mov	r8,18448
+80003c14:	e0 69 48 58 	mov	r9,18520
 80003c18:	f1 0a 00 24 	ld.sh	r10,r8[36]
 80003c1c:	10 96       	mov	r6,r8
 80003c1e:	12 93       	mov	r3,r9
@@ -2838,7 +2838,7 @@ Disassembly of section .text:
 80003c2c:	50 38       	stdsp	sp[0xc],r8
 80003c2e:	3f f0       	mov	r0,-1
 80003c30:	08 95       	mov	r5,r4
-80003c32:	e0 61 11 dc 	mov	r1,4572
+80003c32:	e0 61 48 5c 	mov	r1,18524
 80003c36:	31 a2       	mov	r2,26
 80003c38:	40 09       	lddsp	r9,sp[0x0]
 80003c3a:	58 09       	cp.w	r9,0
@@ -2857,7 +2857,7 @@ Disassembly of section .text:
 80003c56:	e0 08 19 00 	cp.h	r8,r0
 80003c5a:	c0 61       	brne	80003c66 <nav_filelist_set+0x66>
 80003c5c:	30 99       	mov	r9,9
-80003c5e:	e0 68 11 dc 	mov	r8,4572
+80003c5e:	e0 68 48 5c 	mov	r8,18524
 80003c62:	b0 89       	st.b	r8[0x0],r9
 80003c64:	c5 78       	rjmp	80003d12 <nav_filelist_set+0x112>
 80003c66:	58 08       	cp.w	r8,0
@@ -2925,7 +2925,7 @@ Disassembly of section .text:
 80003d0a:	ed 68 00 2c 	st.b	r6[44],r8
 80003d0e:	a6 10       	st.h	r3[0x2],r0
 80003d10:	c9 4b       	rjmp	80003c38 <nav_filelist_set+0x38>
-80003d12:	e0 68 11 90 	mov	r8,4496
+80003d12:	e0 68 48 10 	mov	r8,18448
 80003d16:	40 39       	lddsp	r9,sp[0xc]
 80003d18:	58 09       	cp.w	r9,0
 80003d1a:	5f 19       	srne	r9
@@ -2933,7 +2933,7 @@ Disassembly of section .text:
 80003d1e:	f1 69 00 2c 	st.b	r8[44],r9
 80003d22:	f1 5a 00 24 	st.h	r8[36],r10
 80003d26:	40 29       	lddsp	r9,sp[0x8]
-80003d28:	e0 68 11 d8 	mov	r8,4568
+80003d28:	e0 68 48 58 	mov	r8,18520
 80003d2c:	30 0c       	mov	r12,0
 80003d2e:	b0 19       	st.h	r8[0x2],r9
 80003d30:	2f cd       	sub	sp,-16
@@ -2969,19 +2969,19 @@ Disassembly of section .text:
 80003d64:	d4 21       	pushm	r4-r7,lr
 80003d66:	fe b0 fd 0d 	rcall	80003780 <fat_check_mount_noopen>
 80003d6a:	c3 30       	breq	80003dd0 <nav_dir_gotoparent+0x6c>
-80003d6c:	e0 67 11 90 	mov	r7,4496
+80003d6c:	e0 67 48 10 	mov	r7,18448
 80003d70:	6e 8c       	ld.w	r12,r7[0x20]
 80003d72:	58 0c       	cp.w	r12,0
 80003d74:	c0 31       	brne	80003d7a <nav_dir_gotoparent+0x16>
 80003d76:	31 99       	mov	r9,25
 80003d78:	c2 88       	rjmp	80003dc8 <nav_dir_gotoparent+0x64>
 80003d7a:	30 19       	mov	r9,1
-80003d7c:	e0 68 11 d8 	mov	r8,4568
+80003d7c:	e0 68 48 58 	mov	r8,18520
 80003d80:	b0 19       	st.h	r8[0x2],r9
 80003d82:	fe b0 fb ad 	rcall	800034dc <fat_read_dir>
 80003d86:	c2 50       	breq	80003dd0 <nav_dir_gotoparent+0x6c>
 80003d88:	fe b0 f7 2a 	rcall	80002bdc <fat_get_entry_info>
-80003d8c:	e0 68 0f 54 	mov	r8,3924
+80003d8c:	e0 68 45 d4 	mov	r8,17876
 80003d90:	70 18       	ld.w	r8,r8[0x4]
 80003d92:	6e 86       	ld.w	r6,r7[0x20]
 80003d94:	8f 88       	st.w	r7[0x20],r8
@@ -2999,13 +2999,13 @@ Disassembly of section .text:
 80003db4:	0c 38       	cp.w	r8,r6
 80003db6:	c0 41       	brne	80003dbe <nav_dir_gotoparent+0x5a>
 80003db8:	c0 d8       	rjmp	80003dd2 <nav_dir_gotoparent+0x6e>
-80003dba:	e0 67 0f 54 	mov	r7,3924
+80003dba:	e0 67 45 d4 	mov	r7,17876
 80003dbe:	30 1b       	mov	r11,1
 80003dc0:	30 0c       	mov	r12,0
 80003dc2:	c1 ff       	rcall	80003c00 <nav_filelist_set>
 80003dc4:	cf 71       	brne	80003db2 <nav_dir_gotoparent+0x4e>
 80003dc6:	30 89       	mov	r9,8
-80003dc8:	e0 68 11 dc 	mov	r8,4572
+80003dc8:	e0 68 48 5c 	mov	r8,18524
 80003dcc:	b0 89       	st.b	r8[0x0],r9
 80003dce:	d8 22       	popm	r4-r7,pc
 80003dd0:	d8 2a       	popm	r4-r7,pc,r12=0
@@ -3017,11 +3017,11 @@ Disassembly of section .text:
 80003dda:	c1 10       	breq	80003dfc <nav_dir_cd+0x28>
 80003ddc:	fe b0 f7 2a 	rcall	80002c30 <fat_entry_is_dir>
 80003de0:	c0 e0       	breq	80003dfc <nav_dir_cd+0x28>
-80003de2:	e0 69 11 d8 	mov	r9,4568
+80003de2:	e0 69 48 58 	mov	r9,18520
 80003de6:	92 19       	ld.sh	r9,r9[0x2]
-80003de8:	e0 68 11 90 	mov	r8,4496
+80003de8:	e0 68 48 10 	mov	r8,18448
 80003dec:	f1 59 00 1c 	st.h	r8[28],r9
-80003df0:	e0 69 0f 54 	mov	r9,3924
+80003df0:	e0 69 45 d4 	mov	r9,17876
 80003df4:	72 19       	ld.w	r9,r9[0x4]
 80003df6:	91 89       	st.w	r8[0x20],r9
 80003df8:	ca ef       	rcall	80003d54 <nav_filelist_reset>
@@ -3033,13 +3033,13 @@ Disassembly of section .text:
 80003e00:	d4 01       	pushm	lr
 80003e02:	fe b0 fc 51 	rcall	800036a4 <fat_check_noopen>
 80003e06:	c1 10       	breq	80003e28 <nav_partition_mount+0x28>
-80003e08:	e0 68 11 d8 	mov	r8,4568
+80003e08:	e0 68 48 58 	mov	r8,18520
 80003e0c:	11 89       	ld.ub	r9,r8[0x0]
 80003e0e:	30 08       	mov	r8,0
 80003e10:	f0 09 18 00 	cp.b	r9,r8
 80003e14:	c0 80       	breq	80003e24 <nav_partition_mount+0x24>
 80003e16:	30 09       	mov	r9,0
-80003e18:	e0 68 11 90 	mov	r8,4496
+80003e18:	e0 68 48 10 	mov	r8,18448
 80003e1c:	91 89       	st.w	r8[0x20],r9
 80003e1e:	fe b0 f7 13 	rcall	80002c44 <fat_clear_entry_info_and_ptr>
 80003e22:	da 0a       	popm	pc,r12=1
@@ -3056,18 +3056,18 @@ Disassembly of section .text:
 80003e3a:	f8 07 18 00 	cp.b	r7,r12
 80003e3e:	c0 73       	brcs	80003e4c <nav_drive_set+0x20>
 80003e40:	30 69       	mov	r9,6
-80003e42:	e0 68 11 dc 	mov	r8,4572
+80003e42:	e0 68 48 5c 	mov	r8,18524
 80003e46:	30 0c       	mov	r12,0
 80003e48:	b0 89       	st.b	r8[0x0],r9
 80003e4a:	d8 22       	popm	r4-r7,pc
-80003e4c:	e0 68 11 90 	mov	r8,4496
+80003e4c:	e0 68 48 10 	mov	r8,18448
 80003e50:	11 89       	ld.ub	r9,r8[0x0]
 80003e52:	ee 09 18 00 	cp.b	r9,r7
 80003e56:	c0 21       	brne	80003e5a <nav_drive_set+0x2e>
 80003e58:	da 2a       	popm	r4-r7,pc,r12=1
 80003e5a:	b0 87       	st.b	r8[0x0],r7
 80003e5c:	30 09       	mov	r9,0
-80003e5e:	e0 68 11 d8 	mov	r8,4568
+80003e5e:	e0 68 48 58 	mov	r8,18520
 80003e62:	30 1c       	mov	r12,1
 80003e64:	b0 89       	st.b	r8[0x0],r9
 80003e66:	d8 22       	popm	r4-r7,pc
@@ -3081,7 +3081,7 @@ Disassembly of section .text:
 80003e72:	cc 7f       	rcall	80003e00 <nav_partition_mount>
 80003e74:	c1 80       	breq	80003ea4 <nav_gotoindex+0x3c>
 80003e76:	6e 19       	ld.w	r9,r7[0x4]
-80003e78:	e0 68 11 90 	mov	r8,4496
+80003e78:	e0 68 48 10 	mov	r8,18448
 80003e7c:	91 89       	st.w	r8[0x20],r9
 80003e7e:	c6 bf       	rcall	80003d54 <nav_filelist_reset>
 80003e80:	c0 a1       	brne	80003e94 <nav_gotoindex+0x2c>
@@ -3094,7 +3094,7 @@ Disassembly of section .text:
 80003e8e:	c6 3f       	rcall	80003d54 <nav_filelist_reset>
 80003e90:	0a 9c       	mov	r12,r5
 80003e92:	d8 22       	popm	r4-r7,pc
-80003e94:	e0 66 11 d8 	mov	r6,4568
+80003e94:	e0 66 48 58 	mov	r6,18520
 80003e98:	8c 19       	ld.sh	r9,r6[0x2]
 80003e9a:	8e 48       	ld.sh	r8,r7[0x8]
 80003e9c:	f0 09 19 00 	cp.h	r9,r8
@@ -3111,12 +3111,12 @@ Disassembly of section .text:
 80003eb0:	14 92       	mov	r2,r10
 80003eb2:	fe b0 fb f9 	rcall	800036a4 <fat_check_noopen>
 80003eb6:	e0 80 00 b8 	breq	80004026 <nav_setcwd+0x17e>
-80003eba:	e0 6b 11 90 	mov	r11,4496
+80003eba:	e0 6b 48 10 	mov	r11,18448
 80003ebe:	76 88       	ld.w	r8,r11[0x20]
 80003ec0:	17 8b       	ld.ub	r11,r11[0x0]
 80003ec2:	50 48       	stdsp	sp[0x10],r8
 80003ec4:	fb 6b 00 0c 	st.b	sp[12],r11
-80003ec8:	e0 6b 11 d8 	mov	r11,4568
+80003ec8:	e0 6b 48 58 	mov	r11,18520
 80003ecc:	96 1b       	ld.sh	r11,r11[0x2]
 80003ece:	fb 5b 00 14 	st.h	sp[20],r11
 80003ed2:	fa c9 ff e8 	sub	r9,sp,-24
@@ -3265,11 +3265,11 @@ Disassembly of section .text:
 80004032:	f0 0c 18 00 	cp.b	r12,r8
 80004036:	e0 88 00 08 	brls	80004046 <nav_select+0x1a>
 8000403a:	32 79       	mov	r9,39
-8000403c:	e0 68 11 dc 	mov	r8,4572
+8000403c:	e0 68 48 5c 	mov	r8,18524
 80004040:	30 0c       	mov	r12,0
 80004042:	b0 89       	st.b	r8[0x0],r9
 80004044:	d8 22       	popm	r4-r7,pc
-80004046:	e0 66 12 3c 	mov	r6,4668
+80004046:	e0 66 48 bc 	mov	r6,18620
 8000404a:	0d 8c       	ld.ub	r12,r6[0x0]
 8000404c:	ee 0c 18 00 	cp.b	r12,r7
 80004050:	c0 21       	brne	80004054 <nav_select+0x28>
@@ -3283,26 +3283,26 @@ Disassembly of section .text:
 
 80004064 <nav_reset>:
 80004064:	d4 31       	pushm	r0-r7,lr
-80004066:	e0 68 11 dd 	mov	r8,4573
+80004066:	e0 68 48 5d 	mov	r8,18525
 8000406a:	30 07       	mov	r7,0
 8000406c:	b0 87       	st.b	r8[0x0],r7
-8000406e:	e0 68 0f 66 	mov	r8,3942
+8000406e:	e0 68 45 e6 	mov	r8,17894
 80004072:	b0 87       	st.b	r8[0x0],r7
 80004074:	fe b0 f7 50 	rcall	80002f14 <fat_cache_reset>
 80004078:	fe b0 f4 82 	rcall	8000297c <fat_cache_clusterlist_reset>
 8000407c:	30 0c       	mov	r12,0
 8000407e:	cd 7f       	rcall	8000402c <nav_select>
-80004080:	e0 66 11 90 	mov	r6,4496
-80004084:	e0 63 11 d8 	mov	r3,4568
+80004080:	e0 66 48 10 	mov	r6,18448
+80004084:	e0 63 48 58 	mov	r3,18520
 80004088:	3f f4       	mov	r4,-1
-8000408a:	e0 65 0f 54 	mov	r5,3924
+8000408a:	e0 65 45 d4 	mov	r5,17876
 8000408e:	ed 67 00 2d 	st.b	r6[45],r7
 80004092:	a6 87       	st.b	r3[0x0],r7
 80004094:	ac 84       	st.b	r6[0x0],r4
 80004096:	aa 87       	st.b	r5[0x0],r7
 80004098:	30 1c       	mov	r12,1
 8000409a:	cc 9f       	rcall	8000402c <nav_select>
-8000409c:	e0 68 12 3c 	mov	r8,4668
+8000409c:	e0 68 48 bc 	mov	r8,18620
 800040a0:	a6 87       	st.b	r3[0x0],r7
 800040a2:	ac 84       	st.b	r6[0x0],r4
 800040a4:	aa 87       	st.b	r5[0x0],r7
@@ -3547,7 +3547,7 @@ Disassembly of section .text:
 800042b6:	c0 31       	brne	800042bc <sd_mmc_spi_read_capacity+0x28>
 800042b8:	30 2c       	mov	r12,2
 800042ba:	d8 22       	popm	r4-r7,pc
-800042bc:	e0 68 0f 34 	mov	r8,3892
+800042bc:	e0 68 45 b4 	mov	r8,17844
 800042c0:	30 0c       	mov	r12,0
 800042c2:	70 08       	ld.w	r8,r8[0x0]
 800042c4:	2f f8       	sub	r8,-1
@@ -4120,7 +4120,7 @@ Disassembly of section .text:
 80004832:	d7 03       	nop
 
 80004834 <udd_set_setup_payload>:
-80004834:	e0 68 12 40 	mov	r8,4672
+80004834:	e0 68 48 c0 	mov	r8,18624
 80004838:	b0 6b       	st.h	r8[0xc],r11
 8000483a:	91 2c       	st.w	r8[0x8],r12
 8000483c:	5e fc       	retal	r12
@@ -4568,7 +4568,7 @@ Disassembly of section .text:
 80004cfa:	c1 80       	breq	80004d2a <udd_sleep_mode+0x3e>
 80004cfc:	e1 b9 00 00 	mfsr	r9,0x0
 80004d00:	d3 03       	ssrf	0x10
-80004d02:	e0 68 12 58 	mov	r8,4696
+80004d02:	e0 68 48 d8 	mov	r8,18648
 80004d06:	11 9a       	ld.ub	r10,r8[0x1]
 80004d08:	20 1a       	sub	r10,1
 80004d0a:	c0 d8       	rjmp	80004d24 <udd_sleep_mode+0x38>
@@ -4578,7 +4578,7 @@ Disassembly of section .text:
 80004d14:	c0 b1       	brne	80004d2a <udd_sleep_mode+0x3e>
 80004d16:	e1 b9 00 00 	mfsr	r9,0x0
 80004d1a:	d3 03       	ssrf	0x10
-80004d1c:	e0 68 12 58 	mov	r8,4696
+80004d1c:	e0 68 48 d8 	mov	r8,18648
 80004d20:	11 9a       	ld.ub	r10,r8[0x1]
 80004d22:	2f fa       	sub	r10,-1
 80004d24:	b0 9a       	st.b	r8[0x1],r10
@@ -4677,7 +4677,7 @@ Disassembly of section .text:
 80004df6:	93 0a       	st.w	r9[0x0],r10
 80004df8:	e3 b8 00 00 	mtsr	0x0,r8
 80004dfc:	e0 68 04 6c 	mov	r8,1132
-80004e00:	e0 66 12 40 	mov	r6,4672
+80004e00:	e0 66 48 c0 	mov	r6,18624
 80004e04:	70 08       	ld.w	r8,r8[0x0]
 80004e06:	58 38       	cp.w	r8,3
 80004e08:	c1 c1       	brne	80004e40 <udd_ctrl_in_sent+0x58>
@@ -4691,7 +4691,7 @@ Disassembly of section .text:
 80004e1a:	fe 69 02 20 	mov	r9,-130528
 80004e1e:	93 0a       	st.w	r9[0x0],r10
 80004e20:	e3 b8 00 00 	mtsr	0x0,r8
-80004e24:	e0 69 12 40 	mov	r9,4672
+80004e24:	e0 69 48 c0 	mov	r9,18624
 80004e28:	30 08       	mov	r8,0
 80004e2a:	b2 68       	st.h	r9[0xc],r8
 80004e2c:	93 48       	st.w	r9[0x10],r8
@@ -4748,7 +4748,7 @@ Disassembly of section .text:
 80004eb0:	30 19       	mov	r9,1
 80004eb2:	e0 68 04 68 	mov	r8,1128
 80004eb6:	b0 89       	st.b	r8[0x0],r9
-80004eb8:	e0 68 12 40 	mov	r8,4672
+80004eb8:	e0 68 48 c0 	mov	r8,18624
 80004ebc:	70 2b       	ld.w	r11,r8[0x8]
 80004ebe:	e0 68 04 6a 	mov	r8,1130
 80004ec2:	90 0a       	ld.sh	r10,r8[0x0]
@@ -4987,7 +4987,7 @@ Disassembly of section .text:
 80005148:	b0 89       	st.b	r8[0x0],r9
 8000514a:	e1 b9 00 00 	mfsr	r9,0x0
 8000514e:	d3 03       	ssrf	0x10
-80005150:	e0 68 12 58 	mov	r8,4696
+80005150:	e0 68 48 d8 	mov	r8,18648
 80005154:	11 ba       	ld.ub	r10,r8[0x3]
 80005156:	2f fa       	sub	r10,-1
 80005158:	b0 ba       	st.b	r8[0x3],r10
@@ -5009,7 +5009,7 @@ Disassembly of section .text:
 80005182:	f1 d8 c1 82 	bfextu	r8,r8,0xc,0x2
 80005186:	c0 31       	brne	8000518c <udd_interrupt+0x28>
 80005188:	e0 a0 09 38 	rcall	800063f8 <udc_sof_notify>
-8000518c:	e0 a0 0c ac 	rcall	80006ae4 <main_sof_action>
+8000518c:	e0 a0 0c b6 	rcall	80006af8 <main_sof_action>
 80005190:	e0 8f 02 ea 	bral	80005764 <udd_interrupt+0x600>
 80005194:	72 08       	ld.w	r8,r9[0x0]
 80005196:	ed b8 00 01 	bld	r8,0x1
@@ -5036,7 +5036,7 @@ Disassembly of section .text:
 800051d8:	70 08       	ld.w	r8,r8[0x0]
 800051da:	58 08       	cp.w	r8,0
 800051dc:	c1 d0       	breq	80005216 <udd_interrupt+0xb2>
-800051de:	e0 68 12 40 	mov	r8,4672
+800051de:	e0 68 48 c0 	mov	r8,18624
 800051e2:	70 48       	ld.w	r8,r8[0x10]
 800051e4:	58 08       	cp.w	r8,0
 800051e6:	c0 20       	breq	800051ea <udd_interrupt+0x86>
@@ -5047,7 +5047,7 @@ Disassembly of section .text:
 800051f2:	fe 69 02 20 	mov	r9,-130528
 800051f6:	93 0a       	st.w	r9[0x0],r10
 800051f8:	e3 b8 00 00 	mtsr	0x0,r8
-800051fc:	e0 69 12 40 	mov	r9,4672
+800051fc:	e0 69 48 c0 	mov	r9,18624
 80005200:	30 08       	mov	r8,0
 80005202:	b2 68       	st.h	r9[0xc],r8
 80005204:	93 48       	st.w	r9[0x10],r8
@@ -5064,13 +5064,13 @@ Disassembly of section .text:
 80005222:	c2 a1       	brne	80005276 <udd_interrupt+0x112>
 80005224:	30 08       	mov	r8,0
 80005226:	ea 18 d0 00 	orh	r8,0xd000
-8000522a:	e0 6a 12 40 	mov	r10,4672
+8000522a:	e0 6a 48 c0 	mov	r10,18624
 8000522e:	30 09       	mov	r9,0
 80005230:	ea 19 30 00 	orh	r9,0x3000
 80005234:	f0 0a 00 0b 	add	r11,r8,r10
 80005238:	11 3c       	ld.ub	r12,r8++
 8000523a:	f6 09 0b 0c 	st.b	r11[r9],r12
-8000523e:	e0 67 12 40 	mov	r7,4672
+8000523e:	e0 67 48 c0 	mov	r7,18624
 80005242:	30 8b       	mov	r11,8
 80005244:	ea 1b d0 00 	orh	r11,0xd000
 80005248:	16 38       	cp.w	r8,r11
@@ -5159,7 +5159,7 @@ Disassembly of section .text:
 8000532e:	5f 09       	sreq	r9
 80005330:	f3 e8 10 08 	or	r8,r9,r8
 80005334:	c0 80       	breq	80005344 <udd_interrupt+0x1e0>
-80005336:	e0 68 12 40 	mov	r8,4672
+80005336:	e0 68 48 c0 	mov	r8,18624
 8000533a:	70 48       	ld.w	r8,r8[0x10]
 8000533c:	58 08       	cp.w	r8,0
 8000533e:	c0 a0       	breq	80005352 <udd_interrupt+0x1ee>
@@ -5177,13 +5177,13 @@ Disassembly of section .text:
 8000535e:	93 0a       	st.w	r9[0x0],r10
 80005360:	e3 b8 00 00 	mtsr	0x0,r8
 80005364:	30 08       	mov	r8,0
-80005366:	e0 69 12 40 	mov	r9,4672
+80005366:	e0 69 48 c0 	mov	r9,18624
 8000536a:	30 2a       	mov	r10,2
 8000536c:	b2 68       	st.h	r9[0xc],r8
 8000536e:	93 48       	st.w	r9[0x10],r8
 80005370:	93 58       	st.w	r9[0x14],r8
 80005372:	e0 8f 01 97 	bral	800056a0 <udd_interrupt+0x53c>
-80005376:	e0 69 12 40 	mov	r9,4672
+80005376:	e0 69 48 c0 	mov	r9,18624
 8000537a:	70 08       	ld.w	r8,r8[0x0]
 8000537c:	92 6a       	ld.sh	r10,r9[0xc]
 8000537e:	f1 d8 c2 8b 	bfextu	r8,r8,0x14,0xb
@@ -5197,7 +5197,7 @@ Disassembly of section .text:
 80005398:	f4 09 01 08 	sub	r8,r10,r9
 8000539c:	5c 88       	casts.h	r8
 8000539e:	5c 79       	castu.h	r9
-800053a0:	e0 6a 12 40 	mov	r10,4672
+800053a0:	e0 6a 48 c0 	mov	r10,18624
 800053a4:	74 2a       	ld.w	r10,r10[0x8]
 800053a6:	12 0a       	add	r10,r9
 800053a8:	30 09       	mov	r9,0
@@ -5216,7 +5216,7 @@ Disassembly of section .text:
 800053ca:	34 0a       	mov	r10,64
 800053cc:	f4 08 19 00 	cp.h	r8,r10
 800053d0:	c0 e1       	brne	800053ec <udd_interrupt+0x288>
-800053d2:	e0 68 12 40 	mov	r8,4672
+800053d2:	e0 68 48 c0 	mov	r8,18624
 800053d6:	f9 d9 c0 10 	bfextu	r12,r9,0x0,0x10
 800053da:	e0 66 04 28 	mov	r6,1064
 800053de:	90 bb       	ld.uh	r11,r8[0x6]
@@ -5224,7 +5224,7 @@ Disassembly of section .text:
 800053e2:	f8 0a 00 0a 	add	r10,r12,r10
 800053e6:	14 3b       	cp.w	r11,r10
 800053e8:	e0 89 00 1e 	brgt	80005424 <udd_interrupt+0x2c0>
-800053ec:	e0 68 12 40 	mov	r8,4672
+800053ec:	e0 68 48 c0 	mov	r8,18624
 800053f0:	b0 69       	st.h	r8[0xc],r9
 800053f2:	70 5c       	ld.w	r12,r8[0x14]
 800053f4:	58 0c       	cp.w	r12,0
@@ -5474,7 +5474,7 @@ Disassembly of section .text:
 8000568e:	93 0b       	st.w	r9[0x0],r11
 80005690:	e3 b8 00 00 	mtsr	0x0,r8
 80005694:	30 08       	mov	r8,0
-80005696:	e0 69 12 40 	mov	r9,4672
+80005696:	e0 69 48 c0 	mov	r9,18624
 8000569a:	b2 68       	st.h	r9[0xc],r8
 8000569c:	93 48       	st.w	r9[0x10],r8
 8000569e:	93 58       	st.w	r9[0x14],r8
@@ -5504,7 +5504,7 @@ Disassembly of section .text:
 800056de:	af a9       	sbr	r9,0xe
 800056e0:	91 09       	st.w	r8[0x0],r9
 800056e2:	fe b0 fb 05 	rcall	80004cec <udd_sleep_mode>
-800056e6:	e0 a0 0a 11 	rcall	80006b08 <main_suspend_action>
+800056e6:	e0 a0 0a 1b 	rcall	80006b1c <main_suspend_action>
 800056ea:	c3 d8       	rjmp	80005764 <udd_interrupt+0x600>
 800056ec:	fe 68 00 10 	mov	r8,-131056
 800056f0:	70 08       	ld.w	r8,r8[0x0]
@@ -5530,7 +5530,7 @@ Disassembly of section .text:
 80005726:	fe 69 00 18 	mov	r9,-131048
 8000572a:	93 08       	st.w	r9[0x0],r8
 8000572c:	fe b0 fa e0 	rcall	80004cec <udd_sleep_mode>
-80005730:	e0 a0 09 e8 	rcall	80006b00 <main_resume_action>
+80005730:	e0 a0 09 f2 	rcall	80006b14 <main_resume_action>
 80005734:	c1 88       	rjmp	80005764 <udd_interrupt+0x600>
 80005736:	fe 6a 08 04 	mov	r10,-129020
 8000573a:	74 08       	ld.w	r8,r10[0x0]
@@ -5548,7 +5548,7 @@ Disassembly of section .text:
 80005758:	91 09       	st.w	r8[0x0],r9
 8000575a:	74 0c       	ld.w	r12,r10[0x0]
 8000575c:	f9 dc c1 61 	bfextu	r12,r12,0xb,0x1
-80005760:	e0 a0 09 d8 	rcall	80006b10 <main_vbus_action>
+80005760:	e0 a0 09 e2 	rcall	80006b24 <main_vbus_action>
 80005764:	fe 68 00 00 	mov	r8,-131072
 80005768:	f0 f8 08 18 	ld.w	r8,r8[2072]
 8000576c:	e3 cd 40 fe 	ldm	sp++,r1-r7,lr
@@ -5569,7 +5569,7 @@ Disassembly of section .text:
 80005794:	e0 61 01 68 	mov	r1,360
 80005798:	02 30       	cp.w	r0,r1
 8000579a:	c0 72       	brcc	800057a8 <idata_load_loop_end>
-8000579c:	fe c2 e3 1c 	sub	r2,pc,-7396
+8000579c:	fe c2 e3 2c 	sub	r2,pc,-7380
 
 800057a0 <idata_load_loop>:
 800057a0:	a5 05       	ld.d	r4,r2++
@@ -5579,7 +5579,7 @@ Disassembly of section .text:
 
 800057a8 <idata_load_loop_end>:
 800057a8:	e0 60 01 68 	mov	r0,360
-800057ac:	e0 61 14 60 	mov	r1,5216
+800057ac:	e0 61 4a e0 	mov	r1,19168
 800057b0:	02 30       	cp.w	r0,r1
 800057b2:	c0 62       	brcc	800057be <udata_clear_loop_end>
 800057b4:	30 02       	mov	r2,0
@@ -5591,7 +5591,7 @@ Disassembly of section .text:
 800057bc:	cf e3       	brcs	800057b8 <udata_clear_loop>
 
 800057be <udata_clear_loop_end>:
-800057be:	fe cf ec 9a 	sub	pc,pc,-4966
+800057be:	fe cf ec 86 	sub	pc,pc,-4986
 800057c2:	d7 03       	nop
 
 800057c4 <sysclk_priv_enable_module>:
@@ -5849,7 +5849,7 @@ Disassembly of section .text:
 800059ee:	d7 03       	nop
 
 800059f0 <udi_hid_kbd_setreport>:
-800059f0:	e0 68 12 40 	mov	r8,4672
+800059f0:	e0 68 48 c0 	mov	r8,18624
 800059f4:	30 2a       	mov	r10,2
 800059f6:	90 99       	ld.uh	r9,r8[0x2]
 800059f8:	f2 0b 16 08 	lsr	r11,r9,0x8
@@ -6054,7 +6054,7 @@ Disassembly of section .text:
 
 80005be4 <udi_hid_setup>:
 80005be4:	d4 21       	pushm	r4-r7,lr
-80005be6:	e0 66 12 40 	mov	r6,4672
+80005be6:	e0 66 48 c0 	mov	r6,18624
 80005bea:	14 97       	mov	r7,r10
 80005bec:	30 0e       	mov	lr,0
 80005bee:	0d 8a       	ld.ub	r10,r6[0x0]
@@ -6145,7 +6145,7 @@ Disassembly of section .text:
 80005cbe:	d7 03       	nop
 
 80005cc0 <udi_msc_trans_ack>:
-80005cc0:	e0 68 12 5f 	mov	r8,4703
+80005cc0:	e0 68 48 df 	mov	r8,18655
 80005cc4:	58 0c       	cp.w	r12,0
 80005cc6:	5f 19       	srne	r9
 80005cc8:	b0 89       	st.b	r8[0x0],r9
@@ -6184,7 +6184,7 @@ Disassembly of section .text:
 80005d16:	0f 88       	ld.ub	r8,r7[0x0]
 80005d18:	58 08       	cp.w	r8,0
 80005d1a:	cf e0       	breq	80005d16 <udi_msc_trans_block+0x42>
-80005d1c:	e0 68 12 5f 	mov	r8,4703
+80005d1c:	e0 68 48 df 	mov	r8,18655
 80005d20:	11 89       	ld.ub	r9,r8[0x0]
 80005d22:	58 09       	cp.w	r9,0
 80005d24:	c0 e1       	brne	80005d40 <udi_msc_trans_block+0x6c>
@@ -6207,7 +6207,7 @@ Disassembly of section .text:
 80005d4a:	31 2a       	mov	r10,18
 80005d4c:	30 0b       	mov	r11,0
 80005d4e:	0e 9c       	mov	r12,r7
-80005d50:	e0 a0 08 5a 	rcall	80006e04 <memset>
+80005d50:	e0 a0 08 68 	rcall	80006e20 <memset>
 80005d54:	3f 08       	mov	r8,-16
 80005d56:	ae 88       	st.b	r7[0x0],r8
 80005d58:	30 a8       	mov	r8,10
@@ -6323,7 +6323,7 @@ Disassembly of section .text:
 
 80005e60 <udi_msc_setup>:
 80005e60:	d4 01       	pushm	lr
-80005e62:	e0 68 12 40 	mov	r8,4672
+80005e62:	e0 68 48 c0 	mov	r8,18624
 80005e66:	30 0b       	mov	r11,0
 80005e68:	11 8a       	ld.ub	r10,r8[0x0]
 80005e6a:	14 99       	mov	r9,r10
@@ -6411,7 +6411,7 @@ Disassembly of section .text:
 80005f32:	31 2a       	mov	r10,18
 80005f34:	30 0b       	mov	r11,0
 80005f36:	0e 9c       	mov	r12,r7
-80005f38:	e0 a0 07 66 	rcall	80006e04 <memset>
+80005f38:	e0 a0 07 74 	rcall	80006e20 <memset>
 80005f3c:	3f 08       	mov	r8,-16
 80005f3e:	ae 88       	st.b	r7[0x0],r8
 80005f40:	30 a8       	mov	r8,10
@@ -6468,7 +6468,7 @@ Disassembly of section .text:
 80005fb8:	31 4a       	mov	r10,20
 80005fba:	30 0b       	mov	r11,0
 80005fbc:	0e 9c       	mov	r12,r7
-80005fbe:	e0 a0 07 23 	rcall	80006e04 <memset>
+80005fbe:	e0 a0 07 31 	rcall	80006e20 <memset>
 80005fc2:	e0 68 04 94 	mov	r8,1172
 80005fc6:	58 06       	cp.w	r6,0
 80005fc8:	c0 60       	breq	80005fd4 <udi_msc_spc_mode_sense+0x24>
@@ -6673,7 +6673,7 @@ Disassembly of section .text:
 8000620c:	2f 06       	sub	r6,-16
 8000620e:	31 0a       	mov	r10,16
 80006210:	0c 9c       	mov	r12,r6
-80006212:	e0 a0 05 55 	rcall	80006cbc <memcpy>
+80006212:	e0 a0 05 63 	rcall	80006cd8 <memcpy>
 80006216:	30 08       	mov	r8,0
 80006218:	32 2c       	mov	r12,34
 8000621a:	10 99       	mov	r9,r8
@@ -6889,7 +6889,7 @@ Disassembly of section .text:
 
 80006434 <udc_valid_address>:
 80006434:	d4 01       	pushm	lr
-80006436:	e0 68 12 40 	mov	r8,4672
+80006436:	e0 68 48 c0 	mov	r8,18624
 8000643a:	11 bc       	ld.ub	r12,r8[0x3]
 8000643c:	f9 dc c0 07 	bfextu	r12,r12,0x0,0x7
 80006440:	fe b0 f1 dc 	rcall	800047f8 <udd_set_address>
@@ -7031,7 +7031,7 @@ Disassembly of section .text:
 
 80006588 <udc_process_setup>:
 80006588:	d4 21       	pushm	r4-r7,lr
-8000658a:	e0 68 12 40 	mov	r8,4672
+8000658a:	e0 68 48 c0 	mov	r8,18624
 8000658e:	30 0a       	mov	r10,0
 80006590:	30 09       	mov	r9,0
 80006592:	91 5a       	st.w	r8[0x14],r10
@@ -7049,7 +7049,7 @@ Disassembly of section .text:
 800065b4:	16 98       	mov	r8,r11
 800065b6:	f6 06 18 00 	cp.b	r6,r11
 800065ba:	e0 84 00 d9 	brge	8000676c <udc_process_setup+0x1e4>
-800065be:	e0 67 12 40 	mov	r7,4672
+800065be:	e0 67 48 c0 	mov	r7,18624
 800065c2:	8e 39       	ld.sh	r9,r7[0x6]
 800065c4:	58 09       	cp.w	r9,0
 800065c6:	e0 80 01 77 	breq	800068b4 <udc_process_setup+0x32c>
@@ -7137,7 +7137,7 @@ Disassembly of section .text:
 800066ae:	10 9b       	mov	r11,r8
 800066b0:	b8 88       	st.b	r12[0x0],r8
 800066b2:	fe b0 f0 c1 	rcall	80004834 <udd_set_setup_payload>
-800066b6:	e0 68 12 40 	mov	r8,4672
+800066b6:	e0 68 48 c0 	mov	r8,18624
 800066ba:	90 39       	ld.sh	r9,r8[0x6]
 800066bc:	90 6a       	ld.sh	r10,r8[0xc]
 800066be:	f2 0a 19 00 	cp.h	r10,r9
@@ -7201,7 +7201,7 @@ Disassembly of section .text:
 8000676a:	ce 4b       	rjmp	80006732 <udc_process_setup+0x1aa>
 8000676c:	ef d6 c0 05 	bfextu	r7,r6,0x0,0x5
 80006770:	c5 a1       	brne	80006824 <udc_process_setup+0x29c>
-80006772:	e0 66 12 40 	mov	r6,4672
+80006772:	e0 66 48 c0 	mov	r6,18624
 80006776:	30 59       	mov	r9,5
 80006778:	0d 98       	ld.ub	r8,r6[0x1]
 8000677a:	f2 08 18 00 	cp.b	r8,r9
@@ -7270,7 +7270,7 @@ Disassembly of section .text:
 80006822:	c7 48       	rjmp	8000690a <udc_process_setup+0x382>
 80006824:	58 17       	cp.w	r7,1
 80006826:	c1 d1       	brne	80006860 <udc_process_setup+0x2d8>
-80006828:	e0 69 12 40 	mov	r9,4672
+80006828:	e0 69 48 c0 	mov	r9,18624
 8000682c:	30 ba       	mov	r10,11
 8000682e:	13 9c       	ld.ub	r12,r9[0x1]
 80006830:	f4 0c 18 00 	cp.b	r12,r10
@@ -7293,7 +7293,7 @@ Disassembly of section .text:
 8000685e:	c2 98       	rjmp	800068b0 <udc_process_setup+0x328>
 80006860:	58 27       	cp.w	r7,2
 80006862:	c2 91       	brne	800068b4 <udc_process_setup+0x32c>
-80006864:	e0 67 12 40 	mov	r7,4672
+80006864:	e0 67 48 c0 	mov	r7,18624
 80006868:	30 19       	mov	r9,1
 8000686a:	0f 98       	ld.ub	r8,r7[0x1]
 8000686c:	f2 08 18 00 	cp.b	r8,r9
@@ -7323,7 +7323,7 @@ Disassembly of section .text:
 800068ac:	fe b0 ef d4 	rcall	80004854 <udd_ep_set_halt>
 800068b0:	58 0c       	cp.w	r12,0
 800068b2:	c2 c1       	brne	8000690a <udc_process_setup+0x382>
-800068b4:	e0 68 12 40 	mov	r8,4672
+800068b4:	e0 68 48 c0 	mov	r8,18624
 800068b8:	11 89       	ld.ub	r9,r8[0x0]
 800068ba:	f3 d9 c0 05 	bfextu	r9,r9,0x0,0x5
 800068be:	58 19       	cp.w	r9,1
@@ -7396,92 +7396,95 @@ Disassembly of section .text:
 80006946:	e0 68 05 0c 	mov	r8,1292
 8000694a:	70 09       	ld.w	r9,r8[0x0]
 8000694c:	e0 49 07 d0 	cp.w	r9,2000
-80006950:	e0 8a 00 5c 	brle	80006a08 <process_frame+0xc4>
-80006954:	e0 6b 0d 18 	mov	r11,3352
+80006950:	e0 8a 00 5d 	brle	80006a0a <process_frame+0xc6>
+80006954:	e0 6b 43 98 	mov	r11,17304
 80006958:	76 09       	ld.w	r9,r11[0x0]
 8000695a:	58 09       	cp.w	r9,0
 8000695c:	c0 c1       	brne	80006974 <process_frame+0x30>
-8000695e:	e0 68 0d 1c 	mov	r8,3356
+8000695e:	e0 68 43 9c 	mov	r8,17308
 80006962:	e0 6a 05 08 	mov	r10,1288
 80006966:	70 0c       	ld.w	r12,r8[0x0]
 80006968:	74 08       	ld.w	r8,r10[0x0]
 8000696a:	10 3c       	cp.w	r12,r8
-8000696c:	e0 89 00 51 	brgt	80006a0e <process_frame+0xca>
+8000696c:	e0 89 00 52 	brgt	80006a10 <process_frame+0xcc>
 80006970:	33 c8       	mov	r8,60
 80006972:	97 08       	st.w	r11[0x0],r8
-80006974:	e0 68 0d 18 	mov	r8,3352
-80006978:	70 08       	ld.w	r8,r8[0x0]
-8000697a:	58 a8       	cp.w	r8,10
-8000697c:	c0 d1       	brne	80006996 <process_frame+0x52>
-8000697e:	e0 68 0d 20 	mov	r8,3360
-80006982:	70 09       	ld.w	r9,r8[0x0]
-80006984:	e0 68 12 64 	mov	r8,4708
-80006988:	f0 09 00 18 	add	r8,r8,r9<<0x1
-8000698c:	11 9c       	ld.ub	r12,r8[0x1]
+80006974:	e0 68 43 98 	mov	r8,17304
+80006978:	70 09       	ld.w	r9,r8[0x0]
+8000697a:	58 19       	cp.w	r9,1
+8000697c:	c1 01       	brne	8000699c <process_frame+0x58>
+8000697e:	e0 69 43 a0 	mov	r9,17312
+80006982:	72 0a       	ld.w	r10,r9[0x0]
+80006984:	e0 69 48 e4 	mov	r9,18660
+80006988:	f2 0a 00 19 	add	r9,r9,r10<<0x1
+8000698c:	13 9c       	ld.ub	r12,r9[0x1]
 8000698e:	58 0c       	cp.w	r12,0
-80006990:	c0 30       	breq	80006996 <process_frame+0x52>
+80006990:	c0 40       	breq	80006998 <process_frame+0x54>
 80006992:	fe b0 f8 d7 	rcall	80005b40 <udi_hid_kbd_modifier_down>
-80006996:	e0 68 0d 18 	mov	r8,3352
-8000699a:	70 08       	ld.w	r8,r8[0x0]
-8000699c:	59 48       	cp.w	r8,20
-8000699e:	c0 a1       	brne	800069b2 <process_frame+0x6e>
-800069a0:	e0 68 0d 20 	mov	r8,3360
-800069a4:	70 09       	ld.w	r9,r8[0x0]
-800069a6:	e0 68 12 64 	mov	r8,4708
-800069aa:	f0 09 07 1c 	ld.ub	r12,r8[r9<<0x1]
-800069ae:	fe b0 f8 69 	rcall	80005a80 <udi_hid_kbd_down>
-800069b2:	e0 68 0d 18 	mov	r8,3352
-800069b6:	70 08       	ld.w	r8,r8[0x0]
-800069b8:	e0 48 00 28 	cp.w	r8,40
-800069bc:	c0 a1       	brne	800069d0 <process_frame+0x8c>
-800069be:	e0 68 0d 20 	mov	r8,3360
-800069c2:	70 09       	ld.w	r9,r8[0x0]
-800069c4:	e0 68 12 64 	mov	r8,4708
-800069c8:	f0 09 07 1c 	ld.ub	r12,r8[r9<<0x1]
-800069cc:	fe b0 f8 84 	rcall	80005ad4 <udi_hid_kbd_up>
-800069d0:	e0 68 0d 18 	mov	r8,3352
-800069d4:	70 08       	ld.w	r8,r8[0x0]
-800069d6:	e0 48 00 32 	cp.w	r8,50
-800069da:	c0 d1       	brne	800069f4 <process_frame+0xb0>
-800069dc:	e0 68 0d 20 	mov	r8,3360
-800069e0:	70 09       	ld.w	r9,r8[0x0]
-800069e2:	e0 68 12 64 	mov	r8,4708
-800069e6:	f0 09 00 18 	add	r8,r8,r9<<0x1
-800069ea:	11 9c       	ld.ub	r12,r8[0x1]
-800069ec:	58 0c       	cp.w	r12,0
-800069ee:	c0 30       	breq	800069f4 <process_frame+0xb0>
-800069f0:	fe b0 f8 ba 	rcall	80005b64 <udi_hid_kbd_modifier_up>
-800069f4:	e0 68 0d 18 	mov	r8,3352
-800069f8:	70 09       	ld.w	r9,r8[0x0]
-800069fa:	2f f9       	sub	r9,-1
-800069fc:	91 09       	st.w	r8[0x0],r9
-800069fe:	e0 49 00 37 	cp.w	r9,55
-80006a02:	c1 71       	brne	80006a30 <process_frame+0xec>
-80006a04:	30 09       	mov	r9,0
-80006a06:	c0 28       	rjmp	80006a0a <process_frame+0xc6>
-80006a08:	2f f9       	sub	r9,-1
-80006a0a:	91 09       	st.w	r8[0x0],r9
-80006a0c:	d8 02       	popm	pc
-80006a0e:	f0 cb ff ff 	sub	r11,r8,-1
-80006a12:	95 0b       	st.w	r10[0x0],r11
-80006a14:	e0 6a 05 14 	mov	r10,1300
-80006a18:	f4 08 07 08 	ld.ub	r8,r10[r8]
-80006a1c:	e0 6a 0d 20 	mov	r10,3360
-80006a20:	95 08       	st.w	r10[0x0],r8
-80006a22:	e0 6a 12 64 	mov	r10,4708
-80006a26:	f4 08 07 18 	ld.ub	r8,r10[r8<<0x1]
-80006a2a:	f2 08 18 00 	cp.b	r8,r9
-80006a2e:	ca 31       	brne	80006974 <process_frame+0x30>
-80006a30:	d8 02       	popm	pc
-80006a32:	d7 03       	nop
+80006996:	c0 38       	rjmp	8000699c <process_frame+0x58>
+80006998:	30 29       	mov	r9,2
+8000699a:	91 09       	st.w	r8[0x0],r9
+8000699c:	e0 68 43 98 	mov	r8,17304
+800069a0:	70 08       	ld.w	r8,r8[0x0]
+800069a2:	58 28       	cp.w	r8,2
+800069a4:	c0 a1       	brne	800069b8 <process_frame+0x74>
+800069a6:	e0 68 43 a0 	mov	r8,17312
+800069aa:	70 09       	ld.w	r9,r8[0x0]
+800069ac:	e0 68 48 e4 	mov	r8,18660
+800069b0:	f0 09 07 1c 	ld.ub	r12,r8[r9<<0x1]
+800069b4:	fe b0 f8 66 	rcall	80005a80 <udi_hid_kbd_down>
+800069b8:	e0 68 43 98 	mov	r8,17304
+800069bc:	70 08       	ld.w	r8,r8[0x0]
+800069be:	58 38       	cp.w	r8,3
+800069c0:	c0 a1       	brne	800069d4 <process_frame+0x90>
+800069c2:	e0 68 43 a0 	mov	r8,17312
+800069c6:	70 09       	ld.w	r9,r8[0x0]
+800069c8:	e0 68 48 e4 	mov	r8,18660
+800069cc:	f0 09 07 1c 	ld.ub	r12,r8[r9<<0x1]
+800069d0:	fe b0 f8 82 	rcall	80005ad4 <udi_hid_kbd_up>
+800069d4:	e0 68 43 98 	mov	r8,17304
+800069d8:	70 09       	ld.w	r9,r8[0x0]
+800069da:	58 49       	cp.w	r9,4
+800069dc:	c1 01       	brne	800069fc <process_frame+0xb8>
+800069de:	e0 69 43 a0 	mov	r9,17312
+800069e2:	72 0a       	ld.w	r10,r9[0x0]
+800069e4:	e0 69 48 e4 	mov	r9,18660
+800069e8:	f2 0a 00 19 	add	r9,r9,r10<<0x1
+800069ec:	13 9c       	ld.ub	r12,r9[0x1]
+800069ee:	58 0c       	cp.w	r12,0
+800069f0:	c0 40       	breq	800069f8 <process_frame+0xb4>
+800069f2:	fe b0 f8 b9 	rcall	80005b64 <udi_hid_kbd_modifier_up>
+800069f6:	c0 38       	rjmp	800069fc <process_frame+0xb8>
+800069f8:	30 59       	mov	r9,5
+800069fa:	91 09       	st.w	r8[0x0],r9
+800069fc:	e0 68 43 98 	mov	r8,17304
+80006a00:	70 09       	ld.w	r9,r8[0x0]
+80006a02:	58 59       	cp.w	r9,5
+80006a04:	c0 31       	brne	80006a0a <process_frame+0xc6>
+80006a06:	30 09       	mov	r9,0
+80006a08:	c0 28       	rjmp	80006a0c <process_frame+0xc8>
+80006a0a:	2f f9       	sub	r9,-1
+80006a0c:	91 09       	st.w	r8[0x0],r9
+80006a0e:	d8 02       	popm	pc
+80006a10:	f0 cb ff ff 	sub	r11,r8,-1
+80006a14:	95 0b       	st.w	r10[0x0],r11
+80006a16:	e0 6a 05 14 	mov	r10,1300
+80006a1a:	f4 08 07 08 	ld.ub	r8,r10[r8]
+80006a1e:	e0 6a 43 a0 	mov	r10,17312
+80006a22:	95 08       	st.w	r10[0x0],r8
+80006a24:	e0 6a 48 e4 	mov	r10,18660
+80006a28:	f4 08 07 18 	ld.ub	r8,r10[r8<<0x1]
+80006a2c:	f2 08 18 00 	cp.b	r8,r9
+80006a30:	ca 21       	brne	80006974 <process_frame+0x30>
+80006a32:	d8 02       	popm	pc
 
 80006a34 <main_kbd_change>:
 80006a34:	d4 21       	pushm	r4-r7,lr
-80006a36:	e0 67 0d 14 	mov	r7,3348
-80006a3a:	18 95       	mov	r5,r12
-80006a3c:	30 06       	mov	r6,0
+80006a36:	e0 67 43 94 	mov	r7,17300
+80006a3a:	18 96       	mov	r6,r12
+80006a3c:	30 05       	mov	r5,0
 80006a3e:	0f 88       	ld.ub	r8,r7[0x0]
-80006a40:	ec 08 18 00 	cp.b	r8,r6
+80006a40:	ea 08 18 00 	cp.b	r8,r5
 80006a44:	c0 71       	brne	80006a52 <main_kbd_change+0x1e>
 80006a46:	30 2c       	mov	r12,2
 80006a48:	fe b0 ec 6c 	rcall	80004320 <LED_On>
@@ -7490,361 +7493,370 @@ Disassembly of section .text:
 80006a50:	c0 58       	rjmp	80006a5a <main_kbd_change+0x26>
 80006a52:	30 2c       	mov	r12,2
 80006a54:	fe b0 ec 88 	rcall	80004364 <LED_Off>
-80006a58:	ae 86       	st.b	r7[0x0],r6
-80006a5a:	e2 15 00 02 	andl	r5,0x2,COH
-80006a5e:	c0 50       	breq	80006a68 <main_kbd_change+0x34>
-80006a60:	30 1c       	mov	r12,1
+80006a58:	ae 85       	st.b	r7[0x0],r5
+80006a5a:	ed b6 00 00 	bld	r6,0x0
+80006a5e:	c0 51       	brne	80006a68 <main_kbd_change+0x34>
+80006a60:	30 2c       	mov	r12,2
 80006a62:	fe b0 ec 5f 	rcall	80004320 <LED_On>
-80006a66:	d8 22       	popm	r4-r7,pc
-80006a68:	30 1c       	mov	r12,1
+80006a66:	c0 48       	rjmp	80006a6e <main_kbd_change+0x3a>
+80006a68:	30 2c       	mov	r12,2
 80006a6a:	fe b0 ec 7d 	rcall	80004364 <LED_Off>
-80006a6e:	d8 22       	popm	r4-r7,pc
+80006a6e:	e2 16 00 02 	andl	r6,0x2,COH
+80006a72:	c0 50       	breq	80006a7c <main_kbd_change+0x48>
+80006a74:	30 1c       	mov	r12,1
+80006a76:	fe b0 ec 55 	rcall	80004320 <LED_On>
+80006a7a:	d8 22       	popm	r4-r7,pc
+80006a7c:	30 1c       	mov	r12,1
+80006a7e:	fe b0 ec 73 	rcall	80004364 <LED_Off>
+80006a82:	d8 22       	popm	r4-r7,pc
 
-80006a70 <memories_initialization>:
-80006a70:	d4 21       	pushm	r4-r7,lr
-80006a72:	20 4d       	sub	sp,16
-80006a74:	fe c8 f7 0c 	sub	r8,pc,-2292
-80006a78:	f0 ea 00 08 	ld.d	r10,r8[8]
-80006a7c:	fa eb 00 08 	st.d	sp[8],r10
-80006a80:	f0 e8 00 00 	ld.d	r8,r8[0]
-80006a84:	18 97       	mov	r7,r12
-80006a86:	fa e9 00 00 	st.d	sp[0],r8
-80006a8a:	30 5b       	mov	r11,5
-80006a8c:	30 2c       	mov	r12,2
-80006a8e:	fe b0 f6 9b 	rcall	800057c4 <sysclk_priv_enable_module>
-80006a92:	fe 7c 24 00 	mov	r12,-56320
-80006a96:	1a 96       	mov	r6,sp
-80006a98:	fe b0 ee 8d 	rcall	800047b2 <spi_is_enabled>
-80006a9c:	18 95       	mov	r5,r12
-80006a9e:	c1 11       	brne	80006ac0 <memories_initialization+0x50>
-80006aa0:	1a 9b       	mov	r11,sp
-80006aa2:	fe 7c 24 00 	mov	r12,-56320
-80006aa6:	fe b0 ed c5 	rcall	80004630 <spi_initMaster>
-80006aaa:	0a 99       	mov	r9,r5
-80006aac:	0a 9a       	mov	r10,r5
-80006aae:	0a 9b       	mov	r11,r5
-80006ab0:	fe 7c 24 00 	mov	r12,-56320
-80006ab4:	fe b0 ed db 	rcall	8000466a <spi_selectionMode>
-80006ab8:	fe 7c 24 00 	mov	r12,-56320
-80006abc:	fe b0 ee 78 	rcall	800047ac <spi_enable>
-80006ac0:	20 4d       	sub	sp,16
-80006ac2:	fa c8 ff f0 	sub	r8,sp,-16
-80006ac6:	f0 ea 00 08 	ld.d	r10,r8[8]
-80006aca:	fa eb 00 08 	st.d	sp[8],r10
-80006ace:	f0 e8 00 00 	ld.d	r8,r8[0]
-80006ad2:	0e 9c       	mov	r12,r7
-80006ad4:	fa e9 00 00 	st.d	sp[0],r8
-80006ad8:	fe b0 df 04 	rcall	800028e0 <sd_mmc_spi_init>
-80006adc:	2f cd       	sub	sp,-16
-80006ade:	2f cd       	sub	sp,-16
-80006ae0:	d8 22       	popm	r4-r7,pc
-80006ae2:	d7 03       	nop
+80006a84 <memories_initialization>:
+80006a84:	d4 21       	pushm	r4-r7,lr
+80006a86:	20 4d       	sub	sp,16
+80006a88:	fe c8 f7 30 	sub	r8,pc,-2256
+80006a8c:	f0 ea 00 08 	ld.d	r10,r8[8]
+80006a90:	fa eb 00 08 	st.d	sp[8],r10
+80006a94:	f0 e8 00 00 	ld.d	r8,r8[0]
+80006a98:	18 97       	mov	r7,r12
+80006a9a:	fa e9 00 00 	st.d	sp[0],r8
+80006a9e:	30 5b       	mov	r11,5
+80006aa0:	30 2c       	mov	r12,2
+80006aa2:	fe b0 f6 91 	rcall	800057c4 <sysclk_priv_enable_module>
+80006aa6:	fe 7c 24 00 	mov	r12,-56320
+80006aaa:	1a 96       	mov	r6,sp
+80006aac:	fe b0 ee 83 	rcall	800047b2 <spi_is_enabled>
+80006ab0:	18 95       	mov	r5,r12
+80006ab2:	c1 11       	brne	80006ad4 <memories_initialization+0x50>
+80006ab4:	1a 9b       	mov	r11,sp
+80006ab6:	fe 7c 24 00 	mov	r12,-56320
+80006aba:	fe b0 ed bb 	rcall	80004630 <spi_initMaster>
+80006abe:	0a 99       	mov	r9,r5
+80006ac0:	0a 9a       	mov	r10,r5
+80006ac2:	0a 9b       	mov	r11,r5
+80006ac4:	fe 7c 24 00 	mov	r12,-56320
+80006ac8:	fe b0 ed d1 	rcall	8000466a <spi_selectionMode>
+80006acc:	fe 7c 24 00 	mov	r12,-56320
+80006ad0:	fe b0 ee 6e 	rcall	800047ac <spi_enable>
+80006ad4:	20 4d       	sub	sp,16
+80006ad6:	fa c8 ff f0 	sub	r8,sp,-16
+80006ada:	f0 ea 00 08 	ld.d	r10,r8[8]
+80006ade:	fa eb 00 08 	st.d	sp[8],r10
+80006ae2:	f0 e8 00 00 	ld.d	r8,r8[0]
+80006ae6:	0e 9c       	mov	r12,r7
+80006ae8:	fa e9 00 00 	st.d	sp[0],r8
+80006aec:	fe b0 de fa 	rcall	800028e0 <sd_mmc_spi_init>
+80006af0:	2f cd       	sub	sp,-16
+80006af2:	2f cd       	sub	sp,-16
+80006af4:	d8 22       	popm	r4-r7,pc
+80006af6:	d7 03       	nop
 
-80006ae4 <main_sof_action>:
-80006ae4:	d4 01       	pushm	lr
-80006ae6:	e0 68 05 04 	mov	r8,1284
-80006aea:	11 89       	ld.ub	r9,r8[0x0]
-80006aec:	30 08       	mov	r8,0
-80006aee:	f0 09 18 00 	cp.b	r9,r8
-80006af2:	c0 50       	breq	80006afc <main_sof_action+0x18>
-80006af4:	fe b0 ee 99 	rcall	80004826 <udd_get_frame_number>
-80006af8:	5c 7c       	castu.h	r12
-80006afa:	c2 5f       	rcall	80006944 <process_frame>
-80006afc:	d8 02       	popm	pc
-80006afe:	d7 03       	nop
+80006af8 <main_sof_action>:
+80006af8:	d4 01       	pushm	lr
+80006afa:	e0 68 05 04 	mov	r8,1284
+80006afe:	11 89       	ld.ub	r9,r8[0x0]
+80006b00:	30 08       	mov	r8,0
+80006b02:	f0 09 18 00 	cp.b	r9,r8
+80006b06:	c0 50       	breq	80006b10 <main_sof_action+0x18>
+80006b08:	fe b0 ee 8f 	rcall	80004826 <udd_get_frame_number>
+80006b0c:	5c 7c       	castu.h	r12
+80006b0e:	c1 bf       	rcall	80006944 <process_frame>
+80006b10:	d8 02       	popm	pc
+80006b12:	d7 03       	nop
 
-80006b00 <main_resume_action>:
-80006b00:	d4 01       	pushm	lr
-80006b02:	fe b0 ea d8 	rcall	800040b2 <ui_wakeup>
-80006b06:	d8 02       	popm	pc
-
-80006b08 <main_suspend_action>:
-80006b08:	d4 01       	pushm	lr
-80006b0a:	fe b0 ea d3 	rcall	800040b0 <ui_powerdown>
-80006b0e:	d8 02       	popm	pc
-
-80006b10 <main_vbus_action>:
-80006b10:	d4 01       	pushm	lr
-80006b12:	58 0c       	cp.w	r12,0
-80006b14:	c0 40       	breq	80006b1c <main_vbus_action+0xc>
-80006b16:	fe b0 f1 37 	rcall	80004d84 <udd_attach>
+80006b14 <main_resume_action>:
+80006b14:	d4 01       	pushm	lr
+80006b16:	fe b0 ea ce 	rcall	800040b2 <ui_wakeup>
 80006b1a:	d8 02       	popm	pc
-80006b1c:	fe b0 f1 22 	rcall	80004d60 <udd_detach>
-80006b20:	d8 02       	popm	pc
-80006b22:	d7 03       	nop
 
-80006b24 <main>:
-80006b24:	d4 21       	pushm	r4-r7,lr
-80006b26:	fe b0 ed 39 	rcall	80004598 <INTC_init_interrupts>
-80006b2a:	d5 03       	csrf	0x10
-80006b2c:	e0 68 12 58 	mov	r8,4696
-80006b30:	30 19       	mov	r9,1
-80006b32:	30 07       	mov	r7,0
-80006b34:	b0 e9       	st.b	r8[0x6],r9
-80006b36:	b0 87       	st.b	r8[0x0],r7
-80006b38:	b0 97       	st.b	r8[0x1],r7
-80006b3a:	b0 a7       	st.b	r8[0x2],r7
-80006b3c:	b0 b7       	st.b	r8[0x3],r7
-80006b3e:	b0 c7       	st.b	r8[0x4],r7
-80006b40:	b0 d7       	st.b	r8[0x5],r7
-80006b42:	fe b0 f6 a3 	rcall	80005888 <sysclk_init>
-80006b46:	fe b0 eb c3 	rcall	800042cc <board_init>
-80006b4a:	fe b0 ea b9 	rcall	800040bc <ui_init>
-80006b4e:	fe b0 ea b1 	rcall	800040b0 <ui_powerdown>
-80006b52:	e0 6c 1b 00 	mov	r12,6912
-80006b56:	ea 1c 00 b7 	orh	r12,0xb7
-80006b5a:	c8 bf       	rcall	80006a70 <memories_initialization>
-80006b5c:	fe b0 ea 84 	rcall	80004064 <nav_reset>
-80006b60:	e0 68 12 64 	mov	r8,4708
-80006b64:	f0 c9 fe 04 	sub	r9,r8,-508
-80006b68:	b0 87       	st.b	r8[0x0],r7
-80006b6a:	2f e8       	sub	r8,-2
-80006b6c:	12 38       	cp.w	r8,r9
-80006b6e:	cf d1       	brne	80006b68 <main+0x44>
-80006b70:	fe c8 f8 4c 	sub	r8,pc,-1972
-80006b74:	30 0a       	mov	r10,0
-80006b76:	70 0c       	ld.w	r12,r8[0x0]
-80006b78:	14 9b       	mov	r11,r10
-80006b7a:	fe b0 e9 97 	rcall	80003ea8 <nav_setcwd>
-80006b7e:	c1 b0       	breq	80006bb4 <main+0x90>
-80006b80:	30 9c       	mov	r12,9
-80006b82:	fe b0 e7 af 	rcall	80003ae0 <file_open>
-80006b86:	fe b0 e7 75 	rcall	80003a70 <file_bof>
-80006b8a:	e0 67 12 64 	mov	r7,4708
-80006b8e:	c0 e8       	rjmp	80006baa <main+0x86>
-80006b90:	fe b0 e7 7c 	rcall	80003a88 <file_getc>
-80006b94:	ed dc c0 10 	bfextu	r6,r12,0x0,0x10
-80006b98:	fe b0 e7 78 	rcall	80003a88 <file_getc>
-80006b9c:	ee 06 0b 1c 	st.b	r7[r6<<0x1],r12
-80006ba0:	ee 06 00 16 	add	r6,r7,r6<<0x1
+80006b1c <main_suspend_action>:
+80006b1c:	d4 01       	pushm	lr
+80006b1e:	fe b0 ea c9 	rcall	800040b0 <ui_powerdown>
+80006b22:	d8 02       	popm	pc
+
+80006b24 <main_vbus_action>:
+80006b24:	d4 01       	pushm	lr
+80006b26:	58 0c       	cp.w	r12,0
+80006b28:	c0 40       	breq	80006b30 <main_vbus_action+0xc>
+80006b2a:	fe b0 f1 2d 	rcall	80004d84 <udd_attach>
+80006b2e:	d8 02       	popm	pc
+80006b30:	fe b0 f1 18 	rcall	80004d60 <udd_detach>
+80006b34:	d8 02       	popm	pc
+80006b36:	d7 03       	nop
+
+80006b38 <main>:
+80006b38:	d4 21       	pushm	r4-r7,lr
+80006b3a:	fe b0 ed 2f 	rcall	80004598 <INTC_init_interrupts>
+80006b3e:	d5 03       	csrf	0x10
+80006b40:	e0 68 48 d8 	mov	r8,18648
+80006b44:	30 19       	mov	r9,1
+80006b46:	30 07       	mov	r7,0
+80006b48:	b0 e9       	st.b	r8[0x6],r9
+80006b4a:	b0 87       	st.b	r8[0x0],r7
+80006b4c:	b0 97       	st.b	r8[0x1],r7
+80006b4e:	b0 a7       	st.b	r8[0x2],r7
+80006b50:	b0 b7       	st.b	r8[0x3],r7
+80006b52:	b0 c7       	st.b	r8[0x4],r7
+80006b54:	b0 d7       	st.b	r8[0x5],r7
+80006b56:	fe b0 f6 99 	rcall	80005888 <sysclk_init>
+80006b5a:	fe b0 eb b9 	rcall	800042cc <board_init>
+80006b5e:	fe b0 ea af 	rcall	800040bc <ui_init>
+80006b62:	fe b0 ea a7 	rcall	800040b0 <ui_powerdown>
+80006b66:	e0 6c 1b 00 	mov	r12,6912
+80006b6a:	ea 1c 00 b7 	orh	r12,0xb7
+80006b6e:	c8 bf       	rcall	80006a84 <memories_initialization>
+80006b70:	fe b0 ea 7a 	rcall	80004064 <nav_reset>
+80006b74:	e0 68 48 e4 	mov	r8,18660
+80006b78:	f0 c9 fe 04 	sub	r9,r8,-508
+80006b7c:	b0 87       	st.b	r8[0x0],r7
+80006b7e:	2f e8       	sub	r8,-2
+80006b80:	12 38       	cp.w	r8,r9
+80006b82:	cf d1       	brne	80006b7c <main+0x44>
+80006b84:	fe c8 f8 60 	sub	r8,pc,-1952
+80006b88:	30 0a       	mov	r10,0
+80006b8a:	70 0c       	ld.w	r12,r8[0x0]
+80006b8c:	14 9b       	mov	r11,r10
+80006b8e:	fe b0 e9 8d 	rcall	80003ea8 <nav_setcwd>
+80006b92:	c1 b0       	breq	80006bc8 <main+0x90>
+80006b94:	30 9c       	mov	r12,9
+80006b96:	fe b0 e7 a5 	rcall	80003ae0 <file_open>
+80006b9a:	fe b0 e7 6b 	rcall	80003a70 <file_bof>
+80006b9e:	e0 67 48 e4 	mov	r7,18660
+80006ba2:	c0 e8       	rjmp	80006bbe <main+0x86>
 80006ba4:	fe b0 e7 72 	rcall	80003a88 <file_getc>
-80006ba8:	ac 9c       	st.b	r6[0x1],r12
-80006baa:	fe b0 e7 55 	rcall	80003a54 <file_eof>
-80006bae:	cf 10       	breq	80006b90 <main+0x6c>
-80006bb0:	fe b0 e7 4a 	rcall	80003a44 <file_close>
-80006bb4:	fe b0 ea 58 	rcall	80004064 <nav_reset>
-80006bb8:	fe c8 f8 54 	sub	r8,pc,-1964
-80006bbc:	30 0a       	mov	r10,0
-80006bbe:	70 0c       	ld.w	r12,r8[0x0]
-80006bc0:	14 9b       	mov	r11,r10
-80006bc2:	fe b0 e9 73 	rcall	80003ea8 <nav_setcwd>
-80006bc6:	c1 b0       	breq	80006bfc <main+0xd8>
-80006bc8:	30 9c       	mov	r12,9
-80006bca:	fe b0 e7 8b 	rcall	80003ae0 <file_open>
-80006bce:	fe b0 e7 51 	rcall	80003a70 <file_bof>
-80006bd2:	e0 68 0d 1c 	mov	r8,3356
-80006bd6:	30 09       	mov	r9,0
-80006bd8:	e0 66 05 14 	mov	r6,1300
-80006bdc:	10 97       	mov	r7,r8
-80006bde:	91 09       	st.w	r8[0x0],r9
-80006be0:	c0 98       	rjmp	80006bf2 <main+0xce>
-80006be2:	6e 05       	ld.w	r5,r7[0x0]
-80006be4:	fe b0 e7 52 	rcall	80003a88 <file_getc>
-80006be8:	6e 08       	ld.w	r8,r7[0x0]
-80006bea:	ec 05 0b 0c 	st.b	r6[r5],r12
-80006bee:	2f f8       	sub	r8,-1
-80006bf0:	8f 08       	st.w	r7[0x0],r8
-80006bf2:	fe b0 e7 31 	rcall	80003a54 <file_eof>
-80006bf6:	cf 60       	breq	80006be2 <main+0xbe>
-80006bf8:	fe b0 e7 26 	rcall	80003a44 <file_close>
-80006bfc:	fe b0 ea 34 	rcall	80004064 <nav_reset>
-80006c00:	30 07       	mov	r7,0
-80006c02:	c8 5e       	rcall	8000690c <udc_start>
-80006c04:	fe b0 f0 c0 	rcall	80004d84 <udd_attach>
-80006c08:	fe b0 fb 7c 	rcall	80006300 <udi_msc_process_trans>
-80006c0c:	cf e1       	brne	80006c08 <main+0xe4>
-80006c0e:	d3 03       	ssrf	0x10
-80006c10:	e0 68 12 58 	mov	r8,4696
-80006c14:	c0 48       	rjmp	80006c1c <main+0xf8>
-80006c16:	d7 03       	nop
-80006c18:	2f f8       	sub	r8,-1
-80006c1a:	2f fc       	sub	r12,-1
-80006c1c:	11 89       	ld.ub	r9,r8[0x0]
-80006c1e:	ee 09 18 00 	cp.b	r9,r7
-80006c22:	cf b0       	breq	80006c18 <main+0xf4>
-80006c24:	58 0c       	cp.w	r12,0
-80006c26:	c0 31       	brne	80006c2c <main+0x108>
-80006c28:	d5 03       	csrf	0x10
-80006c2a:	ce fb       	rjmp	80006c08 <main+0xe4>
-80006c2c:	d3 03       	ssrf	0x10
-80006c2e:	20 1c       	sub	r12,1
-80006c30:	a7 bc       	sbr	r12,0x7
-80006c32:	58 5c       	cp.w	r12,5
-80006c34:	c3 e0       	breq	80006cb0 <main+0x18c>
-80006c36:	e0 89 00 0e 	brgt	80006c52 <main+0x12e>
-80006c3a:	58 2c       	cp.w	r12,2
-80006c3c:	c2 80       	breq	80006c8c <main+0x168>
-80006c3e:	e0 89 00 05 	brgt	80006c48 <main+0x124>
-80006c42:	58 1c       	cp.w	r12,1
-80006c44:	ce 21       	brne	80006c08 <main+0xe4>
-80006c46:	c1 d8       	rjmp	80006c80 <main+0x15c>
-80006c48:	58 3c       	cp.w	r12,3
-80006c4a:	c2 70       	breq	80006c98 <main+0x174>
-80006c4c:	58 4c       	cp.w	r12,4
-80006c4e:	cd d1       	brne	80006c08 <main+0xe4>
-80006c50:	c2 a8       	rjmp	80006ca4 <main+0x180>
-80006c52:	e0 4c 00 82 	cp.w	r12,130
-80006c56:	c1 e0       	breq	80006c92 <main+0x16e>
-80006c58:	e0 89 00 09 	brgt	80006c6a <main+0x146>
-80006c5c:	e0 4c 00 80 	cp.w	r12,128
-80006c60:	c0 d0       	breq	80006c7a <main+0x156>
-80006c62:	e0 4c 00 81 	cp.w	r12,129
-80006c66:	cd 11       	brne	80006c08 <main+0xe4>
-80006c68:	c0 f8       	rjmp	80006c86 <main+0x162>
-80006c6a:	e0 4c 00 84 	cp.w	r12,132
-80006c6e:	c1 e0       	breq	80006caa <main+0x186>
-80006c70:	c1 75       	brlt	80006c9e <main+0x17a>
-80006c72:	e0 4c 00 85 	cp.w	r12,133
-80006c76:	cc 91       	brne	80006c08 <main+0xe4>
-80006c78:	c1 f8       	rjmp	80006cb6 <main+0x192>
-80006c7a:	e9 b0 00 80 	sleep	0x80
-80006c7e:	cc 5b       	rjmp	80006c08 <main+0xe4>
-80006c80:	e9 b0 00 01 	sleep	0x1
-80006c84:	cc 2b       	rjmp	80006c08 <main+0xe4>
-80006c86:	e9 b0 00 81 	sleep	0x81
-80006c8a:	cb fb       	rjmp	80006c08 <main+0xe4>
-80006c8c:	e9 b0 00 02 	sleep	0x2
-80006c90:	cb cb       	rjmp	80006c08 <main+0xe4>
-80006c92:	e9 b0 00 82 	sleep	0x82
-80006c96:	cb 9b       	rjmp	80006c08 <main+0xe4>
-80006c98:	e9 b0 00 03 	sleep	0x3
-80006c9c:	cb 6b       	rjmp	80006c08 <main+0xe4>
-80006c9e:	e9 b0 00 83 	sleep	0x83
-80006ca2:	cb 3b       	rjmp	80006c08 <main+0xe4>
-80006ca4:	e9 b0 00 04 	sleep	0x4
-80006ca8:	cb 0b       	rjmp	80006c08 <main+0xe4>
-80006caa:	e9 b0 00 84 	sleep	0x84
-80006cae:	ca db       	rjmp	80006c08 <main+0xe4>
-80006cb0:	e9 b0 00 05 	sleep	0x5
-80006cb4:	ca ab       	rjmp	80006c08 <main+0xe4>
-80006cb6:	e9 b0 00 85 	sleep	0x85
-80006cba:	ca 7b       	rjmp	80006c08 <main+0xe4>
+80006ba8:	ed dc c0 10 	bfextu	r6,r12,0x0,0x10
+80006bac:	fe b0 e7 6e 	rcall	80003a88 <file_getc>
+80006bb0:	ee 06 0b 1c 	st.b	r7[r6<<0x1],r12
+80006bb4:	ee 06 00 16 	add	r6,r7,r6<<0x1
+80006bb8:	fe b0 e7 68 	rcall	80003a88 <file_getc>
+80006bbc:	ac 9c       	st.b	r6[0x1],r12
+80006bbe:	fe b0 e7 4b 	rcall	80003a54 <file_eof>
+80006bc2:	cf 10       	breq	80006ba4 <main+0x6c>
+80006bc4:	fe b0 e7 40 	rcall	80003a44 <file_close>
+80006bc8:	fe b0 ea 4e 	rcall	80004064 <nav_reset>
+80006bcc:	fe c8 f8 78 	sub	r8,pc,-1928
+80006bd0:	30 0a       	mov	r10,0
+80006bd2:	70 0c       	ld.w	r12,r8[0x0]
+80006bd4:	14 9b       	mov	r11,r10
+80006bd6:	fe b0 e9 69 	rcall	80003ea8 <nav_setcwd>
+80006bda:	c1 f0       	breq	80006c18 <main+0xe0>
+80006bdc:	30 9c       	mov	r12,9
+80006bde:	fe b0 e7 81 	rcall	80003ae0 <file_open>
+80006be2:	fe b0 e7 47 	rcall	80003a70 <file_bof>
+80006be6:	e0 68 43 9c 	mov	r8,17308
+80006bea:	30 09       	mov	r9,0
+80006bec:	e0 65 05 14 	mov	r5,1300
+80006bf0:	10 97       	mov	r7,r8
+80006bf2:	91 09       	st.w	r8[0x0],r9
+80006bf4:	c0 88       	rjmp	80006c04 <main+0xcc>
+80006bf6:	fe b0 e7 49 	rcall	80003a88 <file_getc>
+80006bfa:	6e 08       	ld.w	r8,r7[0x0]
+80006bfc:	ea 06 0b 0c 	st.b	r5[r6],r12
+80006c00:	2f f8       	sub	r8,-1
+80006c02:	8f 08       	st.w	r7[0x0],r8
+80006c04:	fe b0 e7 28 	rcall	80003a54 <file_eof>
+80006c08:	c0 61       	brne	80006c14 <main+0xdc>
+80006c0a:	6e 06       	ld.w	r6,r7[0x0]
+80006c0c:	e0 46 3e 7f 	cp.w	r6,15999
+80006c10:	fe 9a ff f3 	brle	80006bf6 <main+0xbe>
+80006c14:	fe b0 e7 18 	rcall	80003a44 <file_close>
+80006c18:	fe b0 ea 26 	rcall	80004064 <nav_reset>
+80006c1c:	30 07       	mov	r7,0
+80006c1e:	c7 7e       	rcall	8000690c <udc_start>
+80006c20:	fe b0 f0 b2 	rcall	80004d84 <udd_attach>
+80006c24:	fe b0 fb 6e 	rcall	80006300 <udi_msc_process_trans>
+80006c28:	cf e1       	brne	80006c24 <main+0xec>
+80006c2a:	d3 03       	ssrf	0x10
+80006c2c:	e0 68 48 d8 	mov	r8,18648
+80006c30:	c0 48       	rjmp	80006c38 <main+0x100>
+80006c32:	d7 03       	nop
+80006c34:	2f f8       	sub	r8,-1
+80006c36:	2f fc       	sub	r12,-1
+80006c38:	11 89       	ld.ub	r9,r8[0x0]
+80006c3a:	ee 09 18 00 	cp.b	r9,r7
+80006c3e:	cf b0       	breq	80006c34 <main+0xfc>
+80006c40:	58 0c       	cp.w	r12,0
+80006c42:	c0 31       	brne	80006c48 <main+0x110>
+80006c44:	d5 03       	csrf	0x10
+80006c46:	ce fb       	rjmp	80006c24 <main+0xec>
+80006c48:	d3 03       	ssrf	0x10
+80006c4a:	20 1c       	sub	r12,1
+80006c4c:	a7 bc       	sbr	r12,0x7
+80006c4e:	58 5c       	cp.w	r12,5
+80006c50:	c3 e0       	breq	80006ccc <main+0x194>
+80006c52:	e0 89 00 0e 	brgt	80006c6e <main+0x136>
+80006c56:	58 2c       	cp.w	r12,2
+80006c58:	c2 80       	breq	80006ca8 <main+0x170>
+80006c5a:	e0 89 00 05 	brgt	80006c64 <main+0x12c>
+80006c5e:	58 1c       	cp.w	r12,1
+80006c60:	ce 21       	brne	80006c24 <main+0xec>
+80006c62:	c1 d8       	rjmp	80006c9c <main+0x164>
+80006c64:	58 3c       	cp.w	r12,3
+80006c66:	c2 70       	breq	80006cb4 <main+0x17c>
+80006c68:	58 4c       	cp.w	r12,4
+80006c6a:	cd d1       	brne	80006c24 <main+0xec>
+80006c6c:	c2 a8       	rjmp	80006cc0 <main+0x188>
+80006c6e:	e0 4c 00 82 	cp.w	r12,130
+80006c72:	c1 e0       	breq	80006cae <main+0x176>
+80006c74:	e0 89 00 09 	brgt	80006c86 <main+0x14e>
+80006c78:	e0 4c 00 80 	cp.w	r12,128
+80006c7c:	c0 d0       	breq	80006c96 <main+0x15e>
+80006c7e:	e0 4c 00 81 	cp.w	r12,129
+80006c82:	cd 11       	brne	80006c24 <main+0xec>
+80006c84:	c0 f8       	rjmp	80006ca2 <main+0x16a>
+80006c86:	e0 4c 00 84 	cp.w	r12,132
+80006c8a:	c1 e0       	breq	80006cc6 <main+0x18e>
+80006c8c:	c1 75       	brlt	80006cba <main+0x182>
+80006c8e:	e0 4c 00 85 	cp.w	r12,133
+80006c92:	cc 91       	brne	80006c24 <main+0xec>
+80006c94:	c1 f8       	rjmp	80006cd2 <main+0x19a>
+80006c96:	e9 b0 00 80 	sleep	0x80
+80006c9a:	cc 5b       	rjmp	80006c24 <main+0xec>
+80006c9c:	e9 b0 00 01 	sleep	0x1
+80006ca0:	cc 2b       	rjmp	80006c24 <main+0xec>
+80006ca2:	e9 b0 00 81 	sleep	0x81
+80006ca6:	cb fb       	rjmp	80006c24 <main+0xec>
+80006ca8:	e9 b0 00 02 	sleep	0x2
+80006cac:	cb cb       	rjmp	80006c24 <main+0xec>
+80006cae:	e9 b0 00 82 	sleep	0x82
+80006cb2:	cb 9b       	rjmp	80006c24 <main+0xec>
+80006cb4:	e9 b0 00 03 	sleep	0x3
+80006cb8:	cb 6b       	rjmp	80006c24 <main+0xec>
+80006cba:	e9 b0 00 83 	sleep	0x83
+80006cbe:	cb 3b       	rjmp	80006c24 <main+0xec>
+80006cc0:	e9 b0 00 04 	sleep	0x4
+80006cc4:	cb 0b       	rjmp	80006c24 <main+0xec>
+80006cc6:	e9 b0 00 84 	sleep	0x84
+80006cca:	ca db       	rjmp	80006c24 <main+0xec>
+80006ccc:	e9 b0 00 05 	sleep	0x5
+80006cd0:	ca ab       	rjmp	80006c24 <main+0xec>
+80006cd2:	e9 b0 00 85 	sleep	0x85
+80006cd6:	ca 7b       	rjmp	80006c24 <main+0xec>
 
-80006cbc <memcpy>:
-80006cbc:	58 8a       	cp.w	r10,8
-80006cbe:	c2 f5       	brlt	80006d1c <memcpy+0x60>
-80006cc0:	f9 eb 10 09 	or	r9,r12,r11
-80006cc4:	e2 19 00 03 	andl	r9,0x3,COH
-80006cc8:	e0 81 00 97 	brne	80006df6 <memcpy+0x13a>
-80006ccc:	e0 4a 00 20 	cp.w	r10,32
-80006cd0:	c3 b4       	brge	80006d46 <memcpy+0x8a>
-80006cd2:	f4 08 14 02 	asr	r8,r10,0x2
-80006cd6:	f0 09 11 08 	rsub	r9,r8,8
-80006cda:	fe 09 00 2f 	add	pc,pc,r9<<0x2
-80006cde:	76 69       	ld.w	r9,r11[0x18]
-80006ce0:	99 69       	st.w	r12[0x18],r9
-80006ce2:	76 59       	ld.w	r9,r11[0x14]
-80006ce4:	99 59       	st.w	r12[0x14],r9
-80006ce6:	76 49       	ld.w	r9,r11[0x10]
-80006ce8:	99 49       	st.w	r12[0x10],r9
-80006cea:	76 39       	ld.w	r9,r11[0xc]
-80006cec:	99 39       	st.w	r12[0xc],r9
-80006cee:	76 29       	ld.w	r9,r11[0x8]
-80006cf0:	99 29       	st.w	r12[0x8],r9
-80006cf2:	76 19       	ld.w	r9,r11[0x4]
-80006cf4:	99 19       	st.w	r12[0x4],r9
-80006cf6:	76 09       	ld.w	r9,r11[0x0]
-80006cf8:	99 09       	st.w	r12[0x0],r9
-80006cfa:	f6 08 00 2b 	add	r11,r11,r8<<0x2
-80006cfe:	f8 08 00 28 	add	r8,r12,r8<<0x2
-80006d02:	e0 1a 00 03 	andl	r10,0x3
-80006d06:	f4 0a 11 04 	rsub	r10,r10,4
-80006d0a:	fe 0a 00 2f 	add	pc,pc,r10<<0x2
-80006d0e:	17 a9       	ld.ub	r9,r11[0x2]
-80006d10:	b0 a9       	st.b	r8[0x2],r9
-80006d12:	17 99       	ld.ub	r9,r11[0x1]
-80006d14:	b0 99       	st.b	r8[0x1],r9
-80006d16:	17 89       	ld.ub	r9,r11[0x0]
-80006d18:	b0 89       	st.b	r8[0x0],r9
-80006d1a:	5e fc       	retal	r12
-80006d1c:	f4 0a 11 09 	rsub	r10,r10,9
-80006d20:	fe 0a 00 2f 	add	pc,pc,r10<<0x2
-80006d24:	17 f9       	ld.ub	r9,r11[0x7]
-80006d26:	b8 f9       	st.b	r12[0x7],r9
-80006d28:	17 e9       	ld.ub	r9,r11[0x6]
-80006d2a:	b8 e9       	st.b	r12[0x6],r9
-80006d2c:	17 d9       	ld.ub	r9,r11[0x5]
-80006d2e:	b8 d9       	st.b	r12[0x5],r9
-80006d30:	17 c9       	ld.ub	r9,r11[0x4]
-80006d32:	b8 c9       	st.b	r12[0x4],r9
-80006d34:	17 b9       	ld.ub	r9,r11[0x3]
-80006d36:	b8 b9       	st.b	r12[0x3],r9
-80006d38:	17 a9       	ld.ub	r9,r11[0x2]
-80006d3a:	b8 a9       	st.b	r12[0x2],r9
-80006d3c:	17 99       	ld.ub	r9,r11[0x1]
-80006d3e:	b8 99       	st.b	r12[0x1],r9
-80006d40:	17 89       	ld.ub	r9,r11[0x0]
-80006d42:	b8 89       	st.b	r12[0x0],r9
-80006d44:	5e fc       	retal	r12
-80006d46:	eb cd 40 c0 	pushm	r6-r7,lr
-80006d4a:	18 99       	mov	r9,r12
-80006d4c:	22 0a       	sub	r10,32
-80006d4e:	b7 07       	ld.d	r6,r11++
-80006d50:	b3 26       	st.d	r9++,r6
-80006d52:	b7 07       	ld.d	r6,r11++
-80006d54:	b3 26       	st.d	r9++,r6
-80006d56:	b7 07       	ld.d	r6,r11++
-80006d58:	b3 26       	st.d	r9++,r6
-80006d5a:	b7 07       	ld.d	r6,r11++
-80006d5c:	b3 26       	st.d	r9++,r6
-80006d5e:	22 0a       	sub	r10,32
-80006d60:	cf 74       	brge	80006d4e <memcpy+0x92>
-80006d62:	2f 0a       	sub	r10,-16
-80006d64:	c0 65       	brlt	80006d70 <memcpy+0xb4>
-80006d66:	b7 07       	ld.d	r6,r11++
-80006d68:	b3 26       	st.d	r9++,r6
+80006cd8 <memcpy>:
+80006cd8:	58 8a       	cp.w	r10,8
+80006cda:	c2 f5       	brlt	80006d38 <memcpy+0x60>
+80006cdc:	f9 eb 10 09 	or	r9,r12,r11
+80006ce0:	e2 19 00 03 	andl	r9,0x3,COH
+80006ce4:	e0 81 00 97 	brne	80006e12 <memcpy+0x13a>
+80006ce8:	e0 4a 00 20 	cp.w	r10,32
+80006cec:	c3 b4       	brge	80006d62 <memcpy+0x8a>
+80006cee:	f4 08 14 02 	asr	r8,r10,0x2
+80006cf2:	f0 09 11 08 	rsub	r9,r8,8
+80006cf6:	fe 09 00 2f 	add	pc,pc,r9<<0x2
+80006cfa:	76 69       	ld.w	r9,r11[0x18]
+80006cfc:	99 69       	st.w	r12[0x18],r9
+80006cfe:	76 59       	ld.w	r9,r11[0x14]
+80006d00:	99 59       	st.w	r12[0x14],r9
+80006d02:	76 49       	ld.w	r9,r11[0x10]
+80006d04:	99 49       	st.w	r12[0x10],r9
+80006d06:	76 39       	ld.w	r9,r11[0xc]
+80006d08:	99 39       	st.w	r12[0xc],r9
+80006d0a:	76 29       	ld.w	r9,r11[0x8]
+80006d0c:	99 29       	st.w	r12[0x8],r9
+80006d0e:	76 19       	ld.w	r9,r11[0x4]
+80006d10:	99 19       	st.w	r12[0x4],r9
+80006d12:	76 09       	ld.w	r9,r11[0x0]
+80006d14:	99 09       	st.w	r12[0x0],r9
+80006d16:	f6 08 00 2b 	add	r11,r11,r8<<0x2
+80006d1a:	f8 08 00 28 	add	r8,r12,r8<<0x2
+80006d1e:	e0 1a 00 03 	andl	r10,0x3
+80006d22:	f4 0a 11 04 	rsub	r10,r10,4
+80006d26:	fe 0a 00 2f 	add	pc,pc,r10<<0x2
+80006d2a:	17 a9       	ld.ub	r9,r11[0x2]
+80006d2c:	b0 a9       	st.b	r8[0x2],r9
+80006d2e:	17 99       	ld.ub	r9,r11[0x1]
+80006d30:	b0 99       	st.b	r8[0x1],r9
+80006d32:	17 89       	ld.ub	r9,r11[0x0]
+80006d34:	b0 89       	st.b	r8[0x0],r9
+80006d36:	5e fc       	retal	r12
+80006d38:	f4 0a 11 09 	rsub	r10,r10,9
+80006d3c:	fe 0a 00 2f 	add	pc,pc,r10<<0x2
+80006d40:	17 f9       	ld.ub	r9,r11[0x7]
+80006d42:	b8 f9       	st.b	r12[0x7],r9
+80006d44:	17 e9       	ld.ub	r9,r11[0x6]
+80006d46:	b8 e9       	st.b	r12[0x6],r9
+80006d48:	17 d9       	ld.ub	r9,r11[0x5]
+80006d4a:	b8 d9       	st.b	r12[0x5],r9
+80006d4c:	17 c9       	ld.ub	r9,r11[0x4]
+80006d4e:	b8 c9       	st.b	r12[0x4],r9
+80006d50:	17 b9       	ld.ub	r9,r11[0x3]
+80006d52:	b8 b9       	st.b	r12[0x3],r9
+80006d54:	17 a9       	ld.ub	r9,r11[0x2]
+80006d56:	b8 a9       	st.b	r12[0x2],r9
+80006d58:	17 99       	ld.ub	r9,r11[0x1]
+80006d5a:	b8 99       	st.b	r12[0x1],r9
+80006d5c:	17 89       	ld.ub	r9,r11[0x0]
+80006d5e:	b8 89       	st.b	r12[0x0],r9
+80006d60:	5e fc       	retal	r12
+80006d62:	eb cd 40 c0 	pushm	r6-r7,lr
+80006d66:	18 99       	mov	r9,r12
+80006d68:	22 0a       	sub	r10,32
 80006d6a:	b7 07       	ld.d	r6,r11++
 80006d6c:	b3 26       	st.d	r9++,r6
-80006d6e:	21 0a       	sub	r10,16
-80006d70:	5c 3a       	neg	r10
-80006d72:	fe 0a 00 3f 	add	pc,pc,r10<<0x3
-80006d76:	d7 03       	nop
-80006d78:	d7 03       	nop
-80006d7a:	f7 36 00 0e 	ld.ub	r6,r11[14]
-80006d7e:	f3 66 00 0e 	st.b	r9[14],r6
-80006d82:	f7 36 00 0d 	ld.ub	r6,r11[13]
-80006d86:	f3 66 00 0d 	st.b	r9[13],r6
-80006d8a:	f7 36 00 0c 	ld.ub	r6,r11[12]
-80006d8e:	f3 66 00 0c 	st.b	r9[12],r6
-80006d92:	f7 36 00 0b 	ld.ub	r6,r11[11]
-80006d96:	f3 66 00 0b 	st.b	r9[11],r6
-80006d9a:	f7 36 00 0a 	ld.ub	r6,r11[10]
-80006d9e:	f3 66 00 0a 	st.b	r9[10],r6
-80006da2:	f7 36 00 09 	ld.ub	r6,r11[9]
-80006da6:	f3 66 00 09 	st.b	r9[9],r6
-80006daa:	f7 36 00 08 	ld.ub	r6,r11[8]
-80006dae:	f3 66 00 08 	st.b	r9[8],r6
-80006db2:	f7 36 00 07 	ld.ub	r6,r11[7]
-80006db6:	f3 66 00 07 	st.b	r9[7],r6
-80006dba:	f7 36 00 06 	ld.ub	r6,r11[6]
-80006dbe:	f3 66 00 06 	st.b	r9[6],r6
-80006dc2:	f7 36 00 05 	ld.ub	r6,r11[5]
-80006dc6:	f3 66 00 05 	st.b	r9[5],r6
-80006dca:	f7 36 00 04 	ld.ub	r6,r11[4]
-80006dce:	f3 66 00 04 	st.b	r9[4],r6
-80006dd2:	f7 36 00 03 	ld.ub	r6,r11[3]
-80006dd6:	f3 66 00 03 	st.b	r9[3],r6
-80006dda:	f7 36 00 02 	ld.ub	r6,r11[2]
-80006dde:	f3 66 00 02 	st.b	r9[2],r6
-80006de2:	f7 36 00 01 	ld.ub	r6,r11[1]
-80006de6:	f3 66 00 01 	st.b	r9[1],r6
-80006dea:	f7 36 00 00 	ld.ub	r6,r11[0]
-80006dee:	f3 66 00 00 	st.b	r9[0],r6
-80006df2:	e3 cd 80 c0 	ldm	sp++,r6-r7,pc
-80006df6:	20 1a       	sub	r10,1
-80006df8:	f6 0a 07 09 	ld.ub	r9,r11[r10]
-80006dfc:	f8 0a 0b 09 	st.b	r12[r10],r9
-80006e00:	cf b1       	brne	80006df6 <memcpy+0x13a>
-80006e02:	5e fc       	retal	r12
+80006d6e:	b7 07       	ld.d	r6,r11++
+80006d70:	b3 26       	st.d	r9++,r6
+80006d72:	b7 07       	ld.d	r6,r11++
+80006d74:	b3 26       	st.d	r9++,r6
+80006d76:	b7 07       	ld.d	r6,r11++
+80006d78:	b3 26       	st.d	r9++,r6
+80006d7a:	22 0a       	sub	r10,32
+80006d7c:	cf 74       	brge	80006d6a <memcpy+0x92>
+80006d7e:	2f 0a       	sub	r10,-16
+80006d80:	c0 65       	brlt	80006d8c <memcpy+0xb4>
+80006d82:	b7 07       	ld.d	r6,r11++
+80006d84:	b3 26       	st.d	r9++,r6
+80006d86:	b7 07       	ld.d	r6,r11++
+80006d88:	b3 26       	st.d	r9++,r6
+80006d8a:	21 0a       	sub	r10,16
+80006d8c:	5c 3a       	neg	r10
+80006d8e:	fe 0a 00 3f 	add	pc,pc,r10<<0x3
+80006d92:	d7 03       	nop
+80006d94:	d7 03       	nop
+80006d96:	f7 36 00 0e 	ld.ub	r6,r11[14]
+80006d9a:	f3 66 00 0e 	st.b	r9[14],r6
+80006d9e:	f7 36 00 0d 	ld.ub	r6,r11[13]
+80006da2:	f3 66 00 0d 	st.b	r9[13],r6
+80006da6:	f7 36 00 0c 	ld.ub	r6,r11[12]
+80006daa:	f3 66 00 0c 	st.b	r9[12],r6
+80006dae:	f7 36 00 0b 	ld.ub	r6,r11[11]
+80006db2:	f3 66 00 0b 	st.b	r9[11],r6
+80006db6:	f7 36 00 0a 	ld.ub	r6,r11[10]
+80006dba:	f3 66 00 0a 	st.b	r9[10],r6
+80006dbe:	f7 36 00 09 	ld.ub	r6,r11[9]
+80006dc2:	f3 66 00 09 	st.b	r9[9],r6
+80006dc6:	f7 36 00 08 	ld.ub	r6,r11[8]
+80006dca:	f3 66 00 08 	st.b	r9[8],r6
+80006dce:	f7 36 00 07 	ld.ub	r6,r11[7]
+80006dd2:	f3 66 00 07 	st.b	r9[7],r6
+80006dd6:	f7 36 00 06 	ld.ub	r6,r11[6]
+80006dda:	f3 66 00 06 	st.b	r9[6],r6
+80006dde:	f7 36 00 05 	ld.ub	r6,r11[5]
+80006de2:	f3 66 00 05 	st.b	r9[5],r6
+80006de6:	f7 36 00 04 	ld.ub	r6,r11[4]
+80006dea:	f3 66 00 04 	st.b	r9[4],r6
+80006dee:	f7 36 00 03 	ld.ub	r6,r11[3]
+80006df2:	f3 66 00 03 	st.b	r9[3],r6
+80006df6:	f7 36 00 02 	ld.ub	r6,r11[2]
+80006dfa:	f3 66 00 02 	st.b	r9[2],r6
+80006dfe:	f7 36 00 01 	ld.ub	r6,r11[1]
+80006e02:	f3 66 00 01 	st.b	r9[1],r6
+80006e06:	f7 36 00 00 	ld.ub	r6,r11[0]
+80006e0a:	f3 66 00 00 	st.b	r9[0],r6
+80006e0e:	e3 cd 80 c0 	ldm	sp++,r6-r7,pc
+80006e12:	20 1a       	sub	r10,1
+80006e14:	f6 0a 07 09 	ld.ub	r9,r11[r10]
+80006e18:	f8 0a 0b 09 	st.b	r12[r10],r9
+80006e1c:	cf b1       	brne	80006e12 <memcpy+0x13a>
+80006e1e:	5e fc       	retal	r12
 
-80006e04 <memset>:
-80006e04:	18 98       	mov	r8,r12
-80006e06:	c0 38       	rjmp	80006e0c <memset+0x8>
-80006e08:	10 cb       	st.b	r8++,r11
-80006e0a:	20 1a       	sub	r10,1
-80006e0c:	58 0a       	cp.w	r10,0
-80006e0e:	cf d1       	brne	80006e08 <memset+0x4>
-80006e10:	5e fc       	retal	r12
+80006e20 <memset>:
+80006e20:	18 98       	mov	r8,r12
+80006e22:	c0 38       	rjmp	80006e28 <memset+0x8>
+80006e24:	10 cb       	st.b	r8++,r11
+80006e26:	20 1a       	sub	r10,1
+80006e28:	58 0a       	cp.w	r10,0
+80006e2a:	cf d1       	brne	80006e24 <memset+0x4>
+80006e2c:	5e fc       	retal	r12
 
 Disassembly of section .exception:
 

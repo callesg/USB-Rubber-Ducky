@@ -28,24 +28,18 @@ typedef enum injectState {
 static bool LedStatus = false;
 static bool main_b_keyboard_enable = false;
 static bool main_b_msc_enable = false;
-static bool in_affect=false;
 injectState_t state = state_IDLE;
-char *vidpidFile = "A:\\vidpid.bin";
 uint16_t vid;
 uint16_t pid;
-static uint8_t serial[12];
-static uint8_t *serial_p;
-static uint8_t serial_len;
 
 static int printstate = 0;
 static int start_state = 0;
-//static char *injectFile = "A:\\inject.bin";
-//static char *injectFile2 = "A:\\inject2.bin";
 
 
 static char *KeyBoardMapFile = "A:\\config\\keymap.map";
 static char *TextFile = "A:\\texts\\main.txt";
-static char PrintText[2048];
+#define MAX_TEXT 16000
+static char PrintText[MAX_TEXT];
 static int PrintTextLen = 0;
 static int PrintTextPos = 0;
 
@@ -98,7 +92,7 @@ int main(void)
 			Characters[Character].Modifiers = (char)file_getc();
 		}
 		file_close();
-	}else{
+		}else{
 	}
 	nav_reset();
 	
@@ -108,87 +102,15 @@ int main(void)
 		
 		//Read the text
 		PrintTextLen = 0;
-		while(!file_eof()) {
+		while(!file_eof() && MAX_TEXT > PrintTextLen) {
 			PrintText[PrintTextLen] = (char)file_getc();
 			PrintTextLen++;
 		}
 		file_close();
-	}else{
+		}else{
 	}
 	nav_reset();
 	
-	/*
-	if( nav_setcwd( vidpidFile, false, false ) ) {
-		file_open(FOPEN_MODE_R);
-		file_bof();
-		
-		vid =  file_getc() | (file_getc() << 8);
-		pid =  file_getc() | (file_getc() << 8);
-		serial_len = file_getc();
-		//serial = (uint8_t *)dlmalloc(serial_len);
-		file_read_buf(serial,sizeof(serial_len));
-		serial_p = &serial;
-		//serial[serial_len]='\0';
-		udc_device_desc.idVendor = (vid);
-		udc_device_desc.idProduct = (pid);
-		udc_device_desc.bcdDevice = 2;
-		if (serial_len != NULL){
-			//#define USB_DEVICE_GET_SERIAL_NAME_LENGTH serial_len;
-			#define USB_DEVICE_SERIAL_NAME serial;
-			
-		}
-		
-		file_close();
-	}
-	
-	nav_reset();
-	if( nav_setcwd( injectFile, false, false ) ) {
-	file_open(FOPEN_MODE_R);
-	file_seek(0,FS_SEEK_END);
-	uint32_t filesize=file_getpos();
-	file_seek(0,FS_SEEK_SET);
-	int a=0;
-	
-	while(!file_eof()){
-	inject_array[a] =  file_getc() | (file_getc() << 8);
-	a++;
-	if (a==4096){
-	return;
-	}
-	}
-	if (a==(filesize/2)){
-	inject_array[a]= 0xFEFE;
-	}
-	else {
-	inject_array[a]= 0xFEFE;
-	}
-	file_close();
-	}
-	nav_reset();
-	if( nav_setcwd( injectFile2, false, false ) ) {
-	file_open(FOPEN_MODE_R);
-	file_seek(0,FS_SEEK_END);
-	uint32_t filesize=file_getpos();
-	file_seek(0,FS_SEEK_SET);
-	int a=0;
-	
-	while(!file_eof()){
-	inject_array2[a] =  file_getc() | (file_getc() << 8);
-	a++;
-	if (a==4096){
-	return;
-	}
-	}
-	if (a==(filesize/2)){
-	inject_array2[a]= 0xFEFE;
-	}
-	else {
-	inject_array2[a]= 0xFEFE;
-	}
-	file_close();
-	}
-	
-	*/
 	//memories_initialization(FOSC0);
 	// Start USB stack to authorize VBus monitoring
 	udc_start();
@@ -226,7 +148,7 @@ void main_vbus_action(bool b_high)
 	if (b_high) {
 		// Attach USB Device
 		udc_attach();
-	} else {
+		} else {
 		// VBUS not present
 		udc_detach();
 	}
@@ -279,7 +201,6 @@ bool main_msc_enable(void)
 void main_msc_disable(void)
 {
 	main_b_msc_enable = false;
-	return false;
 }
 
 
@@ -317,217 +238,76 @@ void memories_initialization(long pba_hz)
 
 void main_kbd_change(uint8_t value)
 {
+	//IN OSX each keyboard has its own capslook settings
 	if(!LedStatus){
 		LED_On( LED1 );
 		LedStatus = true;
-	}else{
+		}else{
 		LED_Off( LED1 );
 		LedStatus = false;
 	}
 	
-	if(!in_affect){
-		//this is called when LEDs CAPS LCK, NUM LCK change
-		//if (value & HID_LED_NUM_LOCK) {
-			// Here, turn on Num LED
-			//LED_On( LED1 );
-			//in_affect=true;
-			//use injectarray
-			//state = state_START_INJECT;
-		//} else{
-			// Here, turn off Num LED
-		//	LED_Off( LED1 );
-		//}
-		if (value & HID_LED_CAPS_LOCK) {
-			// Here, turn on CAPS LED
-			LED_On( LED0 );
-			//in_affect=true;
-			//use injectarray2
-			//for (int c=0;c<(sizeof(inject_array2));c++){
-			//	inject_array[c]=inject_array2[c];
-			//}
-			//state = state_START_INJECT;
+	//this is called when LEDs CAPS LCK, NUM LCK change
+	if (value & HID_LED_NUM_LOCK) {
+		// Here, turn on Num LED
+		LED_On( LED1 );
 		} else{
-			// Here, turn off CAPS LED
-			LED_Off( LED0 );
-		}
+		// Here, turn off Num LED
+		LED_Off( LED1 );
+	}
+	if (value & HID_LED_CAPS_LOCK) {
+		// Here, turn on CAPS LED
+		LED_On( LED0 );
+		} else{
+		// Here, turn off CAPS LED
+		LED_Off( LED0 );
 	}
 }
 
 void process_frame(uint16_t framenumber)
 {
-	/*
-	if(printstate == 50){
-		udi_hid_kbd_down(33);
-	}
-	
-	if(printstate == 100){
-		udi_hid_kbd_up(33);
-	}
-	if(printstate == 150){
-		udi_hid_kbd_down(34);
-	}
-	
-	if(printstate == 190){
-		udi_hid_kbd_up(34);
-	}
-	*/
-	
 	if(start_state > 2000){//Start printing on frame 2000
-	if(printstate == 0){
-		if(!ReachedTextEnd()){
-			CurrentCharID = getNextChar();
-			if(Characters[CurrentCharID].KeyCode == 0){//If it is a unknown Character ignore it
-				return;
+		if(printstate == 0){
+			if(!ReachedTextEnd()){
+				CurrentCharID = getNextChar();
+				if(Characters[CurrentCharID].KeyCode == 0){//If it is a unknown Character ignore it
+					return;
+				}
+				}else{
+				//Text has ended set it above 40 so that it wont run again (untill rollover)
+				printstate = 60;
 			}
-		}else{
-			//Text has ended set it above 40 so that it wont run agian (untill rollover)
-			printstate = 60;
 		}
-	}
-	
-	if(printstate == 10){//First we send the modifiers
-		if(Characters[CurrentCharID].Modifiers != 0){//Only if there is modifiers
-			udi_hid_kbd_modifier_down(Characters[CurrentCharID].Modifiers);
-		}
-	}
-	if(printstate == 20){//Then we press the button
-		udi_hid_kbd_down(Characters[CurrentCharID].KeyCode);
-	}
-	
-	if(printstate == 40){//Then reslse the button
-		udi_hid_kbd_up(Characters[CurrentCharID].KeyCode);
-	}
-	if(printstate == 50){//And relse the modifiers
-		if(Characters[CurrentCharID].Modifiers != 0){//Only if there is modifiers
-			udi_hid_kbd_modifier_up(Characters[CurrentCharID].Modifiers);
-		}
-	}
-	printstate += 1;
-	
-	if(printstate == 55){
 		
-		printstate = 0;
-	}
-	}else{
+		if(printstate == 1){//First we send the modifiers
+			if(Characters[CurrentCharID].Modifiers != 0){//Only if there is modifiers
+				udi_hid_kbd_modifier_down(Characters[CurrentCharID].Modifiers);
+			}else{
+				printstate = 2;
+			}
+		}
+		if(printstate == 2){//Then we press the button
+			udi_hid_kbd_down(Characters[CurrentCharID].KeyCode);
+		}
+		
+		if(printstate == 3){//Then reslse the button
+			udi_hid_kbd_up(Characters[CurrentCharID].KeyCode);
+		}
+		if(printstate == 4){//And relse the modifiers
+			if(Characters[CurrentCharID].Modifiers != 0){//Only if there is modifiers
+				udi_hid_kbd_modifier_up(Characters[CurrentCharID].Modifiers);
+			}else{
+				printstate = 5;
+			}
+		}
+		
+		
+		if(printstate == 5){
+			printstate = 0;
+		}else{
+			printstate += 1;
+		}
+		}else{
 		start_state++;
 	}
-	/*
-	static uint8_t cpt_sof = 0;
-	//static injectState_t state = state_START_INJECT;
-	static uint8_t wait = 0;
-	static uint16_t debounce = 0;
-	static uint16_t injectToken = 0x0000;
-	static int a=0;
-	
-	// scan process running each 2ms
-	cpt_sof++;
-	if( 2 > cpt_sof ){
-		return;
-	}
-	cpt_sof = 0;
-	*/
-	
-	
-	
-	// pulse led
-	//LED_Set_Intensity( LED0, framenumber >> 1 );
-	
-	/*
-	// debounce switch
-	if( debounce > 0 ) --debounce;
-	
-	// injection state machine
-	switch(state) {
-
-		case state_IDLE:
-		// check switch
-		in_affect=false;
-		LED_Off(LED1);
-		if( gpio_get_pin_value(GPIO_JOYSTICK_PUSH) == GPIO_JOYSTICK_PUSH_PRESSED ) {
-			
-			// debounce
-			if( debounce == 0 ) {
-				state = state_START_INJECT;
-				a=0;
-				debounce = 100;
-			}
-		}
-		break;
-		
-		case state_START_INJECT:
-		//file_open(FOPEN_MODE_R);
-		state = state_INJECTING;
-		break;
-		
-		case state_INJECTING:
-		
-		if( a >= (sizeof(inject_array)/sizeof(inject_array[0])) ) {
-			//file_close();
-			state = state_IDLE;
-			break;
-		}
-		if(injectToken==0x0000) state = state_IDLE;
-		injectToken = inject_array[a];
-		a++;
-		if ((a % 2)==0){
-			LED_On(LED1);
-			}else{
-			LED_Off(LED1);
-		}
-		if( ( injectToken&0xff ) == 0xFE){
-			state=state_IDLE;
-			debounce=0;
-		}
-		else if( ( injectToken&0xff ) == 0x00 ) {
-			wait = injectToken>>8;
-			state = state_WAIT;
-		}
-		else if( ( injectToken>>8 ) == 0x00 ) {
-			state = state_KEY_DOWN;
-		}
-		else {
-			state = state_MOD_DOWN;
-		}
-		break;
-		
-		case state_KEY_DOWN:
-		udi_hid_kbd_down(injectToken&0xff);
-		state = state_KEY_UP;
-		break;
-
-		case state_KEY_UP:
-		udi_hid_kbd_up(injectToken&0xff);
-		state = state_INJECTING;
-		break;
-		
-		case state_MOD_DOWN:
-		udi_hid_kbd_modifier_down(injectToken>>8);
-		state = state_MOD_KEY_DOWN;
-		break;
-
-		case state_MOD_KEY_DOWN:
-		udi_hid_kbd_down(injectToken&0xff);
-		state = state_MOD_KEY_UP;
-		break;
-
-		case state_MOD_KEY_UP:
-		udi_hid_kbd_up(injectToken&0xff);
-		state = state_MOD_UP;
-		break;
-		
-		case state_MOD_UP:
-		udi_hid_kbd_modifier_up(injectToken>>8);
-		state = state_INJECTING;
-		break;
-		
-		case state_WAIT:
-		if( --wait == 0 ) {
-			state = state_INJECTING;
-		}
-		break;
-		
-		default:
-		state = state_IDLE;
-	}
-	*/
 }
