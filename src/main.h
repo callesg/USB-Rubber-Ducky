@@ -99,6 +99,14 @@ void memories_initialization(long pba_hz);
 
 void process_frame(uint16_t framenumber);
 
+/*! \is there more bytes to print
+ */
+bool ReachedTextEnd(void);
+
+/*! \get next byte to print
+ */
+int getNextChar(void);
+
 void main_kbd_change(uint8_t value);
 
 #endif // _MAIN_H_
