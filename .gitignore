@@ -1,1 +1,6 @@
 Release/src*
+Release/Conf_Duck.eep
+Release/Conf_Duck.elf
+Release/Conf_Duck.lss
+Release/Conf_Duck.map
+Release/Conf_Duck.srec
