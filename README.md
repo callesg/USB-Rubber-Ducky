@@ -1,11 +1,7 @@
-      _      _      _      USB       _      _      _
-   __(.)< __(.)> __(.)=   Rubber   >(.)__ <(.)__ =(.)__
-   \___)  \___)  \___)    Ducky!    (___/  (___/  (___/ 
-
-The confabe rubebr ducky firmware.
+# The USB configirable rubber ducky firmware.
 Tries to be fully configurable throgh usb storage on the device.
 
-# Usage
+## Usage
 Flash the firware to the ducky.
 The ducky will should now show up as a composite USB device AKA a dual device.
 It should show up as a usb storage that is connected to the sd card, and a usb keyboard.
