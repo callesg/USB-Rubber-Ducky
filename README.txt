@@ -5,12 +5,12 @@
 The confabe rubebr ducky firmware.
 Tries to be fully configurable throgh usb storage on the device.
 
-#Usage
+# Usage
 Flash the firware to the ducky.
 The ducky will should now show up as a composite USB device AKA a dual device.
 It should show up as a usb storage that is connected to the sd card, and a usb keyboard.
 
-###When the device boots it will read
+### When the device boots it will read
 /config/keymap.map
 A file that contains information about which keyboard key gives which character when pressed.
 
